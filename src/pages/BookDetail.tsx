@@ -67,7 +67,7 @@ export default function BookDetail({ books }: BookDetailProps) {
               </div>
               <div className="flex items-center gap-3 text-slate-600">
                 <Calendar size={18} />
-                <span>Leído el {new Date(book.createdAt?.seconds * 1000 || Date.now()).toLocaleDateString()}</span>
+                <span>Leído el {book.createdAt?.toDate?.()?.toLocaleDateString() || 'Fecha desconocida'}</span>
               </div>
               <div className="flex items-center gap-3 text-slate-600">
                 <User size={18} />

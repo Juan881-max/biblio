@@ -1,50 +1,80 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import { Book as BookIcon, LogIn, LogOut, User } from 'lucide-react';
+import { signInWithPopup, signOut, onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
+import { collection, addDoc, onSnapshot, query, orderBy, Timestamp } from 'firebase/firestore';
 import Home from './pages/Home';
 import BookDetail from './pages/BookDetail';
 import { Book } from './types';
-
-// Placeholder data for initial view
-const INITIAL_BOOKS: Book[] = [
-  {
-    id: '1',
-    title: 'El Principito',
-    author: 'Antoine de Saint-Exupéry',
-    coverUrl: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=800',
-    summary: 'La historia de un pequeño príncipe que viaja por diferentes planetas, descubriendo la extraña naturaleza de los adultos.',
-    review: 'Una obra maestra atemporal que nos recuerda lo que realmente importa en la vida. Imprescindible para todas las edades.',
-    rating: 5,
-    userId: 'demo',
-    createdAt: { seconds: Date.now() / 1000 }
-  },
-  {
-    id: '2',
-    title: 'Cien Años de Soledad',
-    author: 'Gabriel García Márquez',
-    coverUrl: 'https://images.unsplash.com/photo-1589998059171-988d887df646?auto=format&fit=crop&q=80&w=800',
-    summary: 'La saga de la familia Buendía en el pueblo ficticio de Macondo, una obra cumbre del realismo mágico.',
-    review: 'Un laberinto de palabras y destinos que te atrapa desde la primera frase. La prosa de Gabo es simplemente mágica.',
-    rating: 5,
-    userId: 'demo',
-    createdAt: { seconds: Date.now() / 1000 }
-  }
-];
+import { auth, googleProvider, db } from './firebase';
 
 export default function App() {
-  const [books, setBooks] = useState<Book[]>(INITIAL_BOOKS);
-  const [user, setUser] = useState<{ email: string } | null>(null);
+  const [books, setBooks] = useState<Book[]>([]);
+  const [user, setUser] = useState<FirebaseUser | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  const handleAddBook = (newBook: Omit<Book, 'id' | 'createdAt' | 'userId'>) => {
-    const book: Book = {
-      ...newBook,
-      id: Math.random().toString(36).substr(2, 9),
-      userId: user?.email || 'anonymous',
-      createdAt: { seconds: Date.now() / 1000 }
-    };
-    setBooks([book, ...books]);
+  // Auth state listener
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      setUser(firebaseUser);
+      setLoading(false);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  // Load books from Firestore
+  useEffect(() => {
+    const q = query(collection(db, 'books'), orderBy('createdAt', 'desc'));
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const booksData = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      })) as Book[];
+      setBooks(booksData);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const handleLogin = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+    } catch (error) {
+      console.error('Error al iniciar sesión:', error);
+    }
   };
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error('Error al cerrar sesión:', error);
+    }
+  };
+
+  const handleAddBook = async (newBook: Omit<Book, 'id' | 'createdAt' | 'userId'>) => {
+    if (!user) {
+      alert('Debes iniciar sesión para añadir un libro');
+      return;
+    }
+    try {
+      await addDoc(collection(db, 'books'), {
+        ...newBook,
+        userId: user.email || 'anonymous',
+        createdAt: Timestamp.now()
+      });
+    } catch (error) {
+      console.error('Error al guardar el libro:', error);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-parchment">
+        <div className="text-2xl font-serif text-library-blue">Cargando...</div>
+      </div>
+    );
+  }
 
   return (
     <Router>
@@ -70,11 +100,15 @@ export default function App() {
 
               {user ? (
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-library-light flex items-center justify-center text-library-blue">
-                    <User size={18} />
+                  <div className="w-8 h-8 rounded-full bg-library-light flex items-center justify-center text-library-blue overflow-hidden">
+                    {user.photoURL ? (
+                      <img src={user.photoURL} alt={user.displayName || ''} className="w-full h-full object-cover" />
+                    ) : (
+                      <User size={18} />
+                    )}
                   </div>
-                  <button 
-                    onClick={() => setUser(null)}
+                  <button
+                    onClick={handleLogout}
                     className="text-slate-500 hover:text-red-500 transition-colors"
                     title="Cerrar Sesión"
                   >
@@ -82,8 +116,8 @@ export default function App() {
                   </button>
                 </div>
               ) : (
-                <button 
-                  onClick={() => setUser({ email: 'demo@example.com' })}
+                <button
+                  onClick={handleLogin}
                   className="flex items-center gap-2 text-library-blue font-medium hover:bg-library-light px-4 py-2 rounded-full transition-all"
                 >
                   <LogIn size={18} />
@@ -95,7 +129,7 @@ export default function App() {
         </header>
 
         <Routes>
-          <Route path="/" element={<Home books={books} onAddBook={handleAddBook} />} />
+          <Route path="/" element={<Home books={books} onAddBook={handleAddBook} user={user} />} />
           <Route path="/book/:id" element={<BookDetail books={books} />} />
         </Routes>
 
