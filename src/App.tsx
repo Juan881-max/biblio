@@ -1,0 +1,135 @@
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'motion/react';
+import { Book as BookIcon, LogIn, LogOut, User } from 'lucide-react';
+import Home from './pages/Home';
+import BookDetail from './pages/BookDetail';
+import { Book } from './types';
+
+// Placeholder data for initial view
+const INITIAL_BOOKS: Book[] = [
+  {
+    id: '1',
+    title: 'El Principito',
+    author: 'Antoine de Saint-Exupéry',
+    coverUrl: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=800',
+    summary: 'La historia de un pequeño príncipe que viaja por diferentes planetas, descubriendo la extraña naturaleza de los adultos.',
+    review: 'Una obra maestra atemporal que nos recuerda lo que realmente importa en la vida. Imprescindible para todas las edades.',
+    rating: 5,
+    userId: 'demo',
+    createdAt: { seconds: Date.now() / 1000 }
+  },
+  {
+    id: '2',
+    title: 'Cien Años de Soledad',
+    author: 'Gabriel García Márquez',
+    coverUrl: 'https://images.unsplash.com/photo-1589998059171-988d887df646?auto=format&fit=crop&q=80&w=800',
+    summary: 'La saga de la familia Buendía en el pueblo ficticio de Macondo, una obra cumbre del realismo mágico.',
+    review: 'Un laberinto de palabras y destinos que te atrapa desde la primera frase. La prosa de Gabo es simplemente mágica.',
+    rating: 5,
+    userId: 'demo',
+    createdAt: { seconds: Date.now() / 1000 }
+  }
+];
+
+export default function App() {
+  const [books, setBooks] = useState<Book[]>(INITIAL_BOOKS);
+  const [user, setUser] = useState<{ email: string } | null>(null);
+
+  const handleAddBook = (newBook: Omit<Book, 'id' | 'createdAt' | 'userId'>) => {
+    const book: Book = {
+      ...newBook,
+      id: Math.random().toString(36).substr(2, 9),
+      userId: user?.email || 'anonymous',
+      createdAt: { seconds: Date.now() / 1000 }
+    };
+    setBooks([book, ...books]);
+  };
+
+  return (
+    <Router>
+      <div className="min-h-screen bg-parchment">
+        {/* Barra de Navegación */}
+        <header className="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200">
+          <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <Link to="/" className="flex items-center gap-2 group">
+              <div className="bg-library-blue p-1.5 rounded-lg text-white group-hover:bg-library-dark transition-colors">
+                <BookIcon size={24} />
+              </div>
+              <span className="text-2xl font-serif text-library-blue tracking-tight">Bibliotheca</span>
+            </Link>
+
+            <div className="flex items-center gap-6">
+              <nav className="hidden md:flex items-center gap-8 text-sm uppercase tracking-widest font-semibold text-slate-500">
+                <Link to="/" className="hover:text-library-blue transition-colors">Libros</Link>
+                <a href="#" className="hover:text-library-blue transition-colors">Autores</a>
+                <a href="#" className="hover:text-library-blue transition-colors">Explorar</a>
+              </nav>
+
+              <div className="h-6 w-px bg-slate-200 hidden md:block" />
+
+              {user ? (
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-library-light flex items-center justify-center text-library-blue">
+                    <User size={18} />
+                  </div>
+                  <button 
+                    onClick={() => setUser(null)}
+                    className="text-slate-500 hover:text-red-500 transition-colors"
+                    title="Cerrar Sesión"
+                  >
+                    <LogOut size={20} />
+                  </button>
+                </div>
+              ) : (
+                <button 
+                  onClick={() => setUser({ email: 'demo@example.com' })}
+                  className="flex items-center gap-2 text-library-blue font-medium hover:bg-library-light px-4 py-2 rounded-full transition-all"
+                >
+                  <LogIn size={18} />
+                  <span>Entrar</span>
+                </button>
+              )}
+            </div>
+          </div>
+        </header>
+
+        <Routes>
+          <Route path="/" element={<Home books={books} onAddBook={handleAddBook} />} />
+          <Route path="/book/:id" element={<BookDetail books={books} />} />
+        </Routes>
+
+        {/* Pie de Página */}
+        <footer className="bg-library-dark text-white py-12 mt-20">
+          <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div>
+              <div className="flex items-center gap-2 mb-6">
+                <BookIcon size={24} />
+                <span className="text-2xl font-serif tracking-tight">Bibliotheca</span>
+              </div>
+              <p className="text-library-light/70 font-light leading-relaxed">
+                Tu rincón personal para la reflexión literaria. Guarda tus pensamientos, puntúa tus lecturas y construye tu propio legado de conocimiento.
+              </p>
+            </div>
+            <div>
+              <h4 className="text-xs uppercase tracking-[0.2em] font-bold mb-6 text-white/50">Enlaces</h4>
+              <ul className="space-y-4 text-library-light/80">
+                <li><Link to="/" className="hover:text-white transition-colors">Inicio</Link></li>
+                <li><a href="#" className="hover:text-white transition-colors">Mi Perfil</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Ajustes</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-xs uppercase tracking-[0.2em] font-bold mb-6 text-white/50">Contacto</h4>
+              <p className="text-library-light/80 mb-4">¿Tienes alguna sugerencia?</p>
+              <a href="mailto:hola@bibliotheca.com" className="text-white hover:underline">hola@bibliotheca.com</a>
+            </div>
+          </div>
+          <div className="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-white/10 text-center text-white/30 text-xs uppercase tracking-widest">
+            © 2026 Bibliotheca - Inspirado en Elejandria
+          </div>
+        </footer>
+      </div>
+    </Router>
+  );
+}

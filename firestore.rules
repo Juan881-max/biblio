@@ -1,0 +1,65 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: books
+    // Document ID: auto-generated
+    // Fields:
+    //   - title: string (required, 1-100 chars)
+    //   - author: string (required, 1-100 chars)
+    //   - coverUrl: string (required, valid URL)
+    //   - summary: string (required, 1-1000 chars)
+    //   - review: string (required, 1-5000 chars)
+    //   - rating: number (required, 1-5)
+    //   - userId: string (required, matches auth.uid)
+    //   - createdAt: timestamp (required)
+    //
+    // ===============================================================
+
+    // Helper Functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isValidBook(data) {
+      return data.keys().hasAll(['title', 'author', 'coverUrl', 'summary', 'review', 'rating', 'userId', 'createdAt']) &&
+             data.title is string && data.title.size() >= 1 && data.title.size() <= 100 &&
+             data.author is string && data.author.size() >= 1 && data.author.size() <= 100 &&
+             data.coverUrl is string && data.coverUrl.matches("^https?://.*") &&
+             data.summary is string && data.summary.size() >= 1 && data.summary.size() <= 1000 &&
+             data.review is string && data.review.size() >= 1 && data.review.size() <= 5000 &&
+             data.rating is number && data.rating >= 1 && data.rating <= 5 &&
+             data.userId is string &&
+             data.createdAt is timestamp;
+    }
+
+    match /books/{bookId} {
+      // Anyone can read books (public library)
+      allow read: if true;
+      
+      // Only authenticated users can create their own books
+      allow create: if isAuthenticated() && 
+                      request.resource.data.userId == request.auth.uid &&
+                      isValidBook(request.resource.data);
+      
+      // Only owners can update or delete their books
+      allow update: if isOwner(resource.data.userId) && 
+                      request.resource.data.userId == resource.data.userId &&
+                      isValidBook(request.resource.data);
+                      
+      allow delete: if isOwner(resource.data.userId);
+    }
+    
+    // Default deny
+    match /{path=**} {
+      allow read, write: if false;
+    }
+  }
+}

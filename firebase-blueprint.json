@@ -1,0 +1,51 @@
+{
+  "entities": {
+    "Book": {
+      "title": "Book",
+      "description": "A book entry with review and metadata.",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "The title of the book."
+        },
+        "author": {
+          "type": "string",
+          "description": "The author of the book."
+        },
+        "coverUrl": {
+          "type": "string",
+          "description": "URL to the book cover image."
+        },
+        "summary": {
+          "type": "string",
+          "description": "A brief summary of the book."
+        },
+        "review": {
+          "type": "string",
+          "description": "The user's personal review of the book."
+        },
+        "rating": {
+          "type": "number",
+          "description": "Rating from 1 to 5."
+        },
+        "userId": {
+          "type": "string",
+          "description": "The UID of the user who added the book."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the book was added."
+        }
+      },
+      "required": ["title", "author", "coverUrl", "summary", "userId", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/books/{bookId}": {
+      "schema": "Book",
+      "description": "Collection of book reviews."
+    }
+  }
+}
