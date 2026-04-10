@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Book as BookIcon, LogIn, LogOut, User } from 'lucide-react';
 import { signInWithPopup, signOut, onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
-import { collection, addDoc, onSnapshot, query, orderBy, Timestamp } from 'firebase/firestore';
+import { collection, addDoc, updateDoc, doc, onSnapshot, query, orderBy, Timestamp } from 'firebase/firestore';
 import Home from './pages/Home';
 import BookDetail from './pages/BookDetail';
 import Authors from './pages/Authors';
@@ -70,6 +70,14 @@ export default function App() {
     }
   };
 
+  const handleUpdateBook = async (id: string, updates: Partial<Omit<Book, 'id' | 'createdAt' | 'userId'>>) => {
+    try {
+      await updateDoc(doc(db, 'books', id), updates);
+    } catch (error) {
+      console.error('Error al actualizar el libro:', error);
+    }
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-parchment">
@@ -132,9 +140,9 @@ export default function App() {
 
         <Routes>
           <Route path="/" element={<Home books={books} onAddBook={handleAddBook} user={user} />} />
-          <Route path="/book/:id" element={<BookDetail books={books} />} />
+          <Route path="/book/:id" element={<BookDetail books={books} onUpdateBook={handleUpdateBook} />} />
           <Route path="/authors" element={<Authors books={books} />} />
-          <Route path="/explore" element={<Explore />} />
+          <Route path="/explore" element={<Explore books={books} />} />
         </Routes>
 
         {/* Pie de Página */}

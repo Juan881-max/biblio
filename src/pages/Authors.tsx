@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Book as BookIcon, Calendar, User, ChevronDown, ChevronUp, Loader2 } from 'lucide-react';
 import { Book } from '../types';
-import { searchAuthor, getAuthorPhotoUrl, formatAuthorName } from '../services/openLibraryApi';
+import { searchAuthor, getAuthorWorks, getAuthorPhotoUrl, formatAuthorName } from '../services/openLibraryApi';
 
 interface AuthorInfo {
   name: string;
@@ -32,8 +32,85 @@ const CUSTOM_AUTHORS: Record<string, Partial<AuthorInfo>> = {
       'Nerón: el emperador artista'
     ],
     birth_date: '1941'
+  },
+  'Emilio del Río': {
+    bio: 'Emilio del Río Sanz (Logroño, 1963) es un destacado filólogo, escritor, comunicador y profesor español, ampliamente reconocido por su labor de divulgación de las humanidades clásicas.\n\n📚 Biografía y obra\n\n- Es doctor en Filología Clásica por la Universidad Complutense de Madrid.\n- Destaca por su labor de divulgación de la cultura clásica en España a través de programas de radio (como "Verba Volant" en RNE) y su podcast "Locos por los clásicos".\n- Sus escritos se centran en hacer la cultura del Imperio Romano y las lenguas clásicas accesibles al público en general de una manera divertida y muy ágil.\n- Ha recibido múltiples premios por su trabajo divulgativo, como el Premio Nacional de la Sociedad Española de Estudios Clásicos.\n\n👉 En resumen: Si te gusta conocer los orígenes de las palabras, curiosidades del latín o la historia de Roma explicada con mucho sentido del humor, es el autor perfecto.',
+    top_works: [
+      'Carpe diem',
+      'Pequeña historia de la mitología clásica',
+      'Locos por los clásicos',
+      'Calamares a la romana',
+      'Latín lovers'
+    ],
+    birth_date: '1963',
+    work_count: 5
+  },
+  'Robert Graves': {
+    bio: 'Robert von Ranke Graves (Wimbledon, 1895 - Deià, Mallorca, 1985) fue un poeta, novelista e historiador británico afincado en España desde 1929. Conocido tanto por su poesía como por sus novelas históricas, alcanzó la fama internacional con su magistral recreación del mundo romano.\n\n📚 Descripción de su obra\n\n- Su obra más celebrada son las novelas históricas centradas en la Roma imperial, escritas con erudición y sentido del humor.\n- También destacó como poeta y ensayista, y como estudioso de la mitología con obras como La diosa blanca.\n- Vivió durante décadas en Deià, Mallorca, donde recibió a artistas e intelectuales de todo el mundo.\n\n👉 En resumen: un clásico imprescindible si te apasionan las novelas históricas ambientadas en la Antigüedad, narradas con ironía y una enorme profundidad histórica.',
+    top_works: [
+      'Yo, Claudio',
+      'Claudio el dios y su esposa Mesalina',
+      'La diosa blanca',
+      'El vellocino de oro',
+      'Hércules, mi compañero de viaje'
+    ],
+    birth_date: '1895',
+    death_date: '1985',
+  },
+  'Javier Reverte': {
+    bio: 'Javier Martínez Reverte, conocido como Javier Reverte (Madrid, 1944 - 2020), fue un periodista y escritor español especializado en literatura de viajes. A lo largo de su carrera recorrió África, Asia y América Latina, convirtiendo sus experiencias en libros que mezclan historia, cultura y aventura personal.\n\n📚 Descripción de su obra\n\n- Sus libros de viajes destacan por su prosa ágil, el rigor histórico y la capacidad de hacer al lector sentirse partícipe del viaje.\n- El continente africano fue su gran pasión literaria, al que dedicó varios de sus títulos más conocidos.\n- También escribió novelas y ensayos sobre la Guerra Civil española y conflictos bélicos del siglo XX.\n\n👉 En resumen: lectura ideal para quienes disfrutan de la literatura de viajes con fondo histórico y una mirada periodística honesta y apasionada.',
+    top_works: [
+      'El sueño de África',
+      'Vagabundo en África',
+      'Dios, el diablo y la aventura',
+      'El médico de Ifni',
+      'La magia de Birmania'
+    ],
+    birth_date: '1944',
+    death_date: '2020',
   }
 };
+
+// Sub-component to render bio with expand/collapse (hooks must live in a component)
+function BioRenderer({ bio }: { bio: string }) {
+  const MAX_LINES = 18;
+  const lines = bio.split('\n').filter(l => l.trim());
+  const isLong = lines.length > MAX_LINES;
+  const [expanded, setExpanded] = useState(false);
+  const visibleLines = !isLong || expanded ? lines : lines.slice(0, MAX_LINES);
+
+  return (
+    <div className="text-slate-700 leading-relaxed space-y-2">
+      {visibleLines.map((line, i) => {
+        const trimmed = line.trim();
+        if (!trimmed) return null;
+        if (trimmed.startsWith('📚')) {
+          return (
+            <p key={i} className="font-semibold text-library-blue mt-4 mb-1 text-sm uppercase tracking-wide">
+              {trimmed}
+            </p>
+          );
+        }
+        if (trimmed.startsWith('-')) {
+          return (
+            <p key={i} className="ml-3 pl-3 border-l-2 border-library-light text-sm">
+              {trimmed}
+            </p>
+          );
+        }
+        return <p key={i} className="text-sm">{trimmed}</p>;
+      })}
+      {isLong && (
+        <button
+          onClick={e => { e.stopPropagation(); setExpanded(!expanded); }}
+          className="text-library-blue text-sm font-medium mt-2 hover:underline"
+        >
+          {expanded ? '▲ Leer menos' : '▼ Leer más'}
+        </button>
+      )}
+    </div>
+  );
+}
 
 export default function Authors({ books }: AuthorsProps) {
   const [authors, setAuthors] = useState<AuthorInfo[]>([]);
@@ -69,20 +146,37 @@ export default function Authors({ books }: AuthorsProps) {
       authorInfos.forEach(async (info) => {
         const authorName = info.name;
         try {
-          const normalizedName = authorName.trim().toLowerCase();
+          const normalizedName = authorName.trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
           let customData: Partial<AuthorInfo> = {};
           for (const [key, value] of Object.entries(CUSTOM_AUTHORS)) {
-            if (normalizedName.includes(key.toLowerCase())) {
+            const normalizedKey = key.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+            if (normalizedName.includes(normalizedKey)) {
               customData = value;
               break;
             }
           }
 
           const authorData = await searchAuthor(authorName);
-          
+
+          // If top_works is missing, fetch works directly from the author's endpoint
+          let resolvedWorks: string[] | undefined = customData.top_works;
+          if (!resolvedWorks) {
+            const apiWorks = authorData?.top_works?.slice(0, 5);
+            if (apiWorks && apiWorks.length > 0) {
+              resolvedWorks = apiWorks;
+            } else if (authorData?.key && authorData.key.startsWith('/authors/')) {
+              try {
+                const worksData = await getAuthorWorks(authorData.key, 10);
+                resolvedWorks = worksData.slice(0, 5).map(w => w.title);
+              } catch {
+                // ignore
+              }
+            }
+          }
+
           setAuthors(prev => prev.map(a => {
             if (a.name !== authorName) return a;
-            
+
             if (authorData) {
               return {
                 ...a,
@@ -91,7 +185,7 @@ export default function Authors({ books }: AuthorsProps) {
                 death_date: customData.death_date || authorData.death_date,
                 bio: customData.bio || authorData.bio,
                 work_count: customData.work_count || authorData.work_count,
-                top_works: customData.top_works || authorData.top_works?.slice(0, 5),
+                top_works: resolvedWorks,
                 photoUrl: customData.photoUrl || (authorData.photos?.[0] ? getAuthorPhotoUrl(authorData.photos[0]) || undefined : undefined),
                 isLoading: false,
               };
@@ -99,6 +193,7 @@ export default function Authors({ books }: AuthorsProps) {
               return {
                 ...a,
                 ...customData,
+                top_works: resolvedWorks || customData.top_works,
                 isLoading: false,
               };
             }
@@ -236,17 +331,7 @@ export default function Authors({ books }: AuthorsProps) {
                           Biografía
                         </h3>
                         {author.bio ? (
-                          <div className="text-slate-700 leading-relaxed space-y-3">
-                            {author.bio.split('\n').map((line, i) => {
-                              if (!line.trim()) return null;
-                              const isBullet = line.trim().startsWith('-');
-                              return (
-                                <p key={i} className={isBullet ? "ml-4 pl-2 border-l-2 border-library-light" : ""}>
-                                  {line}
-                                </p>
-                              );
-                            })}
-                          </div>
+                          <BioRenderer bio={author.bio} />
                         ) : (
                           <p className="text-slate-400 italic">
                             {author.isLoading ? 'Cargando...' : 'Información no disponible'}

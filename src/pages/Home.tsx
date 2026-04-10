@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Plus, X, Book as BookIcon, Star, Search, Lock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import type { FirebaseUser } from 'firebase/auth';
+import { User as FirebaseUser } from 'firebase/auth';
 import { cn } from '../lib/utils';
 import { Book } from '../types';
 
@@ -190,6 +190,7 @@ export default function Home({ books, onAddBook, user }: HomeProps) {
                     summary: formData.get('summary') as string,
                     review: formData.get('review') as string,
                     rating: Number(formData.get('rating')),
+                    readDate: formData.get('readDate') as string || undefined,
                   });
                   setIsModalOpen(false);
                 }}
@@ -203,6 +204,10 @@ export default function Home({ books, onAddBook, user }: HomeProps) {
                   <div className="space-y-2">
                     <label className="text-xs uppercase tracking-widest font-semibold text-slate-500">Autor</label>
                     <input required name="author" type="text" className="w-full p-3 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-library-blue/50 outline-none" placeholder="Nombre del autor" />
+                  </div>
+                  <div className="space-y-2 md:col-span-2">
+                    <label className="text-xs uppercase tracking-widest font-semibold text-slate-500">Fecha de lectura</label>
+                    <input name="readDate" type="date" className="w-full p-3 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-library-blue/50 outline-none text-slate-700" />
                   </div>
                 </div>
 

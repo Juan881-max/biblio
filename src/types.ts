@@ -8,6 +8,7 @@ export interface Book {
   summary: string;
   review: string;
   rating: number;
+  readDate?: string;    // fecha en que se leyó (YYYY-MM-DD)
   userId: string;
   createdAt: Timestamp;
 }
