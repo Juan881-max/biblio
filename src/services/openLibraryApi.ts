@@ -128,7 +128,7 @@ export async function getTrendingBooks(
 export async function searchSpanishBooks(limit: number = 30): Promise<TrendingBook[]> {
   try {
     const response = await fetch(
-      `${BASE_URL}/search.json?q=language:spa&limit=${limit}&sort=ratings_count&fields=key,title,author_name,cover_i,edition_count,first_publish_year,ratings_average,ratings_count`
+      `${BASE_URL}/search.json?q=language:spa&limit=${limit}&fields=key,title,author_name,cover_i,edition_count,first_publish_year,ratings_average,ratings_count`
     );
     if (!response.ok) throw new Error('Failed to search Spanish books');
 

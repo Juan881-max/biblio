@@ -66,8 +66,8 @@ export default function Authors({ books }: AuthorsProps) {
       setAuthors(authorInfos);
       setIsLoading(false);
 
-      for (let i = 0; i < authorInfos.length; i++) {
-        const authorName = authorInfos[i].name;
+      authorInfos.forEach(async (info) => {
+        const authorName = info.name;
         try {
           const normalizedName = authorName.trim().toLowerCase();
           let customData: Partial<AuthorInfo> = {};
@@ -80,8 +80,8 @@ export default function Authors({ books }: AuthorsProps) {
 
           const authorData = await searchAuthor(authorName);
           
-          setAuthors(prev => prev.map((a, idx) => {
-            if (idx !== i) return a;
+          setAuthors(prev => prev.map(a => {
+            if (a.name !== authorName) return a;
             
             if (authorData) {
               return {
@@ -105,13 +105,11 @@ export default function Authors({ books }: AuthorsProps) {
             return { ...a, isLoading: false };
           }));
         } catch {
-          setAuthors(prev => prev.map((a, idx) =>
-            idx === i ? { ...a, isLoading: false } : a
+          setAuthors(prev => prev.map(a =>
+            a.name === authorName ? { ...a, isLoading: false } : a
           ));
         }
-        // Small delay to respect rate limits
-        await new Promise(resolve => setTimeout(resolve, 200));
-      }
+      });
     }
 
     fetchAuthors();
