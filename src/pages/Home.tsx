@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Plus, X, Book as BookIcon, Star, Search, Lock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { FirebaseUser } from 'firebase/auth';
+import type { FirebaseUser } from 'firebase/auth';
 import { cn } from '../lib/utils';
 import { Book } from '../types';
 

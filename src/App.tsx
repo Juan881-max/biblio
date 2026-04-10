@@ -6,6 +6,8 @@ import { signInWithPopup, signOut, onAuthStateChanged, User as FirebaseUser } fr
 import { collection, addDoc, onSnapshot, query, orderBy, Timestamp } from 'firebase/firestore';
 import Home from './pages/Home';
 import BookDetail from './pages/BookDetail';
+import Authors from './pages/Authors';
+import Explore from './pages/Explore';
 import { Book } from './types';
 import { auth, googleProvider, db } from './firebase';
 
@@ -92,8 +94,8 @@ export default function App() {
             <div className="flex items-center gap-6">
               <nav className="hidden md:flex items-center gap-8 text-sm uppercase tracking-widest font-semibold text-slate-500">
                 <Link to="/" className="hover:text-library-blue transition-colors">Libros</Link>
-                <a href="#" className="hover:text-library-blue transition-colors">Autores</a>
-                <a href="#" className="hover:text-library-blue transition-colors">Explorar</a>
+                <Link to="/authors" className="hover:text-library-blue transition-colors">Autores</Link>
+                <Link to="/explore" className="hover:text-library-blue transition-colors">Explorar</Link>
               </nav>
 
               <div className="h-6 w-px bg-slate-200 hidden md:block" />
@@ -131,6 +133,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home books={books} onAddBook={handleAddBook} user={user} />} />
           <Route path="/book/:id" element={<BookDetail books={books} />} />
+          <Route path="/authors" element={<Authors books={books} />} />
+          <Route path="/explore" element={<Explore />} />
         </Routes>
 
         {/* Pie de Página */}
