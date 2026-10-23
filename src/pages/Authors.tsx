@@ -22,6 +22,18 @@ interface AuthorsProps {
 }
 
 const CUSTOM_AUTHORS: Record<string, Partial<AuthorInfo>> = {
+  'George Orwell': {
+    bio: 'George Orwell, seudónimo de Eric Arthur Blair (Motihari, India británica, 1903 - Londres, 1950), fue un novelista, ensayista, periodista y crítico británico, considerado una de las voces morales y políticas más lúcidas del siglo XX.\n\n📚 Biografía y obra\n\n- Participó activamente en la Guerra Civil española como miliciano del POUM, experiencia desgarradora que plasmó en Homenaje a Cataluña.\n- Sus dos obras cumbres, Rebelión en la granja (1945) y 1984 (1949), constituyen las mayores advertencias jamás escritas contra el totalitarismo, la manipulación del lenguaje (Neolengua) y la vigilancia masiva.\n- Su estilo literario se caracteriza por una claridad cristalina y un compromiso inquebrantable con la verdad y la dignidad del individuo.\n\n👉 En resumen: Un clásico fundamental de la literatura universal cuya clarividencia sobre el poder, el lenguaje y la verdad sigue estando más vigente que nunca.',
+    top_works: [
+      '1984',
+      'Rebelión en la granja',
+      'Homenaje a Cataluña',
+      'Sin blanca en París y Londres',
+      'Subir a por aire'
+    ],
+    birth_date: '1903',
+    death_date: '1950'
+  },
   'Philipp Vandenberg': {
     bio: 'Philipp Vandenberg fue un escritor, periodista e historiador alemán (nacido en 1941), muy conocido por sus novelas históricas y ensayos sobre la Antigüedad y el mundo religioso. En realidad, es el seudónimo de Hans Dietrich Hartel.\n\n📚 Breve descripción de su obra\n\nSu obra se caracteriza por:\n- Novela histórica con intriga: mezcla hechos reales con elementos de misterio y aventura.\n- Interés por la arqueología y el mundo antiguo: Egipto, Roma, Edad Media, cristianismo primitivo…\n- Toque de pseudohistoria: plantea teorías o reinterpretaciones de hechos históricos.\n- Estilo ágil y divulgativo, fácil de leer pero documentado.\n\n👉 En resumen: es un autor muy popular dentro de la novela histórica de entretenimiento, ideal si te gustan las tramas con secretos, conspiraciones y trasfondo histórico.',
     top_works: [

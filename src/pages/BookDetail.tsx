@@ -131,7 +131,7 @@ export default function BookDetail({ books, onUpdateBook }: BookDetailProps) {
               <h2 className="text-xs uppercase tracking-[0.2em] font-bold text-library-blue border-b border-library-blue/20 pb-2">
                 Resumen del Libro
               </h2>
-              <p className="text-lg text-slate-700 leading-relaxed font-light">
+              <p className="text-lg text-slate-700 leading-relaxed font-light whitespace-pre-line">
                 {book.summary}
               </p>
             </motion.section>
@@ -149,8 +149,8 @@ export default function BookDetail({ books, onUpdateBook }: BookDetailProps) {
                 <h2 className="text-xs uppercase tracking-[0.2em] font-bold text-library-blue border-b border-library-blue/20 pb-2">
                   Mi Reseña Personal
                 </h2>
-                <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 italic text-xl text-slate-800 leading-relaxed">
-                  "{book.review}"
+                <div className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-slate-100 italic text-lg md:text-xl text-slate-800 leading-relaxed whitespace-pre-line space-y-4">
+                  {book.review}
                 </div>
               </div>
             </motion.section>

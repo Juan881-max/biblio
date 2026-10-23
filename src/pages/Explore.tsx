@@ -17,6 +17,38 @@ function getRecommendations(lastBook: Book): Recommendation[] {
   const titleLower = lastBook.title.toLowerCase();
   const authorLower = lastBook.author.toLowerCase();
 
+  // Dystopian / Totalitarianism / 1984
+  if (
+    authorLower.includes('orwell') ||
+    titleLower.includes('1984') ||
+    titleLower.includes('rebelión') ||
+    titleLower.includes('granja')
+  ) {
+    return [
+      {
+        title: 'Un mundo feliz',
+        author: 'Aldous Huxley',
+        reason: `El contrapunto perfecto a 1984. Si Orwell temía que nos destruyera la vigilancia violenta y el odio, Huxley advirtió que nos sometería lo que amamos: el placer superficial, la distracción permanente y el conformismo inducido.`,
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788466332477-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'Fahrenheit 451',
+        author: 'Ray Bradbury',
+        reason: `Una distopía clásica donde los libros están prohibidos y las pantallas llenan las paredes de las casas. Comparte con 1984 la resistencia clandestina por preservar el pensamiento libre y la memoria histórica.`,
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788497596084-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'Rebelión en la granja',
+        author: 'George Orwell',
+        reason: `La genial fábula política del propio Orwell. Una sátira demoledora sobre cómo las revoluciones nobles terminan traicionadas por la propaganda, el culto al líder y la manipulación sistemática de las masas.`,
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788466350716-L.jpg',
+        coverQuery: '',
+      },
+    ];
+  }
+
   // Historical fiction / Ancient world
   if (
     authorLower.includes('vandenberg') ||
