@@ -49,6 +49,40 @@ function getRecommendations(lastBook: Book): Recommendation[] {
     ];
   }
 
+  // Al-Ándalus / Córdoba / Jewish & Islamic Medieval World
+  if (
+    authorLower.includes('guiladi') ||
+    titleLower.includes('cipreses') ||
+    titleLower.includes('córdoba') ||
+    titleLower.includes('cordoba') ||
+    titleLower.includes('ándalus') ||
+    titleLower.includes('andalus')
+  ) {
+    return [
+      {
+        title: 'El puente de Alcántara',
+        author: 'Frank Baer',
+        reason: `La gran novela de las tres culturas en la España del siglo XI. Un poeta judío, un caballero cristiano y un médico andalusí cruzan sus destinos en un tapiz histórico de una riqueza y un detalle inolvidables.`,
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788435015387-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'El médico',
+        author: 'Noah Gordon',
+        reason: `La apasionante aventura de Rob Cole en su viaje hacia las grandes escuelas de medicina del mundo islámico medieval junto al maestro Avicena. Una lectura imprescindible sobre la vocación médica en la Edad Media.`,
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788466644266-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'La mano de Fátima',
+        author: 'Ildefonso Falcones',
+        reason: `Un fresco monumental sobre el amor, la fe y la tragedia de los moriscos en el sur de España. Recrea con maestría la lucha de un hombre atrapado entre dos mundos y dos religiones.`,
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788425343469-L.jpg',
+        coverQuery: '',
+      },
+    ];
+  }
+
   // Historical fiction / Castles / Ancient & Medieval world
   if (
     authorLower.includes('zueco') ||

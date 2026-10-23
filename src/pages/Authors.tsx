@@ -22,6 +22,14 @@ interface AuthorsProps {
 }
 
 const CUSTOM_AUTHORS: Record<string, Partial<AuthorInfo>> = {
+  'Yael Guiladi': {
+    bio: 'Yael Guiladi es una escritora, historiadora y periodista británica-israelí, especializada en la historia del judaísmo sefardí y la convivencia intercultural en la España medieval de Al-Ándalus.\n\n📚 Biografía y obra\n\n- Su novela más célebre y traducida internacionalmente es Los cipreses de Córdoba, una extensa saga familiar que retrata con minuciosidad la vida cotidiana, la medicina y las intrigas cortesanas de los médicos judíos en el Califato omeya de Abderramán III y Alhakén II.\n- Ha dedicado gran parte de su labor investigadora a visibilizar el papel de la mujer y de las minorías judías ("dhimmis") en el mundo islámico y mediterráneo medieval.\n- Su estilo combina el rigor en la ambientación histórica con relatos corales que exploran las contradicciones entre la lealtad al poder y la preservación de la identidad comunitaria.\n\n👉 En resumen: Una autora de referencia para quienes buscan adentrarse en el esplendor cultural, científico y médico de la Córdoba califal y la historia de los sefardíes.',
+    top_works: [
+      'Los cipreses de Córdoba',
+      'Mujeres en la historia judía',
+      'Sagas sefardíes del Mediterráneo'
+    ],
+  },
   'Luis Zueco': {
     bio: 'Luis Zueco (Borja, Zaragoza, 1979) es un novelista, historiador y divulgador español, considerado uno de los grandes referentes actuales de la novela histórica y de intriga medieval en España.\n\n📚 Biografía y obra\n\n- Es licenciado en Historia del Arte por la Universidad de Zaragoza, ingeniero técnico y máster en Investigación Artística e Histórica.\n- Destaca especialmente por su conocimiento exhaustivo de la arquitectura militar medieval y los castillos de España, habiendo dirigido la restauración y conservación de varios monumentos históricos como el Castillo de Grisel y el Castillo-Palacio de Bulbuente.\n- Su famosa "Trilogía Medieval" (El castillo, La ciudad, El monasterio), así como obras como El mercader de libros, El cirujano de almas y El escalón 33, lo han consagrado como un autor superventas traducido a múltiples idiomas.\n\n👉 En resumen: Novelas históricas de lectura muy ágil y visual, ideales para los amantes del patrimonio medieval, la arquitectura y los misterios del pasado español.',
     top_works: [

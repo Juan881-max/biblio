@@ -68,6 +68,31 @@ No es literatura desde luego y parece que los siguientes son algo mejores, pero 
     rating: 3,
     userId: 'bibliotheca',
     createdAt: Timestamp.fromDate(new Date('2026-05-10T12:00:00Z'))
+  },
+  {
+    id: 'los-cipreses-de-cordoba-yael-guiladi',
+    title: 'Los cipreses de Córdoba',
+    author: 'Yael Guiladi',
+    coverUrl: '/covers/los-cipreses-de-cordoba.png',
+    readDate: '2026-10-01',
+    summary: 'Se habla de la historia de tres generaciones judías en la Córdoba del siglo X. Familia dotada de gran inteligencia y que ejerció la medicina, estando así cerca de la corte, con sus lujos y también sus intrigas.',
+    review: `Libro histórico de la colección Planeta DeAgostini, ya tengo varios de la misma colección.
+
+Estoy leyéndolo todavía, por el momento bastante interesante.
+El libro situado históricamente en el Siglo X transcurre casi en su totalidad en Córdoba (España) y nos habla de toda una saga familiar de un médico y confidente judío en la corte del califa de Córdoba.
+
+Terminado el libro. Al final se me ha hecho bola. Largo.
+
+En el libro se habla de una saga familiar, tres generaciones de judíos, de sus vidas, de sus familias, de sus éxitos y sus fracasos. Familia de médicos muy cercanos al poder, al califato de Córdoba. Compleja situación para unos judíos ya que suscitaban envidias y rencores. Personas inteligentes que daban un gran valor a la familia y al estudio, una ambición desmedida por aprender y servir a los demás, curar.
+
+Cabe destacar la impresión que se da de lo adelantada que estaba la vida en esa zona musulmana (Córdoba) en relación con la España cristiana. Allí resurgían las artes, la construcción de palacios alcanzaba niveles maravillosos, en el campo de la medicina también estaban mucho más adelantados que los cristianos. En fin, una rica cultura musulmana que recuerda los maravillosos relatos de Las mil y una noches.
+
+Los judíos no eran tratados como iguales ('dhimmis' o gente del Libro), tenían que pagar un impuesto especial y vivían bajo restricciones.
+
+No ha sido un libro con el nivel de detalle de otros de esta colección, como El puente de Alcántara, por ejemplo.`,
+    rating: 3,
+    userId: 'bibliotheca',
+    createdAt: Timestamp.fromDate(new Date('2026-10-01T12:00:00Z'))
   }
 ];
 
