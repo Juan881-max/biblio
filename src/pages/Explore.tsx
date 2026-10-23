@@ -49,8 +49,11 @@ function getRecommendations(lastBook: Book): Recommendation[] {
     ];
   }
 
-  // Historical fiction / Ancient world
+  // Historical fiction / Castles / Ancient & Medieval world
   if (
+    authorLower.includes('zueco') ||
+    titleLower.includes('escalón') ||
+    titleLower.includes('castillo') ||
     authorLower.includes('vandenberg') ||
     authorLower.includes('graves') ||
     titleLower.includes('escarabajo') ||

@@ -47,6 +47,27 @@ En la novela los tres superestados se necesitan mutuamente para mantener el sist
     rating: 5,
     userId: 'bibliotheca',
     createdAt: Timestamp.fromDate(new Date('2026-06-01T12:00:00Z'))
+  },
+  {
+    id: 'el-escalon-33-luis-zueco',
+    title: 'El escalón 33',
+    author: 'Luis Zueco',
+    coverUrl: '/covers/el-escalon-33.png',
+    readDate: '2026-05-10',
+    summary: 'El escalón 33 de Luis Zueco es una novela de aventuras e intriga ambientada en el mundo de los castillos medievales. Dos jóvenes aventureros viajan de castillo en castillo tras unos enigmas ocultos en sus muros y en las marcas de los canteros. Combina acción y acertijos con divulgación histórica, en la línea de El código Da Vinci.',
+    review: `Si quieres un libro que aporte infornacion sobre castillos, este es el libro.
+
+Este es un libro de aventuras que narra como una joven que trabaja en el Archivo Nacional descubre un antiguo manuscrito por accidente. 
+Ese manuscrito codiciado por un extraño personaje da las claves para hallar algo de inmenso valor, y esto hara que nuestros protagonistas hagan un increible viaje de castillo en castillo por toda España buscando huellas de cantero y diferentes simbolos.
+
+Como el autor es historiador, se ve que domina el tema de los castillos, nos lleva de la mano a conocer fantasticos castillos, nos habla de sus constructores, de las marcas de canteros, de ordenes religiosas.
+
+Sin ser algo maravilloso, se hace entretenido. El autor es aragones y nos lleva de lamano por Zaragoza, por el Tubo, por la plaza del Pilar, por Huesca, por Aguero y Riglos, para terminar en el Castillo de Mora de Rubielos(un lugar para visitar).
+
+No es literatura desde luego y parece que los siguientes son algo mejores, pero si tegunstan los castillos, hay que leerlo.`,
+    rating: 3,
+    userId: 'bibliotheca',
+    createdAt: Timestamp.fromDate(new Date('2026-05-10T12:00:00Z'))
   }
 ];
 

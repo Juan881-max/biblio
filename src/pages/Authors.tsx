@@ -22,6 +22,17 @@ interface AuthorsProps {
 }
 
 const CUSTOM_AUTHORS: Record<string, Partial<AuthorInfo>> = {
+  'Luis Zueco': {
+    bio: 'Luis Zueco (Borja, Zaragoza, 1979) es un novelista, historiador y divulgador español, considerado uno de los grandes referentes actuales de la novela histórica y de intriga medieval en España.\n\n📚 Biografía y obra\n\n- Es licenciado en Historia del Arte por la Universidad de Zaragoza, ingeniero técnico y máster en Investigación Artística e Histórica.\n- Destaca especialmente por su conocimiento exhaustivo de la arquitectura militar medieval y los castillos de España, habiendo dirigido la restauración y conservación de varios monumentos históricos como el Castillo de Grisel y el Castillo-Palacio de Bulbuente.\n- Su famosa "Trilogía Medieval" (El castillo, La ciudad, El monasterio), así como obras como El mercader de libros, El cirujano de almas y El escalón 33, lo han consagrado como un autor superventas traducido a múltiples idiomas.\n\n👉 En resumen: Novelas históricas de lectura muy ágil y visual, ideales para los amantes del patrimonio medieval, la arquitectura y los misterios del pasado español.',
+    top_works: [
+      'El castillo',
+      'El escalón 33',
+      'El mercader de libros',
+      'La ciudad',
+      'El cirujano de almas'
+    ],
+    birth_date: '1979'
+  },
   'George Orwell': {
     bio: 'George Orwell, seudónimo de Eric Arthur Blair (Motihari, India británica, 1903 - Londres, 1950), fue un novelista, ensayista, periodista y crítico británico, considerado una de las voces morales y políticas más lúcidas del siglo XX.\n\n📚 Biografía y obra\n\n- Participó activamente en la Guerra Civil española como miliciano del POUM, experiencia desgarradora que plasmó en Homenaje a Cataluña.\n- Sus dos obras cumbres, Rebelión en la granja (1945) y 1984 (1949), constituyen las mayores advertencias jamás escritas contra el totalitarismo, la manipulación del lenguaje (Neolengua) y la vigilancia masiva.\n- Su estilo literario se caracteriza por una claridad cristalina y un compromiso inquebrantable con la verdad y la dignidad del individuo.\n\n👉 En resumen: Un clásico fundamental de la literatura universal cuya clarividencia sobre el poder, el lenguaje y la verdad sigue estando más vigente que nunca.',
     top_works: [
