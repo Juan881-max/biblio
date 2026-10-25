@@ -22,6 +22,14 @@ interface AuthorsProps {
 }
 
 const CUSTOM_AUTHORS: Record<string, Partial<AuthorInfo>> = {
+  'Gustavo Frías': {
+    bio: 'Gustavo Frías es un escritor, periodista y divulgador argentino, reconocido por sus investigaciones y publicaciones sobre enigmas históricos, folclore popular, mitología y misterios sin resolver de todo el mundo.\n\n📚 Biografía y obra\n\n- Es autor de la popular Colección Paradigmas, una serie de volúmenes dedicados a explorar con enfoque documental y testimonios fenómenos como civilizaciones desaparecidas, enigmas arqueológicos y leyendas folclóricas.\n- Ha dedicado especial atención a las tradiciones orales y leyendas del norte argentino y Sudamérica, rescatando figuras populares como La Telesita y otros mitos locales.\n- Su estilo combina el relato ameno y accesible con datos históricos y crónicas periodísticas que despiertan la curiosidad del lector.\n\n👉 En resumen: Divulgador ideal para los apasionados de los grandes misterios del planeta, la arqueología insólita y las leyendas universales.',
+    top_works: [
+      'Paradigmas 1',
+      'Paradigmas: Mitos y enigmas',
+      'Leyendas y misterios del mundo'
+    ]
+  },
   'Yael Guiladi': {
     bio: 'Yael Guiladi es una escritora, historiadora y periodista británica-israelí, especializada en la historia del judaísmo sefardí y la convivencia intercultural en la España medieval de Al-Ándalus.\n\n📚 Biografía y obra\n\n- Su novela más célebre y traducida internacionalmente es Los cipreses de Córdoba, una extensa saga familiar que retrata con minuciosidad la vida cotidiana, la medicina y las intrigas cortesanas de los médicos judíos en el Califato omeya de Abderramán III y Alhakén II.\n- Ha dedicado gran parte de su labor investigadora a visibilizar el papel de la mujer y de las minorías judías ("dhimmis") en el mundo islámico y mediterráneo medieval.\n- Su estilo combina el rigor en la ambientación histórica con relatos corales que exploran las contradicciones entre la lealtad al poder y la preservación de la identidad comunitaria.\n\n👉 En resumen: Una autora de referencia para quienes buscan adentrarse en el esplendor cultural, científico y médico de la Córdoba califal y la historia de los sefardíes.',
     top_works: [

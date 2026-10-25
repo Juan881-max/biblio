@@ -93,6 +93,32 @@ No ha sido un libro con el nivel de detalle de otros de esta colección, como El
     rating: 3,
     userId: 'bibliotheca',
     createdAt: Timestamp.fromDate(new Date('2026-10-01T12:00:00Z'))
+  },
+  {
+    id: 'paradigmas-1-gustavo-frias',
+    title: 'Paradigmas 1',
+    author: 'Gustavo Frías',
+    coverUrl: '/covers/paradigmas-1.png',
+    readDate: '2026-10-25',
+    summary: 'En esta colección de libros vemos misterios a lo largo y ancho del planeta. Con pruebas y datos reales.',
+    review: `Libro de la Colección Paradigmas. Este es el número 1 y contiene 4 historias:
+
+Tutankamón:
+Nos habla de la posible maldición de la tumba, historia que ha creado no pocas películas y libros.
+
+La Telesita:
+Habla de una joven del norte argentino, ¿hechicera o santa?. Todavía hoy en día se le hacen ofrendas en busca de curación o "por mal de amores". Interesante la invocación que se le hace con el baile y alcohol, recuerda a otras invocaciones haitianas.
+
+Triángulo de las Bermudas:
+Nos da información sobre dónde está el Triángulo de las Bermudas y las inexplicables desapariciones que allí han tenido lugar.
+
+Los Gigantes:
+Gigantes que en otras épocas han habitado la tierra, lectura más que interesante.
+
+Este libro documental trata estos 4 temas, es un volumen corto y no se profundiza mucho, pero sí resulta muy interesante. Aporta comentarios, leyendas y datos reales, así que resulta una grata lectura. Recuerdo haber comprado otro volumen de la misma colección cuando era mucho más joven, y siempre me parecieron muy interesantes todas estas historias.`,
+    rating: 3,
+    userId: 'bibliotheca',
+    createdAt: Timestamp.fromDate(new Date('2026-10-25T12:00:00Z'))
   }
 ];
 

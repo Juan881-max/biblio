@@ -49,6 +49,42 @@ function getRecommendations(lastBook: Book): Recommendation[] {
     ];
   }
 
+  // Enigmas / Mysteries / Archaeology & Legends (Colección Paradigmas)
+  if (
+    authorLower.includes('frías') ||
+    authorLower.includes('frias') ||
+    titleLower.includes('paradigmas') ||
+    titleLower.includes('tutankamón') ||
+    titleLower.includes('tutankamon') ||
+    titleLower.includes('bermudas') ||
+    titleLower.includes('misterio') ||
+    titleLower.includes('enigma')
+  ) {
+    return [
+      {
+        title: 'El misterio de Tutankamón',
+        author: 'Zahi Hawass',
+        reason: `El gran egiptólogo mundial desvela el fascinante hallazgo de Howard Carter, los tesoros de la tumba de Tutankamón y la realidad histórica tras la célebre maldición de los faraones.`,
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788408076643-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'El triángulo de las Bermudas',
+        author: 'Charles Berlitz',
+        reason: `El gran clásico que documentó con mapas y testimonios las desapariciones inexplicables de barcos y aviones en esta mítica zona del océano Atlántico.`,
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788401320392-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'Grandes enigmas de la historia',
+        author: 'Jesús Callejo',
+        reason: `Un exhaustivo y apasionante viaje por los mitos olvidados, civilizaciones perdidas y misterios arqueológicos más asombrosos del planeta.`,
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788497344982-L.jpg',
+        coverQuery: '',
+      },
+    ];
+  }
+
   // Al-Ándalus / Córdoba / Jewish & Islamic Medieval World
   if (
     authorLower.includes('guiladi') ||
