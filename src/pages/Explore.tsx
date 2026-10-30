@@ -17,33 +17,74 @@ function getRecommendations(lastBook: Book): Recommendation[] {
   const titleLower = lastBook.title.toLowerCase();
   const authorLower = lastBook.author.toLowerCase();
 
-  // Dystopian / Totalitarianism / 1984
+  // Horror / Psychological Suspense / Faith & Exorcism (El exorcista)
+  if (
+    authorLower.includes('blatty') ||
+    titleLower.includes('exorcista') ||
+    titleLower.includes('demonio') ||
+    titleLower.includes('posesión') ||
+    titleLower.includes('terror')
+  ) {
+    return [
+      {
+        title: 'La semilla del diablo (Rosemary\'s Baby)',
+        author: 'Ira Levin',
+        reason: 'El gran hito contemporáneo del terror psicológico junto a El exorcista. Retrata con maestría la vulnerabilidad, la duda y el horror que se oculta tras la aparente normalidad cotidiana.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788497598583-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'El resplandor',
+        author: 'Stephen King',
+        reason: 'Un sobrecogedor estudio sobre el aislamiento, la fragilidad psicológica y las fuerzas oscuras del pasado en el hotel Overlook, combinando drama humano profundo y terror visceral.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788497593793-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'Drácula',
+        author: 'Bram Stoker',
+        reason: 'El duelo supremo entre el bien y el mal, la fe y la oscuridad. Una atmósfera gótica inolvidable que sentó las bases eternas del horror sobrenatural en la literatura occidental.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788467035414-L.jpg',
+        coverQuery: '',
+      },
+    ];
+  }
+
+  // Dystopian / Totalitarianism / 1984 / Rebelión en la granja
   if (
     authorLower.includes('orwell') ||
     titleLower.includes('1984') ||
     titleLower.includes('rebelión') ||
+    titleLower.includes('rebelion') ||
     titleLower.includes('granja')
   ) {
+    const isRebelion = titleLower.includes('rebelión') || titleLower.includes('rebelion') || titleLower.includes('granja');
     return [
       {
         title: 'Un mundo feliz',
         author: 'Aldous Huxley',
-        reason: `El contrapunto perfecto a 1984. Si Orwell temía que nos destruyera la vigilancia violenta y el odio, Huxley advirtió que nos sometería lo que amamos: el placer superficial, la distracción permanente y el conformismo inducido.`,
+        reason: `El contrapunto perfecto a la distopía orwelliana. Si Orwell advirtió contra la vigilancia violenta y la opresión estatal, Huxley anticipó la dominación a través del placer superficial, el entretenimiento vacío y el conformismo inducido.`,
         coverUrl: 'https://covers.openlibrary.org/b/isbn/9788466332477-L.jpg',
         coverQuery: '',
       },
       {
         title: 'Fahrenheit 451',
         author: 'Ray Bradbury',
-        reason: `Una distopía clásica donde los libros están prohibidos y las pantallas llenan las paredes de las casas. Comparte con 1984 la resistencia clandestina por preservar el pensamiento libre y la memoria histórica.`,
+        reason: `Una distopía clásica donde los libros están prohibidos y los bomberos se encargan de quemarlos. Comparte la resistencia por preservar el pensamiento libre y la memoria histórica frente al control ideológico.`,
         coverUrl: 'https://covers.openlibrary.org/b/isbn/9788497596084-L.jpg',
         coverQuery: '',
       },
-      {
+      isRebelion ? {
+        title: 'Nosotros',
+        author: 'Yevgueni Zamiatin',
+        reason: `La obra pionera de la literatura distópica del siglo XX que inspiró directamente tanto a Orwell como a Huxley. Retrata con ironía y rigor poético el Gran Estado Unificado y el triunfo del colectivismo sobre el individuo.`,
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788439726883-L.jpg',
+        coverQuery: '',
+      } : {
         title: 'Rebelión en la granja',
         author: 'George Orwell',
         reason: `La genial fábula política del propio Orwell. Una sátira demoledora sobre cómo las revoluciones nobles terminan traicionadas por la propaganda, el culto al líder y la manipulación sistemática de las masas.`,
-        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788466350716-L.jpg',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788499890951-L.jpg',
         coverQuery: '',
       },
     ];

@@ -119,6 +119,49 @@ Este libro documental trata estos 4 temas, es un volumen corto y no se profundiz
     rating: 3,
     userId: 'bibliotheca',
     createdAt: Timestamp.fromDate(new Date('2026-10-25T12:00:00Z'))
+  },
+  {
+    id: 'el-exorcista-william-peter-blatty',
+    title: 'El exorcista',
+    author: 'William Peter Blatty',
+    coverUrl: '/covers/el-exorcista.png',
+    readDate: '2026-08-02',
+    summary: '‘El exorcista’ es una novela escrita en 1971 que relata la posesión demoníaca de Reagan MacNeil, una niña de 12 años que es hija de una famosa actriz. Reagan contrae una repentina y extraña enfermedad y, tras varios tratamientos médicos infructuosos, su madre decide recurrir a un sacerdote para que la ayude.',
+    review: `Hoy Domingo 2 de Agosto comienzo a leer el exorcista. Lo tengo en la estanteria desde hace mucho, y al empezarlo a leer me parece fantastico, a pesar de haber visto la pelicula varias veces.
+
+Libro terminado el 6 de Agosto. Con el sol radiante queriendo entrar por la ventana, el calor que todo lo inunda, parece que el libro sea algo extraño entanto alli era el frio y la lluvia los que dominaban el ambiente.
+
+Este es uno de los libros que se debe leer, un libro que te hace pensar en muchas cosas importantes de la vida como: el remordimiento, Dios, el demonio, la culpa, la entrega, la fe, el trabajo ... son muchas cosas.
+
+En si el libro habla de una niña inocente aquejada de una terrible enfermedad con la que los medicos no tienen cura, finalmente parece que un demonio o demonios han entrado en ella y dos sacerdotes tratan de exorcizarla, finalmente y con un inesperado final la niña sobrevive, y eso parece ser lo mas importante, el bien ha triunfado sobre el mal.
+
+Buscando informacion sobre exorcismos, parece que en el Vaticano, hay decenas sino centenares de sacerdotes que son exorcistas ¿Quien lo hubiera creido?`,
+    rating: 5,
+    userId: 'bibliotheca',
+    createdAt: Timestamp.fromDate(new Date('2026-08-02T12:00:00Z'))
+  },
+  {
+    id: 'rebelion-en-la-granja-george-orwell',
+    title: 'Rebelión en la granja',
+    author: 'George Orwell',
+    coverUrl: '/covers/rebelion-en-la-granja.png',
+    readDate: '2026-06-15',
+    summary: 'Un grupo de animales de una granja expulsa a los humanos tiranos y crean un sistema de gobierno propio que acaba convirtiéndose en otra tiranía brutal.',
+    review: `Tras leer '1984' en Vacaciones decido comprar 'Rebelion en la granja' por el mismo autor.
+
+Si '1984' ha sido un gran libro, un libro que no te deja indiferente y te hace pensar, 'Rebelion en la granja' es mas de lo mismo.
+
+Critica absoluta a los totalitarismos. Critica feroz al sistema comunista de la URSS.
+En el libro se muestra que aunque las ideas son buenas, la idea de igualdad, la idea de 'rememos todos hacia el mismo sentido y todos saldremos beneficiados' no funciona, el hombre (en este caso los cerdos), tras luchar contra la clase superior, tras intentar abolir las clases, se convierten ellos mismos en la clase superior. Todo esto ha pasado, esta pasndo y pasara mientras el hombre sea hombre.
+
+Tras leer 2 libros de este magnifico autor me queda ese poso de ver como en la decada de los 40 se aprecia un hombre valiente que escribe claramente contra los abusos del totalitarismo, el era de izquierdas, pero veia claramente que la direccion que estaba tomando la politica en la URSS no era lo que debia ser. Se habia creado una nueva clase social, y la manipulacion de la informacion, las mentiras, la coaccion, corrompian todo un sistema.
+
+El fue quien escribio: "todos los animales son iguales pero unos son las iguales que otros". En fin un libro imprescindible, que muchos hoy en dia deberian leer, todos aquellos que optan por posiciones extremas como solucion a los problemas actuales, lo mismo da derecha que izquierda, al final no funciona, el hombre en si mismo hace que nada de esto pueda funcionar.
+
+Los mismos que intentan corregir la corrupcion se convierten en corruptos.`,
+    rating: 5,
+    userId: 'bibliotheca',
+    createdAt: Timestamp.fromDate(new Date('2026-06-15T12:00:00Z'))
   }
 ];
 
@@ -154,24 +197,45 @@ export default function App() {
         }
       }
 
-      setBooks(combined);
+      // Deduplicate books strictly by normalized title to prevent any duplicate entries (e.g. 1984)
+      const seenTitles = new Set<string>();
+      const uniqueBooks: Book[] = [];
+      for (const b of combined) {
+        const titleKey = b.title.toLowerCase().trim();
+        if (!seenTitles.has(titleKey)) {
+          seenTitles.add(titleKey);
+          uniqueBooks.push(b);
+        }
+      }
+
+      setBooks(uniqueBooks);
       setLoading(false);
     }, (error) => {
       console.warn('Error al conectar con Firestore, usando colección local:', error);
-      setBooks(SEEDED_BOOKS);
+      // Even in local fallback, ensure deduplication
+      const seenTitles = new Set<string>();
+      const uniqueLocal: Book[] = [];
+      for (const b of SEEDED_BOOKS) {
+        const titleKey = b.title.toLowerCase().trim();
+        if (!seenTitles.has(titleKey)) {
+          seenTitles.add(titleKey);
+          uniqueLocal.push(b);
+        }
+      }
+      setBooks(uniqueLocal);
       setLoading(false);
     });
     return () => unsubscribe();
   }, []);
 
-  // Auto-sync seeded books to Firestore when user logs in
+  // Auto-sync seeded books to Firestore when user logs in (without re-adding existing titles)
   useEffect(() => {
     if (!user) return;
     async function syncToFirestore() {
       try {
-        const firestoreTitles = new Set(books.filter(b => b.id !== '1984-george-orwell').map(b => b.title.toLowerCase().trim()));
+        const existingTitles = new Set(books.map(b => b.title.toLowerCase().trim()));
         for (const seeded of SEEDED_BOOKS) {
-          if (!firestoreTitles.has(seeded.title.toLowerCase().trim())) {
+          if (!existingTitles.has(seeded.title.toLowerCase().trim())) {
             const { id, ...dataToSave } = seeded;
             await addDoc(collection(db, 'books'), {
               ...dataToSave,

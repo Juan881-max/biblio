@@ -22,6 +22,17 @@ interface AuthorsProps {
 }
 
 const CUSTOM_AUTHORS: Record<string, Partial<AuthorInfo>> = {
+  'William Peter Blatty': {
+    bio: 'William Peter Blatty (Nueva York, 1928 - Bethesda, Maryland, 2017) fue un célebre escritor, guionista y cineasta estadounidense, inmortalizado por su obra maestra de terror psicológico y religioso "El exorcista" (1971), así como por su adaptación cinematográfica galardonada con el Premio Óscar al Mejor Guion Adaptado.\n\n📚 Biografía y obra\n\n- Graduado en Literatura Inglesa por la Universidad de Georgetown y máster por George Washington University, trabajó como especialista en guerra psicológica antes de consolidarse en Hollywood como guionista de comedia (colaborando con Blake Edwards).\n- En 1971 conmocionó al mundo literario con El exorcista, inspirada en hechos reales acontecidos en Maryland en 1949. La novela se mantuvo en el número uno de las listas de superventas durante más de un año consecutivo.\n- Continuó profundizando en el misterio de la fe, el remordimiento y la redención con obras como Legión (adaptada al cine como El exorcista III), El noveno misterio (The Ninth Configuration) y Dimiter.\n- Su narrativa destaca por formular preguntas trascendentales sobre la naturaleza del mal, el sufrimiento de los inocentes y la fe en medio de la adversidad.\n\n👉 En resumen: Un maestro del suspense sobrenatural y el drama teológico, con una capacidad narrativa absorbente que trasciende las fronteras del género de terror.',
+    top_works: [
+      'El exorcista',
+      'Legión (El exorcista III)',
+      'El noveno misterio',
+      'Dimiter'
+    ],
+    birth_date: '1928',
+    death_date: '2017'
+  },
   'Gustavo Frías': {
     bio: 'Gustavo Frías es un escritor, periodista y divulgador argentino, reconocido por sus investigaciones y publicaciones sobre enigmas históricos, folclore popular, mitología y misterios sin resolver de todo el mundo.\n\n📚 Biografía y obra\n\n- Es autor de la popular Colección Paradigmas, una serie de volúmenes dedicados a explorar con enfoque documental y testimonios fenómenos como civilizaciones desaparecidas, enigmas arqueológicos y leyendas folclóricas.\n- Ha dedicado especial atención a las tradiciones orales y leyendas del norte argentino y Sudamérica, rescatando figuras populares como La Telesita y otros mitos locales.\n- Su estilo combina el relato ameno y accesible con datos históricos y crónicas periodísticas que despiertan la curiosidad del lector.\n\n👉 En resumen: Divulgador ideal para los apasionados de los grandes misterios del planeta, la arqueología insólita y las leyendas universales.',
     top_works: [
