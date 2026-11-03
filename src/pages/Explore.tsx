@@ -160,6 +160,37 @@ function getRecommendations(lastBook: Book): Recommendation[] {
     ];
   }
 
+  // 19th-Century Russian Literature / Pushkin / Classic Tales & Serfdom
+  if (
+    authorLower.includes('pushkin') ||
+    titleLower.includes('dubrovski') ||
+    titleLower.includes('belkin')
+  ) {
+    return [
+      {
+        title: 'La hija del capitán',
+        author: 'Aleksandr Pushkin',
+        reason: 'La cumbre de la narrativa histórica de Pushkin. Ambientada en la sangrienta rebelión campesina de Pugachov contra Catalina la Grande, combina una emocionante historia de amor, honor y lealtad con un retrato vívido de las contradicciones de la Rusia zarista.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788420651262-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'Un héroe de nuestro tiempo',
+        author: 'Mijaíl Lérmontov',
+        reason: 'Publicada poco después de las obras de Pushkin, es la primera gran novela psicológica de las letras rusas. Su protagonista Pechorin encarna el desencanto, el orgullo y el dilema moral de la juventud aristocrática decimonónica en el Cáucaso.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788437604435-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'Relatos de San Petersburgo',
+        author: 'Nikolái Gógol',
+        reason: 'Contiene obras maestras como "El capote" y "La nariz". Heredero directo de la prosa ágil de Pushkin, Gógol retrata con humor corrosivo, compasión y fantasía la vida de los modestos funcionarios y las desigualdades de la sociedad rusa.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788420674261-L.jpg',
+        coverQuery: '',
+      },
+    ];
+  }
+
   // Historical fiction / Castles / Ancient & Medieval world
   if (
     authorLower.includes('zueco') ||

@@ -22,6 +22,18 @@ interface AuthorsProps {
 }
 
 const CUSTOM_AUTHORS: Record<string, Partial<AuthorInfo>> = {
+  'Pushkin': {
+    bio: 'Aleksandr Serguéievich Pushkin (Moscú, 1799 - San Petersburgo, 1837) es universalmente reconocido como el padre de la literatura rusa moderna y su más célebre poeta y narrador.\n\n📚 Biografía y obra\n\n- Revolucionó la literatura eslava al forjar el idioma literario ruso contemporáneo, fundiendo la espontaneidad del lenguaje popular con la elegancia culta y superando el afrancesamiento de la nobleza.\n- Su genialidad abarcó la lírica, el drama histórico (Boris Godunov), la novela en verso (Eugenio Oneguin) y la prosa narrativa de ficción y relatos históricos (Dubrovski, Los relatos de Belkin, La hija del capitán, La dama de picas).\n- Tras las guerras napoleónicas y el contacto con Europa occidental, sus relatos reflejan con aguda perspicacia el choque entre el honor aristocrático y la injusticia de la servidumbre feudal, así como las transformaciones en la mentalidad popular.\n- Murió trágicamente a los 37 años como consecuencia de un duelo en defensa del honor de su esposa, Natalia Goncharova.\n\n👉 En resumen: La cumbre indiscutible de las letras rusas, cuya maestría narrativa, agilidad y profundidad abrieron el camino a Gógol, Turguénev, Tolstói y Dostoievski.',
+    top_works: [
+      'Dubrovski',
+      'Los relatos de Belkin',
+      'Eugenio Oneguin',
+      'La hija del capitán',
+      'La dama de picas'
+    ],
+    birth_date: '1799',
+    death_date: '1837'
+  },
   'William Peter Blatty': {
     bio: 'William Peter Blatty (Nueva York, 1928 - Bethesda, Maryland, 2017) fue un célebre escritor, guionista y cineasta estadounidense, inmortalizado por su obra maestra de terror psicológico y religioso "El exorcista" (1971), así como por su adaptación cinematográfica galardonada con el Premio Óscar al Mejor Guion Adaptado.\n\n📚 Biografía y obra\n\n- Graduado en Literatura Inglesa por la Universidad de Georgetown y máster por George Washington University, trabajó como especialista en guerra psicológica antes de consolidarse en Hollywood como guionista de comedia (colaborando con Blake Edwards).\n- En 1971 conmocionó al mundo literario con El exorcista, inspirada en hechos reales acontecidos en Maryland en 1949. La novela se mantuvo en el número uno de las listas de superventas durante más de un año consecutivo.\n- Continuó profundizando en el misterio de la fe, el remordimiento y la redención con obras como Legión (adaptada al cine como El exorcista III), El noveno misterio (The Ninth Configuration) y Dimiter.\n- Su narrativa destaca por formular preguntas trascendentales sobre la naturaleza del mal, el sufrimiento de los inocentes y la fe en medio de la adversidad.\n\n👉 En resumen: Un maestro del suspense sobrenatural y el drama teológico, con una capacidad narrativa absorbente que trasciende las fronteras del género de terror.',
     top_works: [

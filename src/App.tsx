@@ -162,6 +162,24 @@ Los mismos que intentan corregir la corrupcion se convierten en corruptos.`,
     rating: 5,
     userId: 'bibliotheca',
     createdAt: Timestamp.fromDate(new Date('2026-06-15T12:00:00Z'))
+  },
+  {
+    id: 'dubrovski-los-relatos-de-belkin-aleksandr-pushkin',
+    title: 'Dubrovski, Los relatos de Belkin',
+    author: 'Aleksandr Serguéievich Pushkin',
+    coverUrl: '/covers/dubrovski-los-relatos-de-belkin.png',
+    readDate: '2026-11-03',
+    summary: 'Serie de relatos cortos de este gran poeta ruso, donde amores y desamores nos trasladan a la Rusia de principios del siglo XIX.',
+    review: `Aleksandr Serguéievich Pushkin, nacido en 1799, y fallecido en 1837. Posiblemente el mas grande poeta ruso.
+
+El libro que nos ocupa *Dubrovski, Los relatos de Belkin* es un compendio de relatos, el primero un relato mas largo y luego unos cuantos relatos mas bien cortos.
+
+Se habla en ellos de amores y desamores, y de la nobleza rusa que en aquellos tiempos todavia tenia como siervos a sus trabajadores, como en la edad media, parece que poco a poco, esto va cambiando, se empieza a notar algo asi en la mentalidad de la gente, despues de la guerra contra Napoleon y todo lo que soldados y oficiales ven en la guerra. Observan como en otros paises el nivel de vida es mucho mejor entre la poblacion rural, las cosas iran cambiando.
+
+El libro en si traducido por Jose Lain Entralgo (Turolense), exiliado en la Union Sovietica tras la Guerra Civil, es una serie de historias curiosas, de lectura mas bien sencilla donde amores y desamores ocupan un lugar esencial. Decir tambien que algunos terminos, palabras se hacen dificiles de comprender, pero es una lectura agradable.`,
+    rating: 4,
+    userId: 'bibliotheca',
+    createdAt: Timestamp.fromDate(new Date('2026-11-03T12:00:00Z'))
   }
 ];
 
