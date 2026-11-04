@@ -300,6 +300,32 @@ Esa caída desde la "vida cómoda" a la esclavitud que mencionas es el gran dram
     rating: 5,
     userId: 'gaudiosomarcojuan@gmail.com',
     createdAt: Timestamp.fromDate(new Date('2026-04-19T12:00:00Z'))
+  },
+  {
+    id: 'enigma-robert-harris',
+    title: 'Enigma',
+    author: 'Robert Harris',
+    coverUrl: '/covers/enigma.png',
+    readDate: '2026-08-01',
+    summary: 'Enigma es un thriller histórico ambientado en 1943, en pleno desarrollo de la Segunda Guerra Mundial. La trama sigue a un joven criptógrafo británico que trabaja en Bletchley Park, el centro secreto donde los aliados intentan descifrar los mensajes codificados por la máquina alemana Enigma. Cuando se produce una crisis que amenaza una operación crucial y desaparece una compañera de trabajo, se ve envuelto en una combinación de espionaje, misterio y secretos de guerra. La novela destaca por su gran rigor histórico y por mostrar la importancia de la inteligencia y la criptografía en el conflicto.',
+    review: `Ha llegado el libro con mucho retraso, de hecho he ido a correos a Cariñena para ver si esta alli, no estaba, dos dias despues ha llegado a casa.
+
+Estoy en las calidas, muy calidas vacaciones de Julio, y comienzo a leerlo. ¿Que decir? Absorvente, tecnico ... bueno estoy empezando.
+
+Me doy de bruces con el mundo de la informacion, la criptografia, la inteligencia(con todo lo que significa esa palabra), matematicas, genios, tenacidad, recursos ... en fin todo un mundo. La novela promete.
+
+Esta es la tercera de la serie, las anteriores fueron:
+- La isla de las tormentas
+- Ha llegado el aguila
+
+Libro terminado el 1 de Agosto, dia del cumpleaños de Feli. Ha sido una interesante trama de espias todo dentro del mundo de Bletchley Park, esto es el lugar donde se intentaba decodificar la informacion interceptada en a la Guerra a los alemanes mediante las maquinas Enigma.
+La introduccion de un cuarto rotor a las maquinas que solian tener tres, añade una dificultada añadida a la descodificacion de los mensajes interceptados, primero unos cuantos matematicicos y linguistas y despues miles de personas trabajando sobre los mensajes secretos ... todo un mundo.
+El padre de todo esto Alan Turing, diseña la 'Bombe', una maquina electromecanica que buscaria la configuracion diaria de los rotores Enigma, un matematico, un genio.
+
+Un gran libro sin duda, que te introduce de lleno en Inglaterra durante la guerra, en el mundo de los secretos y los espias, donde la informacion es lo mas importante, y mucho mas, que la informacion llegue a tiempo.`,
+    rating: 4,
+    userId: 'gaudiosomarcojuan@gmail.com',
+    createdAt: Timestamp.fromDate(new Date('2026-08-01T12:00:00Z'))
   }
 ];
 

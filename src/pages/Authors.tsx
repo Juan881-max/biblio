@@ -22,6 +22,17 @@ interface AuthorsProps {
 }
 
 const CUSTOM_AUTHORS: Record<string, Partial<AuthorInfo>> = {
+  'Robert Harris': {
+    bio: 'Robert Dennis Harris (Nottingham, 1957) es un prestigioso novelista, historiador y periodista británico, célebre mundialmente por sus thrillers históricos de rigurosa base documental sobre el poder político, la Segunda Guerra Mundial y el espionaje de inteligencia.\n\n📚 Biografía y obra\n\n- Graduado en Literatura Inglesa por la Universidad de Cambridge, trabajó como reportero para la BBC y columnista en The Sunday Times y The Daily Telegraph antes de consagrarse a la narrativa.\n- Su novela Enigma (1995) recrea con maestría técnica y humana la atmósfera claustrofóbica de Bletchley Park, los desafíos matemáticos de la máquina de cifrado nazi y la trascendencia de la información en el desenlace del conflicto bélico (adaptada al cine en 2001 con guion de Tom Stoppard).\n- Es autor de grandes éxitos internacionales como Patria (Fatherland), El escritor fantasma (The Ghost Writer), Múnich y su aclamada trilogía sobre Cicerón en la Roma republicana (Imperium, Lustrum, Dictator).\n\n👉 En resumen: Un referente indiscutible del thriller histórico inteligente, caracterizado por su precisión histórica, tramas envolventes y lúcida reflexión sobre los secretos de Estado.',
+    top_works: [
+      'Enigma',
+      'Patria (Fatherland)',
+      'El escritor fantasma',
+      'Múnich',
+      'Imperium'
+    ],
+    birth_date: '1957'
+  },
   'Frank Baer': {
     bio: 'Frank Baer (Dresde, 1938) es un novelista, ensayista y periodista alemán, reconocido internacionalmente por su monumental reconstrucción de la España medieval en "El puente de Alcántara", una de las cumbres absolutas de la novela histórica sobre la Península Ibérica en el siglo XI.\n\n📚 Biografía y obra\n\n- Trabajó durante años como redactor y corresponsal antes de dedicarse a la investigación histórica exhaustiva sobre la convivencia y el choque de las tres culturas en la Edad Media peninsular.\n- Su obra maestra, El puente de Alcántara (Die Brücke von Alcántara, 1988), fruto de años de rigurosa investigación documental, ofrece un tapiz coral inigualable a través de tres destinos cruzados en el año 1064: un poeta y cortesano andalusí, un joven escudero cristiano y un médico sabio judío.\n- La novela destaca por su lucidez histórica al desmitificar las visiones maniqueas, mostrando con crudeza el asedio de Barbastro, la sofisticación del sur andalusí, la rudeza de los reinos del norte y el advenimiento del fanatismo religioso.\n\n👉 En resumen: Una de las lecturas más ricas, documentadas e imprescindibles sobre la España medieval, las tres religiones y la búsqueda del conocimiento.',
     top_works: [

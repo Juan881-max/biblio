@@ -17,6 +17,37 @@ function getRecommendations(lastBook: Book): Recommendation[] {
   const titleLower = lastBook.title.toLowerCase();
   const authorLower = lastBook.author.toLowerCase();
 
+  // Robert Harris / Enigma / Bletchley Park & WWII Intelligence
+  if (
+    authorLower.includes('harris') ||
+    titleLower === 'enigma' ||
+    (titleLower.includes('enigma') && (authorLower.includes('robert') || authorLower.includes('harris')))
+  ) {
+    return [
+      {
+        title: 'Ha llegado el águila',
+        author: 'Jack Higgins',
+        reason: 'El gran clásico de operaciones de comandos e inteligencia militar en suelo británico durante la Segunda Guerra Mundial, directamente vinculado a tu serie de lecturas.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788401321740-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'Patria (Fatherland)',
+        author: 'Robert Harris',
+        reason: 'La cumbre del suspense y la conspiración histórica de Robert Harris. Una investigación implacable en el corazón del Tercer Reich con el mismo rigor documental y pulso tenso de Enigma.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788466332514-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'La isla de las tormentas',
+        author: 'Ken Follett',
+        reason: 'La célebre novela de agentes encubiertos, contraespionaje e intriga militar británica que abre tu serie de lecturas bélicas.',
+        coverUrl: '/covers/la-isla-de-las-tormentas.png',
+        coverQuery: '',
+      },
+    ];
+  }
+
   // Ken Follet / La isla de las tormentas / WWII Espionage & Suspense
   if (
     authorLower.includes('follet') ||
