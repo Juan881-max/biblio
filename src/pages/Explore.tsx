@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { useSearchParams } from 'react-router-dom';
-import { BookOpen, Loader2, ExternalLink, Star, Sparkles, ChevronRight } from 'lucide-react';
-import { TrendingBook, Book } from '../types';
-import { getTop30Bestsellers, getCoverUrl, formatAuthorName } from '../services/openLibraryApi';
+import { motion } from 'motion/react';
+import { useSearchParams, useNavigate } from 'react-router-dom';
+import { BookOpen, Star, Sparkles, ChevronRight, BookMarked, ArrowRight } from 'lucide-react';
+import { Book } from '../types';
 
 // ─── Static curated recommendations per genre / theme ───────────────────────
 interface Recommendation {
@@ -420,21 +419,9 @@ interface ExploreProps {
 }
 
 export default function Explore({ books = [] }: ExploreProps) {
-  const [top30Books, setTop30Books] = useState<TrendingBook[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [selectedBook, setSelectedBook] = useState<TrendingBook | null>(null);
+  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const bookIdParam = searchParams.get('bookId');
-
-  useEffect(() => {
-    async function fetchAllBooks() {
-      setIsLoading(true);
-      const fetched = await getTop30Bestsellers();
-      setTop30Books(fetched);
-      setIsLoading(false);
-    }
-    fetchAllBooks();
-  }, []);
 
   // Sort books with the latest read date first (defaulting to the most recent book read)
   const sortedBooks = useMemo(() => {
@@ -648,173 +635,68 @@ export default function Explore({ books = [] }: ExploreProps) {
         </section>
       )}
 
-      {/* ── Original Header ────────────────────────────────────────────── */}
-      <section className="bg-gradient-to-br from-library-dark to-library-blue py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <motion.h1
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            className="text-5xl font-serif text-white mb-4"
-          >
-            Los 30 libros más vendidos en España
-          </motion.h1>
-          <motion.p
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.1 }}
-            className="text-library-light/80 text-lg max-w-4xl leading-relaxed mt-4"
-          >
-            Amigos lectores, aquí podéis consultar el ranking de los 30 libros más vendidos en España en la última semana. Podréis ver cuál es el más vendido. Algunos suben, otros se mantienen y otros bajan o salen de la lista. Este ranking se actualiza cada lunes para que podáis estar al tanto de las lecturas más demandadas de cada semana.
-          </motion.p>
-        </div>
-      </section>
-
-      {/* ── Books Grid (unchanged) ─────────────────────────────────────── */}
-      <main className="max-w-7xl mx-auto px-4 mt-12 bg-slate-50 p-6 md:p-10 rounded-2xl border border-slate-100">
-        <h2 className="text-xl md:text-2xl font-serif font-bold text-slate-800 mb-8 border-b border-slate-200 pb-4">
-          Semana del 30 de marzo al 5 de abril del 2026
-        </h2>
-
-        {isLoading ? (
-          <div className="flex items-center justify-center py-20">
-            <Loader2 size={40} className="animate-spin text-library-blue" />
+      {/* ── All Read Books Selection Grid ─────────────────────────────── */}
+      {sortedBooks.length > 1 && (
+        <main className="max-w-7xl mx-auto px-4 mt-12">
+          <div className="border-b border-slate-200 pb-4 mb-8">
+            <h2 className="text-2xl font-serif font-bold text-slate-800 flex items-center gap-2">
+              <BookMarked size={22} className="text-library-blue" />
+              Explorar recomendaciones por cada libro leído
+            </h2>
+            <p className="text-sm text-slate-500 mt-1">
+              Selecciona cualquiera de tus libros leídos para descubrir 3 obras afines seleccionadas por temática, atmósfera y estilo:
+            </p>
           </div>
-        ) : top30Books.length === 0 ? (
-          <div className="text-center py-20 bg-white rounded-3xl border-2 border-dashed border-slate-200">
-            <BookOpen size={48} className="mx-auto text-slate-300 mb-4" />
-            <p className="text-slate-500 font-serif text-xl">No se encontraron libros.</p>
-          </div>
-        ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-x-6 gap-y-10">
-            {top30Books.map((book, index) => (
-              <motion.div
-                key={book.key + index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: Math.min(index * 0.02, 0.5) }}
-                onClick={() => setSelectedBook(book)}
-                className="cursor-pointer group flex flex-col items-center text-center"
-              >
-                <div className="w-full aspect-[2/3] rounded-sm overflow-hidden mb-3 bg-white border border-slate-200 relative shadow-sm group-hover:shadow-xl transition-all duration-300">
-                  {getCoverUrl(book.cover_i, 'M') ? (
-                    <img
-                      src={getCoverUrl(book.cover_i, 'M')!}
-                      alt={book.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                      referrerPolicy="no-referrer"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-                      <BookOpen size={32} className="text-slate-400" />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {sortedBooks.map((b) => {
+              const isCurrent = b.id === activeBook?.id;
+              return (
+                <div
+                  key={b.id}
+                  onClick={() => {
+                    handleSelectBook(b.id);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className={`p-4 rounded-xl border transition-all cursor-pointer flex flex-col justify-between ${
+                    isCurrent
+                      ? 'bg-amber-50 border-amber-300 ring-2 ring-amber-400/40 shadow-md'
+                      : 'bg-white hover:bg-slate-50 border-slate-200 hover:border-library-blue/30 hover:shadow-md'
+                  }`}
+                >
+                  <div className="flex gap-3">
+                    <div className="w-14 h-20 flex-shrink-0 rounded overflow-hidden shadow-sm border border-slate-200 bg-slate-100">
+                      <img src={b.coverUrl} alt={b.title} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                     </div>
-                  )}
-                  <div className="absolute inset-0 bg-orange-500/0 group-hover:bg-orange-500/10 transition-colors" />
-                  <div className="absolute top-0 left-0 bg-orange-500 text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full -ml-1 -mt-1 shadow-md z-10">
-                    {index + 1}
-                  </div>
-                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-green-600 text-white text-[10px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">
-                    En stock
-                  </div>
-                </div>
-                <h3 className="font-bold text-xs uppercase text-slate-800 line-clamp-2 mt-1 px-1">
-                  {book.title}
-                </h3>
-                <p className="text-[10px] text-library-blue mt-1 uppercase font-semibold">
-                  {formatAuthorName(book.author_name)}
-                </p>
-                <button className="mt-2 bg-orange-500 hover:bg-orange-600 text-white text-xs px-4 py-1 rounded transition-colors">
-                  Comprar
-                </button>
-              </motion.div>
-            ))}
-          </div>
-        )}
-      </main>
-
-      {/* ── Book Detail Modal (unchanged) ─────────────────────────────── */}
-      <AnimatePresence>
-        {selectedBook && (
-          <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4"
-            onClick={() => setSelectedBook(null)}
-          >
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
-            />
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0, y: 20 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.9, opacity: 0, y: 20 }}
-              className="relative bg-white rounded-2xl shadow-2xl overflow-hidden max-w-2xl w-full"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex flex-col md:flex-row">
-                <div className="md:w-1/3 flex-shrink-0">
-                  {getCoverUrl(selectedBook.cover_i, 'L') ? (
-                    <img
-                      src={getCoverUrl(selectedBook.cover_i, 'L')!}
-                      alt={selectedBook.title}
-                      className="w-full h-full object-cover"
-                      referrerPolicy="no-referrer"
-                    />
-                  ) : (
-                    <div className="w-full h-64 md:h-full flex items-center justify-center bg-gradient-to-br from-library-light to-library-blue/20">
-                      <BookOpen size={48} className="text-library-blue/50" />
-                    </div>
-                  )}
-                </div>
-                <div className="p-6 flex-grow">
-                  <h2 className="text-2xl font-serif text-library-dark mb-2">{selectedBook.title}</h2>
-                  <p className="text-lg text-slate-500 italic mb-4">
-                    por {formatAuthorName(selectedBook.author_name)}
-                  </p>
-                  <div className="space-y-3 text-sm text-slate-600">
-                    {selectedBook.first_publish_year && (
-                      <p><span className="font-semibold">Publicado:</span> {selectedBook.first_publish_year}</p>
-                    )}
-                    {selectedBook.edition_count && (
-                      <p><span className="font-semibold">Ediciones:</span> {selectedBook.edition_count.toLocaleString()}</p>
-                    )}
-                    {selectedBook.ratings_average && (
-                      <div className="flex items-center gap-2">
-                        <span className="font-semibold">Valoración:</span>
-                        <div className="flex items-center gap-1">
-                          <Star size={16} className="fill-amber-400 text-amber-400" />
-                          <span>{selectedBook.ratings_average.toFixed(1)}</span>
-                          {selectedBook.ratings_count && (
-                            <span className="text-slate-400">({selectedBook.ratings_count.toLocaleString()} votos)</span>
-                          )}
-                        </div>
+                    <div className="min-w-0">
+                      <h3 className="font-serif font-bold text-slate-800 text-sm line-clamp-2 leading-snug">
+                        {b.title}
+                      </h3>
+                      <p className="text-xs text-slate-500 italic mt-0.5">{b.author}</p>
+                      <div className="flex gap-0.5 mt-2">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            size={10}
+                            className={i < b.rating ? 'fill-amber-400 text-amber-400' : 'text-slate-200'}
+                          />
+                        ))}
                       </div>
-                    )}
+                    </div>
                   </div>
-                  <div className="mt-6 flex gap-3">
-                    <a
-                      href={`https://openlibrary.org${selectedBook.key}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-library-blue text-white rounded-lg hover:bg-library-dark transition-colors"
-                    >
-                      <ExternalLink size={16} />
-                      Ver en Open Library
-                    </a>
-                    <button
-                      onClick={() => setSelectedBook(null)}
-                      className="px-4 py-2 bg-slate-100 text-slate-600 rounded-lg hover:bg-slate-200 transition-colors"
-                    >
-                      Cerrar
-                    </button>
+
+                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                    <span className={isCurrent ? 'font-bold text-amber-700' : 'text-library-blue font-medium'}>
+                      {isCurrent ? '● Recomendaciones activas' : 'Ver recomendaciones'}
+                    </span>
+                    <ArrowRight size={13} className={isCurrent ? 'text-amber-700' : 'text-library-blue'} />
                   </div>
                 </div>
-              </div>
-            </motion.div>
+              );
+            })}
           </div>
-        )}
-      </AnimatePresence>
+        </main>
+      )}
     </div>
   );
 }
