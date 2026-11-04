@@ -17,6 +17,37 @@ function getRecommendations(lastBook: Book): Recommendation[] {
   const titleLower = lastBook.title.toLowerCase();
   const authorLower = lastBook.author.toLowerCase();
 
+  // Stephen King / La tormenta del siglo / Island Isolation & Moral Dilemma Horror
+  if (
+    authorLower.includes('king') ||
+    titleLower.includes('tormenta del siglo') ||
+    titleLower.includes('tormenta')
+  ) {
+    return [
+      {
+        title: 'La niebla (The Mist)',
+        author: 'Stephen King',
+        reason: 'Una de las cumbres de King sobre una comunidad confinada por una tormenta inexplicable. Explora con maestría cómo el verdadero monstruo surge de la histeria colectiva y el quiebre moral de los vecinos.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788401032332-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'El terror (The Terror)',
+        author: 'Dan Simmons',
+        reason: 'Una expedición atrapada en el hielo polar ártico enfrentándose a una entidad sobrenatural implacable y al frío glacial. Aislamiento extremo, tensión atmosférica y lucha psicológica por la supervivencia.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788466637381-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'Fantasmas (Ghost Story)',
+        author: 'Peter Straub',
+        reason: 'En un pequeño pueblo aislado bajo una implacable ventisca de nieve, un grupo de ancianos oculta un secreto oscuro del pasado que regresa para cobrar venganza. Atmósfera gélida y terror psicológico magistral.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788497598859-L.jpg',
+        coverQuery: '',
+      },
+    ];
+  }
+
   // Horror / Psychological Suspense / Faith & Exorcism (El exorcista)
   if (
     authorLower.includes('blatty') ||

@@ -180,6 +180,24 @@ El libro en si traducido por Jose Lain Entralgo (Turolense), exiliado en la Unio
     rating: 4,
     userId: 'bibliotheca',
     createdAt: Timestamp.fromDate(new Date('2026-11-03T12:00:00Z'))
+  },
+  {
+    id: 'la-tormenta-del-siglo-stephen-king',
+    title: 'La tormenta del siglo',
+    author: 'Stephen King',
+    coverUrl: '/covers/la-tormenta-del-siglo.png',
+    readDate: '2026-11-04',
+    summary: "Una pequeña isla pesquera en el estado de Maine donde llega una gran tormenta de nieve. La isla queda aislada, nunca mejor dicho, pero lo peor no es eso, un asesino o mago o diablo, no sabemos lo que es comenza a causar estragos en el pueblo, y dice que no se ira hasta que consiga lo que quiere. Lo que quiere es un niño al que enseñara todo lo que sabe pues el va a morir. Tras una votacion los habitantes de la isla acceden a su peticion, hacen un sorteo y la bola negra le toca al protagonista y su mujer, se llevara a su hijo. Se lo lleva .. y como los isleños 'saben guardar un secreto' nadie en el exterior sabra lo sucedido.",
+    review: `No es una novela en si, es un guion para una miniserie para la television, esto hace que el relato sea totalmente diferente.
+
+Estoy a mitad de libro, y la atmosfera es inquietante, fria, terrible ... King sabe crear una atmosfera especial, por algo es uno de los escritores de terror mas leido del mundo.
+
+La idea de una isla aislada en medio de una terrible tormenta es escelente, y el le saca todo su jugo. Juega con la psicologia de los personajes, con sus debilidades y fortalezas, con sus 'pecados'.
+
+El mal con mayúsculas personificado en Andre Linoge, que conoce las miserias y secretos más oscuros de cada habitante. Un dilema moral brutal donde se pone a prueba la ética de toda una comunidad: la culpa compartida y el pacto de silencio colectivo. Terror psicológico en estado puro que te atrapa de principio a fin.`,
+    rating: 5,
+    userId: 'bibliotheca',
+    createdAt: Timestamp.fromDate(new Date('2026-11-04T12:00:00Z'))
   }
 ];
 

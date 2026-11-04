@@ -22,6 +22,18 @@ interface AuthorsProps {
 }
 
 const CUSTOM_AUTHORS: Record<string, Partial<AuthorInfo>> = {
+  'Stephen King': {
+    bio: 'Stephen Edwin King (Portland, Maine, 1947) es el indiscutible maestro contemporáneo del terror, el suspense sobrenatural y la ficción psicológica, con más de 350 millones de ejemplares vendidos en todo el mundo.\n\n📚 Biografía y obra\n\n- Graduado en Filología Inglesa por la Universidad de Maine, saltó a la fama internacional en 1974 con Carrie, dando inicio a una carrera literaria prolífica sin precedentes.\n- Autor de hitos universales de la literatura como El resplandor, It, Misery, Apocalipsis (The Stand), Cementerio de animales y la monumental saga de La Torre Oscura.\n- Con La tormenta del siglo (1999), King demostró su dominio del formato guion original escrito expresamente para la televisión, creando una de sus atmósferas más inquietantes, frías y asfixiantes en la ficticia Little Tall Island (Maine), poniendo a prueba los límites morales de toda una comunidad frente al enigma de Andre Linoge.\n- Ha recibido prestigiosos galardones como la Medalla de la National Book Foundation por su destacada contribución a las letras estadounidenses y la National Medal of Arts.\n\n👉 En resumen: Una de las plumas más influyentes y leídas del último siglo, célebre por su portentosa habilidad para indagar en la psique humana, los secretos colectivos y la irrupción del mal en la vida cotidiana.',
+    top_works: [
+      'La tormenta del siglo',
+      'El resplandor',
+      'It',
+      'Misery',
+      'La milla verde',
+      'Cementerio de animales'
+    ],
+    birth_date: '1947'
+  },
   'Pushkin': {
     bio: 'Aleksandr Serguéievich Pushkin (Moscú, 1799 - San Petersburgo, 1837) es universalmente reconocido como el padre de la literatura rusa moderna y su más célebre poeta y narrador.\n\n📚 Biografía y obra\n\n- Revolucionó la literatura eslava al forjar el idioma literario ruso contemporáneo, fundiendo la espontaneidad del lenguaje popular con la elegancia culta y superando el afrancesamiento de la nobleza.\n- Su genialidad abarcó la lírica, el drama histórico (Boris Godunov), la novela en verso (Eugenio Oneguin) y la prosa narrativa de ficción y relatos históricos (Dubrovski, Los relatos de Belkin, La hija del capitán, La dama de picas).\n- Tras las guerras napoleónicas y el contacto con Europa occidental, sus relatos reflejan con aguda perspicacia el choque entre el honor aristocrático y la injusticia de la servidumbre feudal, así como las transformaciones en la mentalidad popular.\n- Murió trágicamente a los 37 años como consecuencia de un duelo en defensa del honor de su esposa, Natalia Goncharova.\n\n👉 En resumen: La cumbre indiscutible de las letras rusas, cuya maestría narrativa, agilidad y profundidad abrieron el camino a Gógol, Turguénev, Tolstói y Dostoievski.',
     top_works: [
