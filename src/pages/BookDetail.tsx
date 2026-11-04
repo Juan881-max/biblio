@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Star, Calendar, User, Quote, Pencil, X, Save } from 'lucide-react';
+import { ArrowLeft, Star, Calendar, User, Quote, Pencil, X, Save, Sparkles } from 'lucide-react';
 import { Book } from '../types';
 import { cn } from '../lib/utils';
 
@@ -94,6 +94,16 @@ export default function BookDetail({ books, onUpdateBook }: BookDetailProps) {
               <div className="flex items-center gap-3 text-slate-600">
                 <User size={18} />
                 <span>Autor: <span className="font-medium">{book.author}</span></span>
+              </div>
+
+              <div className="pt-2 border-t border-slate-100">
+                <button
+                  onClick={() => navigate(`/explore?bookId=${book.id}`)}
+                  className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-gradient-to-r from-library-blue to-slate-900 text-white rounded-xl text-xs uppercase tracking-wider font-semibold shadow hover:shadow-md hover:from-library-dark hover:to-black transition-all group"
+                >
+                  <Sparkles size={16} className="text-amber-300 group-hover:rotate-12 transition-transform" />
+                  Ver recomendaciones en Explorar
+                </button>
               </div>
             </div>
           </div>

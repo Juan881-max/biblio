@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useSearchParams } from 'react-router-dom';
 import { BookOpen, Loader2, ExternalLink, Star, Sparkles, ChevronRight } from 'lucide-react';
 import { TrendingBook, Book } from '../types';
 import { getTop30Bestsellers, getCoverUrl, formatAuthorName } from '../services/openLibraryApi';
@@ -365,10 +366,10 @@ function RecommendationCard({ rec, index }: { rec: Recommendation; index: number
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.15 + index * 0.1, duration: 0.5 }}
-      className="flex gap-5 group"
+      className="flex flex-col sm:flex-row gap-5 p-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all group"
     >
       {/* Cover */}
-      <div className="flex-shrink-0 w-20 h-28 rounded-lg overflow-hidden shadow-md bg-slate-200 relative">
+      <div className="flex-shrink-0 w-24 h-36 rounded-lg overflow-hidden shadow-lg bg-slate-800 relative border border-white/10 flex items-center justify-center">
         {!imgError && rec.coverUrl ? (
           <img
             src={rec.coverUrl}
@@ -378,29 +379,36 @@ function RecommendationCard({ rec, index }: { rec: Recommendation; index: number
             referrerPolicy="no-referrer"
           />
         ) : (
-          <div className="w-full h-full bg-gradient-to-br from-[#2c3e6b] to-[#1a2540] flex items-center justify-center">
-            <BookOpen size={22} className="text-white/50" />
+          <div className="w-full h-full bg-gradient-to-br from-[#2c3e6b] to-[#1a2540] flex flex-col items-center justify-center p-2 text-center">
+            <BookOpen size={24} className="text-amber-300/80 mb-2" />
+            <span className="text-[11px] font-serif font-bold text-white leading-tight line-clamp-3">{rec.title}</span>
+            <span className="text-[9px] text-amber-300/70 mt-1 italic">{rec.author}</span>
           </div>
         )}
       </div>
 
       {/* Text */}
-      <div className="flex-grow min-w-0">
-        <div className="flex items-start justify-between gap-2">
-          <div>
-            <h3 className="font-serif text-lg font-bold text-white leading-snug group-hover:text-amber-300 transition-colors">
-              {rec.title}
-            </h3>
-            <p className="text-sm text-white/50 italic mt-0.5">{rec.author}</p>
+      <div className="flex-grow min-w-0 flex flex-col justify-between">
+        <div>
+          <div className="flex items-start justify-between gap-2">
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-amber-400/90 bg-amber-400/10 px-2 py-0.5 rounded-full inline-block mb-1">
+                Afinidad temática & estilo
+              </span>
+              <h3 className="font-serif text-xl font-bold text-white leading-snug group-hover:text-amber-300 transition-colors">
+                {rec.title}
+              </h3>
+              <p className="text-sm text-white/60 italic mt-0.5 font-medium">{rec.author}</p>
+            </div>
+            <ChevronRight
+              size={20}
+              className="flex-shrink-0 text-white/20 group-hover:text-amber-300 group-hover:translate-x-1 transition-all mt-1"
+            />
           </div>
-          <ChevronRight
-            size={18}
-            className="flex-shrink-0 text-white/20 group-hover:text-amber-300 group-hover:translate-x-1 transition-all mt-1"
-          />
+          <p className="text-sm text-white/80 leading-relaxed mt-3">
+            {rec.reason}
+          </p>
         </div>
-        <p className="text-sm text-white/70 leading-relaxed mt-2 line-clamp-3">
-          {rec.reason}
-        </p>
       </div>
     </motion.article>
   );
@@ -415,6 +423,8 @@ export default function Explore({ books = [] }: ExploreProps) {
   const [top30Books, setTop30Books] = useState<TrendingBook[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedBook, setSelectedBook] = useState<TrendingBook | null>(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const bookIdParam = searchParams.get('bookId');
 
   useEffect(() => {
     async function fetchAllBooks() {
@@ -426,18 +436,41 @@ export default function Explore({ books = [] }: ExploreProps) {
     fetchAllBooks();
   }, []);
 
-  // Last book read = most recently added in Firestore (already ordered desc)
-  const lastBook = books.length > 0 ? books[0] : null;
+  // Sort books with the latest read date first (defaulting to the most recent book read)
+  const sortedBooks = useMemo(() => {
+    return [...books].sort((a, b) => {
+      const dateA = a.readDate || (a.createdAt?.toDate ? a.createdAt.toDate().toISOString() : '') || '';
+      const dateB = b.readDate || (b.createdAt?.toDate ? b.createdAt.toDate().toISOString() : '') || '';
+      return dateB.localeCompare(dateA);
+    });
+  }, [books]);
+
+  const [selectedBookId, setSelectedBookId] = useState<string>('');
+
+  useEffect(() => {
+    if (bookIdParam && sortedBooks.some(b => b.id === bookIdParam)) {
+      setSelectedBookId(bookIdParam);
+    } else if (sortedBooks.length > 0 && (!selectedBookId || !sortedBooks.some(b => b.id === selectedBookId))) {
+      setSelectedBookId(sortedBooks[0].id);
+    }
+  }, [bookIdParam, sortedBooks, selectedBookId]);
+
+  const activeBook = sortedBooks.find(b => b.id === selectedBookId) || sortedBooks[0] || null;
   const recommendations = useMemo(
-    () => (lastBook ? getRecommendations(lastBook) : []),
-    [lastBook]
+    () => (activeBook ? getRecommendations(activeBook) : []),
+    [activeBook]
   );
+
+  const handleSelectBook = (id: string) => {
+    setSelectedBookId(id);
+    setSearchParams({ bookId: id });
+  };
 
   return (
     <div className="min-h-screen bg-parchment pb-20">
 
       {/* ── Personalized Recommendation Module ────────────────────────── */}
-      {lastBook && (
+      {activeBook && (
         <section className="relative overflow-hidden">
           {/* Deep layered background */}
           <div className="absolute inset-0 bg-[#0f1724]" />
@@ -454,95 +487,156 @@ export default function Explore({ books = [] }: ExploreProps) {
           {/* Subtle gold accent line at top */}
           <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-amber-400/80 to-transparent" />
 
-          <div className="relative max-w-7xl mx-auto px-4 py-16">
-            {/* Header */}
+          <div className="relative max-w-7xl mx-auto px-4 py-14">
+            {/* Header Badge */}
             <motion.div
               initial={{ opacity: 0, y: -16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="flex items-center gap-3 mb-2"
+              className="flex flex-wrap items-center justify-between gap-4 mb-4"
             >
               <div className="flex items-center gap-2 bg-amber-400/10 border border-amber-400/30 px-4 py-1.5 rounded-full">
                 <Sparkles size={14} className="text-amber-400" />
                 <span className="text-amber-400 text-xs font-semibold uppercase tracking-widest">
-                  Tu próxima lectura
+                  Tu próxima lectura • Recomendaciones afines
                 </span>
               </div>
+
+              {/* Selector dropdown */}
+              {sortedBooks.length > 1 && (
+                <div className="flex items-center gap-2">
+                  <label htmlFor="book-select" className="text-white/60 text-xs uppercase tracking-wider font-medium hidden sm:inline">
+                    Cambiar libro:
+                  </label>
+                  <select
+                    id="book-select"
+                    value={activeBook.id}
+                    onChange={(e) => handleSelectBook(e.target.value)}
+                    className="bg-slate-800/90 text-amber-300 text-sm font-medium border border-amber-400/40 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-amber-400 cursor-pointer shadow-md"
+                  >
+                    {sortedBooks.map((b) => (
+                      <option key={b.id} value={b.id} className="bg-slate-900 text-white">
+                        {b.title} — {b.author}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
             </motion.div>
 
             <motion.h2
               initial={{ opacity: 0, y: -12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.05 }}
-              className="text-4xl md:text-5xl font-serif text-white mb-1 leading-tight"
+              className="text-4xl md:text-5xl font-serif text-white mb-2 leading-tight"
             >
-              Selección personal
+              Recomendaciones para ti
             </motion.h2>
+
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-white/40 text-sm mb-12"
+              className="text-white/60 text-sm md:text-base mb-6 max-w-3xl"
             >
-              Basada en tu última lectura:&nbsp;
-              <span className="text-white/70 italic font-medium">{lastBook.title}</span>
+              Libros afines por atmósfera, dilema moral y género basados en:&nbsp;
+              <span className="text-amber-300 font-semibold">{activeBook.title}</span>
               &nbsp;de&nbsp;
-              <span className="text-white/70 font-medium">{lastBook.author}</span>
+              <span className="text-white/90 font-medium">{activeBook.author}</span>.
             </motion.p>
 
-            {/* Last Book + Recommendations layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            {/* Book switcher pill tabs */}
+            {sortedBooks.length > 1 && (
+              <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none">
+                <span className="text-white/40 text-xs uppercase tracking-wider font-semibold whitespace-nowrap mr-1">
+                  Tus lecturas:
+                </span>
+                {sortedBooks.map((b) => {
+                  const isSelected = b.id === activeBook.id;
+                  return (
+                    <button
+                      key={b.id}
+                      onClick={() => handleSelectBook(b.id)}
+                      className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all border ${
+                        isSelected
+                          ? 'bg-amber-400 text-slate-950 font-bold border-amber-400 shadow-md shadow-amber-400/20'
+                          : 'bg-white/5 text-white/70 hover:text-white hover:bg-white/10 border-white/10'
+                      }`}
+                    >
+                      {b.title}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
 
-              {/* Last read book — left spotlight */}
+            {/* Last Book + Recommendations layout */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+
+              {/* Spotlight on selected book */}
               <motion.div
-                initial={{ opacity: 0, x: -24 }}
+                key={activeBook.id}
+                initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.7, delay: 0.1 }}
-                className="lg:col-span-3 flex flex-col items-center lg:items-start"
+                transition={{ duration: 0.5 }}
+                className="lg:col-span-4 flex flex-col items-center lg:items-start bg-white/5 border border-white/10 p-6 rounded-2xl"
               >
-                <div className="relative w-40 lg:w-full max-w-[180px]">
+                <div className="relative w-44 max-w-[200px]">
                   {/* Glow behind cover */}
                   <div className="absolute -inset-4 bg-amber-400/10 blur-2xl rounded-full" />
-                  <div className="relative rounded-xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-white/10">
+                  <div className="relative rounded-xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-white/20">
                     <img
-                      src={lastBook.coverUrl}
-                      alt={lastBook.title}
+                      src={activeBook.coverUrl}
+                      alt={activeBook.title}
                       className="w-full object-cover"
                       referrerPolicy="no-referrer"
                     />
                   </div>
                 </div>
-                <div className="mt-5 text-center lg:text-left">
-                  <span className="text-[10px] uppercase tracking-widest text-amber-400/70 font-semibold">
-                    Último libro leído
+                <div className="mt-5 text-center lg:text-left w-full">
+                  <span className="text-[10px] uppercase tracking-widest text-amber-400/90 font-semibold bg-amber-400/10 px-2.5 py-1 rounded-full inline-block">
+                    Lectura de referencia
                   </span>
-                  <p className="text-white font-serif text-lg leading-snug mt-1">{lastBook.title}</p>
-                  <p className="text-white/50 text-sm italic">{lastBook.author}</p>
+                  <p className="text-white font-serif text-xl font-bold leading-snug mt-3">{activeBook.title}</p>
+                  <p className="text-white/60 text-sm italic">{activeBook.author}</p>
                   {/* Stars */}
-                  <div className="flex gap-0.5 mt-2 justify-center lg:justify-start">
+                  <div className="flex gap-1 mt-2.5 justify-center lg:justify-start">
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
-                        size={13}
-                        className={i < lastBook.rating ? 'fill-amber-400 text-amber-400' : 'text-white/20'}
+                        size={15}
+                        className={i < activeBook.rating ? 'fill-amber-400 text-amber-400' : 'text-white/20'}
                       />
                     ))}
                   </div>
+                  {activeBook.readDate && (
+                    <p className="text-white/40 text-xs mt-2">
+                      Leído: {activeBook.readDate}
+                    </p>
+                  )}
+                  {activeBook.summary && (
+                    <p className="text-white/70 text-xs leading-relaxed mt-3 border-t border-white/10 pt-3 line-clamp-4">
+                      {activeBook.summary}
+                    </p>
+                  )}
                 </div>
               </motion.div>
 
-              {/* Divider */}
-              <div className="hidden lg:flex lg:col-span-1 justify-center">
-                <div className="w-px h-full bg-gradient-to-b from-transparent via-white/10 to-transparent" />
-              </div>
-
               {/* Recommendation cards */}
-              <div className="lg:col-span-8 space-y-8">
-                <div className="space-y-8 divide-y divide-white/5">
+              <div className="lg:col-span-8 space-y-4">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-lg font-serif font-bold text-white flex items-center gap-2">
+                    <Sparkles size={16} className="text-amber-400" />
+                    3 Títulos seleccionados especialmente para ti
+                  </h3>
+                  <span className="text-xs text-white/50">
+                    {recommendations.length} sugerencias
+                  </span>
+                </div>
+
+                <div className="space-y-4">
                   {recommendations.map((rec, i) => (
-                    <div key={i} className={i > 0 ? 'pt-8' : ''}>
-                      <RecommendationCard rec={rec} index={i} />
-                    </div>
+                    <RecommendationCard key={rec.title + i} rec={rec} index={i} />
                   ))}
                 </div>
               </div>

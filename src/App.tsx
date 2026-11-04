@@ -349,14 +349,14 @@ export default function App() {
               <span className="text-2xl font-serif text-library-blue tracking-tight">Bibliotheca</span>
             </Link>
 
-            <div className="flex items-center gap-6">
-              <nav className="hidden md:flex items-center gap-8 text-sm uppercase tracking-widest font-semibold text-slate-500">
+            <div className="flex items-center gap-3 sm:gap-6">
+              <nav className="flex items-center gap-3 sm:gap-6 md:gap-8 text-xs sm:text-sm uppercase tracking-wider font-semibold text-slate-600">
                 <Link to="/" className="hover:text-library-blue transition-colors">Libros</Link>
                 <Link to="/authors" className="hover:text-library-blue transition-colors">Autores</Link>
-                <Link to="/explore" className="hover:text-library-blue transition-colors">Explorar</Link>
+                <Link to="/explore" className="hover:text-library-blue transition-colors font-bold text-library-blue sm:text-slate-600">Explorar</Link>
               </nav>
 
-              <div className="h-6 w-px bg-slate-200 hidden md:block" />
+              <div className="h-6 w-px bg-slate-200" />
 
               {user ? (
                 <div className="flex items-center gap-3">

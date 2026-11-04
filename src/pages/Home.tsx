@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Plus, X, Book as BookIcon, Star, Search, Lock } from 'lucide-react';
+import { Plus, X, Book as BookIcon, Star, Search, Lock, Sparkles } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { User as FirebaseUser } from 'firebase/auth';
 import { cn } from '../lib/utils';
@@ -55,6 +55,13 @@ export default function Home({ books, onAddBook, user }: HomeProps) {
             >
               <Plus size={20} />
               Añadir Reseña
+            </button>
+            <button
+              onClick={() => navigate('/explore')}
+              className="px-6 py-3 bg-white/15 hover:bg-white/25 border border-white/30 text-white rounded-full font-medium backdrop-blur-sm transition-all flex items-center gap-2 shadow-lg"
+            >
+              <Sparkles size={18} className="text-amber-300" />
+              Explorar Recomendaciones
             </button>
           </motion.div>
         </div>
