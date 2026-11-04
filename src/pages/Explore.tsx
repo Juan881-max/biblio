@@ -17,11 +17,41 @@ function getRecommendations(lastBook: Book): Recommendation[] {
   const titleLower = lastBook.title.toLowerCase();
   const authorLower = lastBook.author.toLowerCase();
 
+  // Ken Follet / La isla de las tormentas / WWII Espionage & Suspense
+  if (
+    authorLower.includes('follet') ||
+    titleLower.includes('isla de las tormentas') ||
+    titleLower.includes('ojo de la aguja')
+  ) {
+    return [
+      {
+        title: 'El espía que surgió del frío',
+        author: 'John le Carré',
+        reason: 'La cumbre indiscutible de la novela de espionaje. Comparte con la obra de Follett la tensión implacable, la psicología de agentes dobles y las intrigas de alta inteligencia en plena confrontación bélica.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788466332507-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'Los cañones de Navarone',
+        author: 'Alistair MacLean',
+        reason: 'Un hito del suspense militar ambientado en la Segunda Guerra Mundial. Un grupo selecto debe infiltrarse en una fortaleza enemiga en una carrera contra el reloj cargada de adrenalina.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788497597142-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'Vuelo final',
+        author: 'Ken Follett',
+        reason: 'Otra obra maestra de intriga bélica de Ken Follett ambientada en 1941. Relata la desesperada misión clandestina para interceptar un radar secreto de los nazis con un ritmo vertiginoso.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788497598682-L.jpg',
+        coverQuery: '',
+      },
+    ];
+  }
+
   // Stephen King / La tormenta del siglo / Island Isolation & Moral Dilemma Horror
   if (
     authorLower.includes('king') ||
-    titleLower.includes('tormenta del siglo') ||
-    titleLower.includes('tormenta')
+    titleLower.includes('tormenta del siglo')
   ) {
     return [
       {

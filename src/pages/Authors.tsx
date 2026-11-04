@@ -22,6 +22,17 @@ interface AuthorsProps {
 }
 
 const CUSTOM_AUTHORS: Record<string, Partial<AuthorInfo>> = {
+  'Ken Follet': {
+    bio: 'Ken Follett (Cardiff, Gales, 1949) es uno de los autores de suspense, espionaje y novela histórica más leídos y aclamados del mundo, con más de 170 millones de ejemplares vendidos en más de 80 países.\n\n📚 Biografía y obra\n\n- Graduado en Filosofía por el University College de Londres, ejerció como reportero antes de dedicarse por completo a la literatura de intriga.\n- Saltó al éxito internacional fulgurante en 1978 con La isla de las tormentas (Eye of the Needle), galardonada con el prestigioso Premio Edgar al Mejor Thriller y adaptada magistralmente al cine en 1981 con el título El ojo de la aguja, protagonizada por Donald Sutherland.\n- Es mundialmente célebre por su ritmo trepidante, rigor en la ambientación histórica y capacidad insuperable para enganchar al lector, tanto en novelas de espionaje bélico como en sus monumentales sagas históricas (Los pilares de la Tierra, Un mundo sin fin, La caída de los gigantes).\n\n👉 En resumen: Maestro absoluto del suspense narrativo de alta tensión, donde la meticulosa reconstrucción bélica y de inteligencia se entrelaza con personajes apasionantes y carreras contrarreloj.',
+    top_works: [
+      'La isla de las tormentas (El ojo de la aguja)',
+      'Los pilares de la Tierra',
+      'La caída de los gigantes',
+      'Vuelo final',
+      'Triple'
+    ],
+    birth_date: '1949'
+  },
   'Stephen King': {
     bio: 'Stephen Edwin King (Portland, Maine, 1947) es el indiscutible maestro contemporáneo del terror, el suspense sobrenatural y la ficción psicológica, con más de 350 millones de ejemplares vendidos en todo el mundo.\n\n📚 Biografía y obra\n\n- Graduado en Filología Inglesa por la Universidad de Maine, saltó a la fama internacional en 1974 con Carrie, dando inicio a una carrera literaria prolífica sin precedentes.\n- Autor de hitos universales de la literatura como El resplandor, It, Misery, Apocalipsis (The Stand), Cementerio de animales y la monumental saga de La Torre Oscura.\n- Con La tormenta del siglo (1999), King demostró su dominio del formato guion original escrito expresamente para la televisión, creando una de sus atmósferas más inquietantes, frías y asfixiantes en la ficticia Little Tall Island (Maine), poniendo a prueba los límites morales de toda una comunidad frente al enigma de Andre Linoge.\n- Ha recibido prestigiosos galardones como la Medalla de la National Book Foundation por su destacada contribución a las letras estadounidenses y la National Medal of Arts.\n\n👉 En resumen: Una de las plumas más influyentes y leídas del último siglo, célebre por su portentosa habilidad para indagar en la psique humana, los secretos colectivos y la irrupción del mal en la vida cotidiana.',
     top_works: [
@@ -122,6 +133,7 @@ const CUSTOM_AUTHORS: Record<string, Partial<AuthorInfo>> = {
   'Robert Graves': {
     bio: 'Robert von Ranke Graves (Wimbledon, 1895 - Deià, Mallorca, 1985) fue un poeta, novelista e historiador británico afincado en España desde 1929. Conocido tanto por su poesía como por sus novelas históricas, alcanzó la fama internacional con su magistral recreación del mundo romano.\n\n📚 Descripción de su obra\n\n- Su obra más celebrada son las novelas históricas centradas en la Roma imperial, escritas con erudición y sentido del humor.\n- También destacó como poeta y ensayista, y como estudioso de la mitología con obras como La diosa blanca.\n- Vivió durante décadas en Deià, Mallorca, donde recibió a artistas e intelectuales de todo el mundo.\n\n👉 En resumen: un clásico imprescindible si te apasionan las novelas históricas ambientadas en la Antigüedad, narradas con ironía y una enorme profundidad histórica.',
     top_works: [
+      'Dioses y héroes de la antigua Grecia',
       'Yo, Claudio',
       'Claudio el dios y su esposa Mesalina',
       'La diosa blanca',

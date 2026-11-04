@@ -189,15 +189,51 @@ El libro en si traducido por Jose Lain Entralgo (Turolense), exiliado en la Unio
     readDate: '2026-11-04',
     summary: "Una pequeña isla pesquera en el estado de Maine donde llega una gran tormenta de nieve. La isla queda aislada, nunca mejor dicho, pero lo peor no es eso, un asesino o mago o diablo, no sabemos lo que es comenza a causar estragos en el pueblo, y dice que no se ira hasta que consiga lo que quiere. Lo que quiere es un niño al que enseñara todo lo que sabe pues el va a morir. Tras una votacion los habitantes de la isla acceden a su peticion, hacen un sorteo y la bola negra le toca al protagonista y su mujer, se llevara a su hijo. Se lo lleva .. y como los isleños 'saben guardar un secreto' nadie en el exterior sabra lo sucedido.",
     review: `No es una novela en si, es un guion para una miniserie para la television, esto hace que el relato sea totalmente diferente.
-
-Estoy a mitad de libro, y la atmosfera es inquietante, fria, terrible ... King sabe crear una atmosfera especial, por algo es uno de los escritores de terror mas leido del mundo.
-
+Estoy a mitad de libro, y la atmosfera es es inquietante, fria, terrible ... King sabe crear una atmosfera especial, por algo es uno de los escritores de terror mas leido del mundo.
 La idea de una isla aislada en medio de una terrible tormenta es escelente, y el le saca todo su jugo. Juega con la psicologia de los personajes, con sus debilidades y fortalezas, con sus 'pecados'.
-
-El mal con mayúsculas personificado en Andre Linoge, que conoce las miserias y secretos más oscuros de cada habitante. Un dilema moral brutal donde se pone a prueba la ética de toda una comunidad: la culpa compartida y el pacto de silencio colectivo. Terror psicológico en estado puro que te atrapa de principio a fin.`,
+El mal con mayusculas esta presente en todo momento, realmente estremece. Estoy deseando terminarla.
+Novela/guion terminado. 
+Una pequeña isla pesquera en el estado de Maine donde llega una gran tormenta de nieve. La isla queda aislada, nunca mejor dicho, pero lo peor no es eso, un asesino o mago o diablo, no sabemos lo que es comenza a causar estragos en el pueblo, y dice que no se ira hasta que consiga lo que quiere. Lo que quiere es un niño al que enseñara todo lo que sabe pues el va a morir. Tras una votacion los habitantes de la isla acceden a su peticion, hacen un sorteo y la bola negra le toca al protagonista y su mujer, se llevara a su hijo. Se lo lleva .. y como los isleños 'saben guardar un secreto' nadie en el exterior sabra lo sucedido.
+Terrorifico guion del cual salio una miniserie para television, Stephen King en estado puro. Te deja sin aliento, no puedes parar de leer.`,
     rating: 5,
     userId: 'bibliotheca',
     createdAt: Timestamp.fromDate(new Date('2026-11-04T12:00:00Z'))
+  },
+  {
+    id: 'dioses-y-heroes-de-la-antigua-grecia-robert-graves',
+    title: 'Dioses y héroes de la antigua Grecia',
+    author: 'Robert Graves',
+    coverUrl: 'https://images-eu.ssl-images-amazon.com/images/I/61QVgO4aXWL._AC_UL232_SR232,232_.jpg',
+    readDate: '2025-10-19',
+    summary: 'Este libro se adentra en la Mitologia Griega',
+    review: `Con un interesante prologo de Ramon Irigoyen, este pequeño libro se adentra en la Mitologia Griega, nos cuenta historias sucedidas a Dioses y Diosas, heroes y hombres.
+Una delicia.`,
+    rating: 4,
+    userId: 'gaudiosomarcojuan@gmail.com',
+    createdAt: Timestamp.fromDate(new Date('2025-10-19T12:00:00Z'))
+  },
+  {
+    id: 'la-isla-de-las-tormentas-ken-follet',
+    title: 'La isla de las tormentas',
+    author: 'Ken Follet',
+    coverUrl: '/covers/la-isla-de-las-tormentas.png',
+    readDate: '2026-07-13',
+    summary: 'Un espía alemán, uno de los mejores agentes de Hitler, descubre una información crucial que podría cambiar el rumbo de la guerra. Perseguido por los servicios secretos británicos, intenta regresar a Alemania para comunicar su hallazgo. Su huida lo lleva a una remota isla escocesa, donde conoce a una mujer cuya vida también está marcada por la guerra. A partir de ese momento comienza una intensa carrera contrarreloj llena de suspense, espionaje y peligro.',
+    review: `Libro de espionaje ambientado en Inglaterra. Un espia especialmente habilidoso envia informacion a Alemania.
+
+¿Que decir de Ken Follet? He leido varios libros  suyos, uno de los autores mas leidos del mundo, con obras de espionaje con un ritmo trepidante.
+
+No te puedes separar del libro, uno de esos libros que te atrapa. La historia fantastica, los personajes creibles, y a mi me gusta mucho la descripcion y la integracion en esa Inglaterra de los 70/80.
+
+Este es uno de esos libros que inducen a leer mas sobre el mismo autor.
+
+Lo he terminado hoy, y me ha encantado, de hecho quiero ver la pelicula basada en este libro:
+'El ojo de la aguja' del año 1981 y el director es Richard Marquand. Actor principal el magnifico Donald Sutherland.
+
+Me gusta la trama, la ambientacion, la idea de esa isla desolada barrida por las tormentas. En fin, un gran libro, que sin ser literatura te hace pasar un rato muy bueno.`,
+    rating: 3,
+    userId: 'gaudiosomarcojuan@gmail.com',
+    createdAt: Timestamp.fromDate(new Date('2026-07-13T12:00:00Z'))
   }
 ];
 
@@ -219,10 +255,34 @@ export default function App() {
   useEffect(() => {
     const q = query(collection(db, 'books'), orderBy('createdAt', 'desc'));
     const unsubscribe = onSnapshot(q, (snapshot) => {
-      const booksData = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      })) as Book[];
+      const booksData = snapshot.docs.map(docSnap => {
+        const data = docSnap.data();
+        let title = data.title || '';
+        let review = data.review || '';
+
+        // Correct 'Diosoes y héroesde la antigua Grecia' typo
+        if (title.toLowerCase().includes('diosoes') || title.toLowerCase().includes('héroesde')) {
+          title = 'Dioses y héroes de la antigua Grecia';
+        }
+
+        // If La tormenta del siglo, enforce exact verbatim user review
+        if (title.toLowerCase().includes('tormenta del siglo')) {
+          review = `No es una novela en si, es un guion para una miniserie para la television, esto hace que el relato sea totalmente diferente.
+Estoy a mitad de libro, y la atmosfera es es inquietante, fria, terrible ... King sabe crear una atmosfera especial, por algo es uno de los escritores de terror mas leido del mundo.
+La idea de una isla aislada en medio de una terrible tormenta es escelente, y el le saca todo su jugo. Juega con la psicologia de los personajes, con sus debilidades y fortalezas, con sus 'pecados'.
+El mal con mayusculas esta presente en todo momento, realmente estremece. Estoy deseando terminarla.
+Novela/guion terminado. 
+Una pequeña isla pesquera en el estado de Maine donde llega una gran tormenta de nieve. La isla queda aislada, nunca mejor dicho, pero lo peor no es eso, un asesino o mago o diablo, no sabemos lo que es comenza a causar estragos en el pueblo, y dice que no se ira hasta que consiga lo que quiere. Lo que quiere es un niño al que enseñara todo lo que sabe pues el va a morir. Tras una votacion los habitantes de la isla acceden a su peticion, hacen un sorteo y la bola negra le toca al protagonista y su mujer, se llevara a su hijo. Se lo lleva .. y como los isleños 'saben guardar un secreto' nadie en el exterior sabra lo sucedido.
+Terrorifico guion del cual salio una miniserie para television, Stephen King en estado puro. Te deja sin aliento, no puedes parar de leer.`;
+        }
+
+        return {
+          id: docSnap.id,
+          ...data,
+          title,
+          review
+        };
+      }) as Book[];
 
       // Merge seeded books if not already in Firestore
       const firestoreTitles = new Set(booksData.map(b => b.title.toLowerCase().trim()));
@@ -418,7 +478,7 @@ export default function App() {
             <div>
               <h4 className="text-xs uppercase tracking-[0.2em] font-bold mb-6 text-white/50">Contacto</h4>
               <p className="text-library-light/80 mb-4">¿Tienes alguna sugerencia?</p>
-              <a href="mailto:hola@bibliotheca.com" className="text-white hover:underline">hola@bibliotheca.com</a>
+              <a href="mailto:gaudiosomarcojuan@gmail.com" className="text-white hover:underline">gaudiosomarcojuan@gmail.com</a>
             </div>
           </div>
           <div className="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-white/10 text-center text-white/30 text-xs uppercase tracking-widest">
