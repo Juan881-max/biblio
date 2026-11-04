@@ -187,8 +187,11 @@ function getRecommendations(lastBook: Book): Recommendation[] {
     ];
   }
 
-  // Al-Ándalus / Córdoba / Jewish & Islamic Medieval World
+  // Al-Ándalus / Córdoba / Jewish & Islamic Medieval World / El puente de Alcántara
   if (
+    authorLower.includes('baer') ||
+    titleLower.includes('alcántara') ||
+    titleLower.includes('alcantara') ||
     authorLower.includes('guiladi') ||
     titleLower.includes('cipreses') ||
     titleLower.includes('córdoba') ||
@@ -196,8 +199,15 @@ function getRecommendations(lastBook: Book): Recommendation[] {
     titleLower.includes('ándalus') ||
     titleLower.includes('andalus')
   ) {
+    const isAlcantara = titleLower.includes('alcántara') || titleLower.includes('alcantara') || authorLower.includes('baer');
     return [
-      {
+      isAlcantara ? {
+        title: 'Los cipreses de Córdoba',
+        author: 'Yael Guiladi',
+        reason: `Una extraordinaria saga familiar ambientada en el esplendor del Califato de Córdoba del siglo X, centrada en una estirpe de médicos y sabios judíos cercanos a la corte y el fascinante florecimiento científico andalusí.`,
+        coverUrl: '/covers/los-cipreses-de-cordoba.png',
+        coverQuery: '',
+      } : {
         title: 'El puente de Alcántara',
         author: 'Frank Baer',
         reason: `La gran novela de las tres culturas en la España del siglo XI. Un poeta judío, un caballero cristiano y un médico andalusí cruzan sus destinos en un tapiz histórico de una riqueza y un detalle inolvidables.`,

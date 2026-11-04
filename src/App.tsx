@@ -234,6 +234,72 @@ Me gusta la trama, la ambientacion, la idea de esa isla desolada barrida por las
     rating: 3,
     userId: 'gaudiosomarcojuan@gmail.com',
     createdAt: Timestamp.fromDate(new Date('2026-07-13T12:00:00Z'))
+  },
+  {
+    id: 'el-puente-de-alcantara-frank-baer',
+    title: 'El puente de Alcántara',
+    author: 'Frank Baer',
+    coverUrl: '/covers/el-puente-de-alcantara.png',
+    readDate: '2026-04-19',
+    summary: 'Novela histórica ambientada en la España medieval de los siglos XI y XII. Narra la vida de un médico musulmán de gran talento que se ve obligado a afrontar los profundos cambios políticos, religiosos y culturales de una época marcada por la convivencia y el enfrentamiento entre musulmanes, cristianos y judíos. A través de viajes, intrigas y conflictos personales, la obra muestra el choque de civilizaciones y la lucha por el conocimiento y la supervivencia. Es una novela épica, rica en detalles históricos y con una gran reconstrucción de la Península Ibérica medieval.',
+    review: `He comenzado a leer este libro, que por el momento me tiene atrapado. Lo debí de leer hace muchos años, lo tenia en la Libreria y ahi estaba, pero la verdad es que no recuerdo nada, al menos por el momento.
+
+Argumento, hasta ahora (que solo llevo 100 paginas); son tres historias separadas, todo en el entorno del año 1064 en España, esa España musulmana por aquellos tiempos. Historia de musulmanes, de judios y de cristianos.
+
+Nos da mucha informacion, sobre la riqueza de ciudades como Murcia, Sevilla, Cordoba, de usos y costumbres de las tres culturas. Nos habla de medicina, que interesante, de escribientes y poesia, de gente quese ganaba la vida asi, de jugadores de ajedrez, de hermosas mujeres ocultas en el haren, de cristianos y castillos, de caballos y señores, de siervos y condes ... muy entretenido y ademas muy detallista, parece que el autor sabe mucho del tema y transmite bien.
+
+===============
+
+El argumento nos habla de tres personajes distintos de las tres comunidades religiosas y culturales que habia en la España (si podemos llamarla España) del siglo XI, concretamente en el año 1064 que es en el que se basa la gran parte de la novela.
+
+¿Que me llama la atencion?
+
+Bien, son muchas cosas:
+
+- En primer lugar me parece maravilloso como el autor describe la suntuosidad, el lujo y el refinamiento de la comunidad arabe a traves del Poeta, osea del protagonista de la parte arabe. Me parece terrible las luchas por el poder, que habia en las familias principales. Tambien es muy curioso el tema del haren y como las mujeres, confinadas y ocultadas, tenian en ocasiones la forma de burlar la vigilancia y bueno dar lugar a leyendas, historias, en fin la vida en aquellos tiempos.
+- Por la parte de Lope, el joven escudero cristiano, es curioso y a la vez duro, ver las condiciones en las que vivia la gente 'cristiana' en aquellos tiempos. Los castillos y los señores, que diferencias con la gente del pueblo, y que decir del clero, que como siempre medraba a costa de los pobres ignorantes, siempre la religion ha supuesto un problema para los pobres y una forma maravillosa de ganarse la vida para unos pocos.
+- El medico judio, un sabio. Ahora estoy en la parte donde van a atacar la ciudad de Barbastro. Que mavavilla ver a esos sabios de la antiguedad, tan reales, tan inteligentes, tanto mas cuanto mas ignorante era el populacho.
+
+Una epoca cruel, donde solo unos pocos vivian bien, con grandes diferencias entre el mundo musulman en España y el Cristiano. Por una parte, la educacion, las buenas formas, la sensibilidad y la belleza . Po otra parte, ese mundo cristiano mas salvaje y violento, con el terror que creo que se tenia a obispos y demas jerarquia de la iglesia.
+
+Se convivia pese a todo en este pais hace 1000 años, las tres religiones convivian, quiza ahora 1000 años despues es igual de dificil o mas, la religion sige siendo un escollo, un gran problema, no te parece? Seria maravilloso poder ver una de esas ciudades musulmanas, imagina caminar por las calles de Cordoba o de Sevilla en el siglo XI.
+
+Imagina escuchar a uno de esos sabios judios hablar de medicina o de religion, de sus costumbres ...
+
+Termino la primera parte del libro y me ha parecido fantastico. Para terminar, y como colofon esta el asedio y conquista por parte de normandos, francos y el Rey de Aragon del Castillo de Barbastro.
+
+Aqui el autor lo describe con toda su crudeza, parecen los atacantes unos salvajes sedientos de riquezas, de oro y esclavos. Gente del norte que queria eliminar y asesinar a los musulmanes, que de alguna forma en aquellos entonces representaban la civilizacion, el refinamiento, el desarrollo de la medicina, en fin, eran los 'civilizados' y el invasor el salvaje, los asesinos, gentes sin principios ... da que pensar esto.
+
+ 1. *El choque cultural: Cruzados vs. Peninsulares*
+
+Lo que describe el libro es históricamente exacto. Barbastro no fue una batalla más; se considera la **"primera cruzada"** (antes incluso de la de Jerusalén).
+
+- **Los "Ultramontanos":** Los caballeros que bajaron de Francia y Normandía traían una mentalidad de "Guerra Santa" mucho más radical. Para ellos, el musulmán era un enemigo que debía ser exterminado o esclavizado.
+    
+- **Los Cristianos locales:** Los reyes de Aragón o Castilla, aunque guerreaban contra los musulmanes, estaban acostumbrados a convivir, comerciar y hasta aliarse con ellos. La crueldad extrema que mencionas vino, en gran medida, impulsada por esos caballeros extranjeros que no entendían la compleja realidad peninsular.
+    
+
+2. *¿Era el Sur más civilizado?*
+
+En el siglo XI, la respuesta corta es **sí**, en términos de desarrollo urbano, ciencia y refinamiento.
+
+- **Al-Ándalus (el Sur):** Era el heredero del esplendor del Califato. Tenían bibliotecas, sistemas de alcantarillado, una medicina avanzadísima y una economía basada en el comercio de seda y especias. La vida era, como dices, mucho más "cómoda".
+    
+- **Los Reinos Cristianos (el Norte):** Eran sociedades más rurales, guerreras y austeras. Su economía era de subsistencia y su estructura social estaba volcada casi exclusivamente hacia la guerra.
+    
+ 3. *El mito de la tolerancia absoluta*
+
+Es tentador ver a los musulmanes como los "buenos" y a los cristianos como los "malos", pero la historia es de un **gris oscuro**:
+
+- **La convivencia:** Existía, pero era una "jerarquía". Cristianos y judíos en territorio musulmán (mozárabes y sefardíes) podían practicar su religión, pero pagando impuestos especiales y con derechos limitados.
+    
+- **La crueldad:** No era exclusiva del Norte. Cuando los Almorávides y Almohades (extremistas del norte de África) cruzaron el estrecho poco después de estos eventos, aplicaron una violencia y un fanatismo que horrorizó incluso a los propios musulmanes de la península.
+Lo que hace grande a _El Puente de Alcántara_ es que no nos presenta caballeros de armadura brillante y valores puros, sino hombres de su tiempo: codiciosos, sucios y capaces de una crueldad que hoy nos parece impensable.
+
+Esa caída desde la "vida cómoda" a la esclavitud que mencionas es el gran drama de la España del siglo XI: el fin de un modelo de convivencia y el inicio de una era de fanatismo religioso en ambos bandos.`,
+    rating: 5,
+    userId: 'gaudiosomarcojuan@gmail.com',
+    createdAt: Timestamp.fromDate(new Date('2026-04-19T12:00:00Z'))
   }
 ];
 

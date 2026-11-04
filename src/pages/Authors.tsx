@@ -22,6 +22,14 @@ interface AuthorsProps {
 }
 
 const CUSTOM_AUTHORS: Record<string, Partial<AuthorInfo>> = {
+  'Frank Baer': {
+    bio: 'Frank Baer (Dresde, 1938) es un novelista, ensayista y periodista alemán, reconocido internacionalmente por su monumental reconstrucción de la España medieval en "El puente de Alcántara", una de las cumbres absolutas de la novela histórica sobre la Península Ibérica en el siglo XI.\n\n📚 Biografía y obra\n\n- Trabajó durante años como redactor y corresponsal antes de dedicarse a la investigación histórica exhaustiva sobre la convivencia y el choque de las tres culturas en la Edad Media peninsular.\n- Su obra maestra, El puente de Alcántara (Die Brücke von Alcántara, 1988), fruto de años de rigurosa investigación documental, ofrece un tapiz coral inigualable a través de tres destinos cruzados en el año 1064: un poeta y cortesano andalusí, un joven escudero cristiano y un médico sabio judío.\n- La novela destaca por su lucidez histórica al desmitificar las visiones maniqueas, mostrando con crudeza el asedio de Barbastro, la sofisticación del sur andalusí, la rudeza de los reinos del norte y el advenimiento del fanatismo religioso.\n\n👉 En resumen: Una de las lecturas más ricas, documentadas e imprescindibles sobre la España medieval, las tres religiones y la búsqueda del conocimiento.',
+    top_works: [
+      'El puente de Alcántara',
+      'La cruzada de los niños'
+    ],
+    birth_date: '1938'
+  },
   'Ken Follet': {
     bio: 'Ken Follett (Cardiff, Gales, 1949) es uno de los autores de suspense, espionaje y novela histórica más leídos y aclamados del mundo, con más de 170 millones de ejemplares vendidos en más de 80 países.\n\n📚 Biografía y obra\n\n- Graduado en Filosofía por el University College de Londres, ejerció como reportero antes de dedicarse por completo a la literatura de intriga.\n- Saltó al éxito internacional fulgurante en 1978 con La isla de las tormentas (Eye of the Needle), galardonada con el prestigioso Premio Edgar al Mejor Thriller y adaptada magistralmente al cine en 1981 con el título El ojo de la aguja, protagonizada por Donald Sutherland.\n- Es mundialmente célebre por su ritmo trepidante, rigor en la ambientación histórica y capacidad insuperable para enganchar al lector, tanto en novelas de espionaje bélico como en sus monumentales sagas históricas (Los pilares de la Tierra, Un mundo sin fin, La caída de los gigantes).\n\n👉 En resumen: Maestro absoluto del suspense narrativo de alta tensión, donde la meticulosa reconstrucción bélica y de inteligencia se entrelaza con personajes apasionantes y carreras contrarreloj.',
     top_works: [
