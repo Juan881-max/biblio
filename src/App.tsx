@@ -351,7 +351,7 @@ export default function App() {
 
             <div className="flex items-center gap-3 sm:gap-6">
               <nav className="flex items-center gap-3 sm:gap-6 md:gap-8 text-xs sm:text-sm uppercase tracking-wider font-semibold text-slate-600">
-                <Link to="/" className="hover:text-library-blue transition-colors">Libros</Link>
+                <Link to="/" className="hover:text-library-blue transition-colors">Libros y Reseñas</Link>
                 <Link to="/authors" className="hover:text-library-blue transition-colors">Autores</Link>
                 <Link to="/explore" className="hover:text-library-blue transition-colors font-bold text-library-blue sm:text-slate-600">Explorar</Link>
               </nav>

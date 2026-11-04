@@ -358,7 +358,7 @@ function getRecommendations(lastBook: Book): Recommendation[] {
 }
 
 // ─── Recommendation Card ─────────────────────────────────────────────────────
-function RecommendationCard({ rec, index }: { rec: Recommendation; index: number }) {
+const RecommendationCard: React.FC<{ rec: Recommendation; index: number }> = ({ rec, index }) => {
   const [imgError, setImgError] = useState(false);
 
   return (
@@ -649,7 +649,7 @@ export default function Explore({ books = [] }: ExploreProps) {
       )}
 
       {/* ── Original Header ────────────────────────────────────────────── */}
-      <section className={`bg-gradient-to-br from-library-dark to-library-blue py-16 ${lastBook ? '' : ''}`}>
+      <section className="bg-gradient-to-br from-library-dark to-library-blue py-16">
         <div className="max-w-7xl mx-auto px-4">
           <motion.h1
             initial={{ y: 20, opacity: 0 }}

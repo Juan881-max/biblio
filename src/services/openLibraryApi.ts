@@ -252,9 +252,13 @@ export async function getTop30Bestsellers(): Promise<TrendingBook[]> {
   const results = await Promise.all(top30.map(async (book) => {
     try {
       const q = book.author ? `title:"${book.title}" author:${book.author}` : `title:"${book.title}"`;
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 2500);
       const response = await fetch(
-        `${BASE_URL}/search.json?q=${encodeURIComponent(q)}&limit=1&fields=key,title,author_name,cover_i,edition_count,first_publish_year,ratings_average,ratings_count`
+        `${BASE_URL}/search.json?q=${encodeURIComponent(q)}&limit=1&fields=key,title,author_name,cover_i,edition_count,first_publish_year,ratings_average,ratings_count`,
+        { signal: controller.signal }
       );
+      clearTimeout(timeoutId);
       if (!response.ok) throw new Error('API failed');
 
       const data = await response.json();
