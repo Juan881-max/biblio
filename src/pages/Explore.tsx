@@ -17,6 +17,40 @@ function getRecommendations(lastBook: Book): Recommendation[] {
   const titleLower = lastBook.title.toLowerCase();
   const authorLower = lastBook.author.toLowerCase();
 
+  // John le Carré / El espía que surgió del frío / Cold War Espionage
+  if (
+    authorLower.includes('carre') ||
+    authorLower.includes('carré') ||
+    authorLower.includes('lecarre') ||
+    authorLower.includes('lecarré') ||
+    titleLower.includes('espia que surgio') ||
+    titleLower.includes('espía que surgió')
+  ) {
+    return [
+      {
+        title: 'El topo (Tinker Tailor Soldier Spy)',
+        author: 'John le Carré',
+        reason: 'La obra cumbre de George Smiley investigando a un topo soviético en lo más alto del servicio secreto británico. Comparte el realismo gris, la hondura psicológica y el rigor documental de El espía que surgió del frío.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/97884deb422784-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'El factor humano',
+        author: 'Graham Greene',
+        reason: 'Un retrato magistral sobre los dilemas morales, el deber y la amoralidad de las agencias de inteligencia durante la Guerra Fría, narrado por uno de los gigantes de las letras británicas.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788497597159-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'La isla de las tormentas',
+        author: 'Ken Follett',
+        reason: 'Una de tus lecturas de cabecera: intriga de espionaje, persecución contrarreloj y el fascinante juego psicológico entre agentes secretos.',
+        coverUrl: '/covers/la-isla-de-las-tormentas.png',
+        coverQuery: '',
+      },
+    ];
+  }
+
   // Jack Higgins / Ha llegado el águila / WWII Commando Operations & Military Suspense
   if (
     authorLower.includes('higgins') ||
@@ -90,7 +124,7 @@ function getRecommendations(lastBook: Book): Recommendation[] {
         title: 'El espía que surgió del frío',
         author: 'John le Carré',
         reason: 'La cumbre indiscutible de la novela de espionaje. Comparte con la obra de Follett la tensión implacable, la psicología de agentes dobles y las intrigas de alta inteligencia en plena confrontación bélica.',
-        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788466332507-L.jpg',
+        coverUrl: '/covers/el-espia-que-surgio-del-frio.png',
         coverQuery: '',
       },
       {

@@ -22,6 +22,30 @@ interface AuthorsProps {
 }
 
 const CUSTOM_AUTHORS: Record<string, Partial<AuthorInfo>> = {
+  'John le Carré': {
+    bio: 'John le Carré (seudónimo literario de David John Moore Cornwell, Poole, Dorset, 1931 - Truro, Cornualles, 2020) es unánimemente aclamado como el gran maestro indiscutible de la novela de espionaje del siglo XX y uno de los escritores británicos más influyentes de la literatura contemporánea.\n\n📚 Biografía y obra\n\n- Tras estudiar filología alemana en la Universidad de Berna y graduarse en la Universidad de Oxford, impartió clases en el prestigioso colegio Eton.\n- Durante las décadas de 1950 y 1960 formó parte activa de los servicios secretos británicos: primero en el servicio de seguridad interna (MI5) y posteriormente en el servicio de inteligencia exterior (MI6), destinado en Alemania bajo cobertura diplomática en pleno apogeo de la Guerra Fría y el levantamiento del Muro de Berlín.\n- Su tercera novela, El espía que surgió del frío (The Spy Who Came in from the Cold, 1963), supuso una auténtica revolución literaria mundial. Desmitificó radicalmente la visión glamurosa y fantástica de espías tipo James Bond para mostrar un universo desgarrador, claustrofóbico, burocrático y amoral, donde los peones individuales son sacrificados con frialdad por las maquinarias del poder de ambos bandos (inmortalizada en el cine en 1965 con Richard Burton).\n- Consagró su maestría con la trilogía de George Smiley (El topo, El honorable colegial, La gente de Smiley), El sastre de Panamá, El jardinero fiel y Un espía perfecto.\n\n👉 En resumen: El autor definitivo de espionaje psicológico y político, caracterizado por su realismo implacable, dilemas éticos y una honda mirada a la condición humana bajo la tensión de los secretos de Estado.',
+    top_works: [
+      'El espía que surgió del frío',
+      'El topo (Tinker Tailor Soldier Spy)',
+      'Un espía perfecto',
+      'El jardinero fiel',
+      'La gente de Smiley'
+    ],
+    birth_date: '1931',
+    death_date: '2020'
+  },
+  'John Lecarré': {
+    bio: 'John le Carré (seudónimo literario de David John Moore Cornwell, Poole, Dorset, 1931 - Truro, Cornualles, 2020) es unánimemente aclamado como el gran maestro indiscutible de la novela de espionaje del siglo XX y uno de los escritores británicos más influyentes de la literatura contemporánea.\n\n📚 Biografía y obra\n\n- Tras estudiar filología alemana en la Universidad de Berna y graduarse en la Universidad de Oxford, impartió clases en el prestigioso colegio Eton.\n- Durante las décadas de 1950 y 1960 formó parte activa de los servicios secretos británicos: primero en el servicio de seguridad interna (MI5) y posteriormente en el servicio de inteligencia exterior (MI6), destinado en Alemania bajo cobertura diplomática en pleno apogeo de la Guerra Fría y el levantamiento del Muro de Berlín.\n- Su tercera novela, El espía que surgió del frío (The Spy Who Came in from the Cold, 1963), supuso una auténtica revolución literaria mundial. Desmitificó radicalmente la visión glamurosa y fantástica de espías tipo James Bond para mostrar un universo desgarrador, claustrofóbico, burocrático y amoral, donde los peones individuales son sacrificados con frialdad por las maquinarias del poder de ambos bandos (inmortalizada en el cine en 1965 con Richard Burton).\n- Consagró su maestría con la trilogía de George Smiley (El topo, El honorable colegial, La gente de Smiley), El sastre de Panamá, El jardinero fiel y Un espía perfecto.\n\n👉 En resumen: El autor definitivo de espionaje psicológico y político, caracterizado por su realismo implacable, dilemas éticos y una honda mirada a la condición humana bajo la tensión de los secretos de Estado.',
+    top_works: [
+      'El espía que surgió del frío',
+      'El topo (Tinker Tailor Soldier Spy)',
+      'Un espía perfecto',
+      'El jardinero fiel',
+      'La gente de Smiley'
+    ],
+    birth_date: '1931',
+    death_date: '2020'
+  },
   'Jack Higgins': {
     bio: 'Jack Higgins (seudónimo de Harry Patterson, Newcastle upon Tyne, 1929 - Jersey, 2022) fue uno de los autores británicos de thrillers militares, espionaje y suspense de mayor éxito y reconocimiento mundial, con más de 80 novelas traducidas a decenas de idiomas y más de 250 millones de ejemplares vendidos.\n\n📚 Biografía y obra\n\n- Tras prestar servicio militar en el regimiento de élite Horse Guards en la frontera alemana y graduarse en Sociología por la London School of Economics, ejerció como docente universitario antes de volcarse por completo en la escritura.\n- En 1975 alcanzó consagración mundial indiscutible con Ha llegado el águila (The Eagle Has Landed), hito de la novela bélica que revitalizó el género al presentar un comando de paracaidistas alemanes con un profundo sentido del honor enfrentados a una misión casi suicida en suelo inglés (magistralmente adaptada al cine en 1976 con Michael Caine, Donald Sutherland y Robert Duvall).\n- Creador de personajes legendarios como el exagente Liam Devlin y el implacable Sean Dillon, destacó por su prodigioso manejo del suspense, atmósferas desoladas y dilemas morales bajo el fuego de la guerra y la inteligencia.\n\n👉 En resumen: Maestro indiscutible del thriller militar y de infiltración bélica, con narrativas directas, personajes con alma y tramas electrizantes.',
     top_works: [

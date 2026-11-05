@@ -350,6 +350,30 @@ Una gran pelicula, aunque el libro es mucho mas completo.`,
     rating: 4,
     userId: 'gaudiosomarcojuan@gmail.com',
     createdAt: Timestamp.fromDate(new Date('2026-07-21T12:00:00Z'))
+  },
+  {
+    id: 'el-espia-que-surgio-del-frio-john-le-carre',
+    title: 'El espía que surgió del frío',
+    author: 'John le Carré',
+    coverUrl: '/covers/el-espia-que-surgio-del-frio.png',
+    readDate: '2026-08-09',
+    summary: 'El espía que surgió del frío es una novela de espionaje ambientada en los años más tensos de la Guerra Fría. Sigue a un veterano agente británico que acepta una última y arriesgada misión contra la inteligencia de Alemania Oriental. Lo que parece una operación rutinaria se convierte en una compleja red de engaños, manipulaciones y dobles juegos. A diferencia de las novelas de espías más aventureras, John le Carré muestra un mundo gris, duro y moralmente ambiguo, donde nadie es completamente inocente. Es considerada una de las mejores novelas de espionaje jamás escritas.',
+    review: `He comenzado a leer 'El espia que surgio del frio' de John Le carré, creo haberlo leido hace mucho y como que me dejo algo frio, me parecio un rollo, creo que no lo comprendi en aquel entonces.
+
+Hoy y tras leer el prologo, siempre importante, me he lanzado de lleno. Lo entiendo y me gusta, una trama de espias entre espias ingleses y alemanes, hablamos de la decada de los sesenta del pasado siglo, en tiempos de la guerra fria.
+
+El protagonista no es el tipo de espia que describe Ian Fleming(el maravilloso y espectacular 007), es un tipo diferente, eso si un profesional, pero como diriamos cansado, aborrecido de una vida mas bien vacia, cansado de luchar por nada en concreto, superado y manipulado por los suyos ... en fin diferente.
+
+Transmite una atmosfera opresiva, fria, brumosa, triste, sucia, donde el como los demas parecen ser marionetas que otros manipulan, con intereses propios, de forma cruel ...
+
+El final del libro realmente una sorpresa, realmente un guion muy bien trazado, entiendo porque ha sido un bestseller. 
+
+Hace pensar. No es importante el individuo sino el conjunto, no se tienen en cuenta la realidad de las personas, no hay etica ... parece tan real.
+
+Personas, organizaciones que manipulan a sua antojo a personas o grupos que les llevan hasta la muerte si hace falta con tal de lograr sus propositos, en teoria 'para un bien mayor.'`,
+    rating: 4,
+    userId: 'gaudiosomarcojuan@gmail.com',
+    createdAt: Timestamp.fromDate(new Date('2026-08-09T12:00:00Z'))
   }
 ];
 
