@@ -17,6 +17,37 @@ function getRecommendations(lastBook: Book): Recommendation[] {
   const titleLower = lastBook.title.toLowerCase();
   const authorLower = lastBook.author.toLowerCase();
 
+  // Jack Higgins / Ha llegado el águila / WWII Commando Operations & Military Suspense
+  if (
+    authorLower.includes('higgins') ||
+    titleLower.includes('aguila') ||
+    titleLower.includes('águila')
+  ) {
+    return [
+      {
+        title: 'La isla de las tormentas',
+        author: 'Ken Follett',
+        reason: 'La primera obra de tu serie de lecturas de la Segunda Guerra Mundial: espías alemanes en suelo británico, tensión contrarreloj y el protagonismo de Donald Sutherland.',
+        coverUrl: '/covers/la-isla-de-las-tormentas.png',
+        coverQuery: '',
+      },
+      {
+        title: 'Enigma',
+        author: 'Robert Harris',
+        reason: 'El apasionante thriller de criptografía, códigos secretos e inteligencia en Bletchley Park que completa la trilogía de tus lecturas bélicas.',
+        coverUrl: '/covers/enigma.png',
+        coverQuery: '',
+      },
+      {
+        title: 'Los cañones de Navarone',
+        author: 'Alistair MacLean',
+        reason: 'La gran obra maestra de comandos especiales e infiltración tras las líneas enemigas en la Segunda Guerra Mundial, con un suspense heroico e incesante.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788497597142-L.jpg',
+        coverQuery: '',
+      },
+    ];
+  }
+
   // Robert Harris / Enigma / Bletchley Park & WWII Intelligence
   if (
     authorLower.includes('harris') ||
@@ -28,7 +59,7 @@ function getRecommendations(lastBook: Book): Recommendation[] {
         title: 'Ha llegado el águila',
         author: 'Jack Higgins',
         reason: 'El gran clásico de operaciones de comandos e inteligencia militar en suelo británico durante la Segunda Guerra Mundial, directamente vinculado a tu serie de lecturas.',
-        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788401321740-L.jpg',
+        coverUrl: '/covers/ha-llegado-el-aguila.png',
         coverQuery: '',
       },
       {

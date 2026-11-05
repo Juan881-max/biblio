@@ -22,6 +22,17 @@ interface AuthorsProps {
 }
 
 const CUSTOM_AUTHORS: Record<string, Partial<AuthorInfo>> = {
+  'Jack Higgins': {
+    bio: 'Jack Higgins (seudónimo de Harry Patterson, Newcastle upon Tyne, 1929 - Jersey, 2022) fue uno de los autores británicos de thrillers militares, espionaje y suspense de mayor éxito y reconocimiento mundial, con más de 80 novelas traducidas a decenas de idiomas y más de 250 millones de ejemplares vendidos.\n\n📚 Biografía y obra\n\n- Tras prestar servicio militar en el regimiento de élite Horse Guards en la frontera alemana y graduarse en Sociología por la London School of Economics, ejerció como docente universitario antes de volcarse por completo en la escritura.\n- En 1975 alcanzó consagración mundial indiscutible con Ha llegado el águila (The Eagle Has Landed), hito de la novela bélica que revitalizó el género al presentar un comando de paracaidistas alemanes con un profundo sentido del honor enfrentados a una misión casi suicida en suelo inglés (magistralmente adaptada al cine en 1976 con Michael Caine, Donald Sutherland y Robert Duvall).\n- Creador de personajes legendarios como el exagente Liam Devlin y el implacable Sean Dillon, destacó por su prodigioso manejo del suspense, atmósferas desoladas y dilemas morales bajo el fuego de la guerra y la inteligencia.\n\n👉 En resumen: Maestro indiscutible del thriller militar y de infiltración bélica, con narrativas directas, personajes con alma y tramas electrizantes.',
+    top_works: [
+      'Ha llegado el águila (The Eagle Has Landed)',
+      'El águila ha volado',
+      'El toque del diablo',
+      'Confesional',
+      'El día del juicio'
+    ],
+    birth_date: '1929'
+  },
   'Robert Harris': {
     bio: 'Robert Dennis Harris (Nottingham, 1957) es un prestigioso novelista, historiador y periodista británico, célebre mundialmente por sus thrillers históricos de rigurosa base documental sobre el poder político, la Segunda Guerra Mundial y el espionaje de inteligencia.\n\n📚 Biografía y obra\n\n- Graduado en Literatura Inglesa por la Universidad de Cambridge, trabajó como reportero para la BBC y columnista en The Sunday Times y The Daily Telegraph antes de consagrarse a la narrativa.\n- Su novela Enigma (1995) recrea con maestría técnica y humana la atmósfera claustrofóbica de Bletchley Park, los desafíos matemáticos de la máquina de cifrado nazi y la trascendencia de la información en el desenlace del conflicto bélico (adaptada al cine en 2001 con guion de Tom Stoppard).\n- Es autor de grandes éxitos internacionales como Patria (Fatherland), El escritor fantasma (The Ghost Writer), Múnich y su aclamada trilogía sobre Cicerón en la Roma republicana (Imperium, Lustrum, Dictator).\n\n👉 En resumen: Un referente indiscutible del thriller histórico inteligente, caracterizado por su precisión histórica, tramas envolventes y lúcida reflexión sobre los secretos de Estado.',
     top_works: [

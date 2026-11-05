@@ -326,6 +326,30 @@ Un gran libro sin duda, que te introduce de lleno en Inglaterra durante la guerr
     rating: 4,
     userId: 'gaudiosomarcojuan@gmail.com',
     createdAt: Timestamp.fromDate(new Date('2026-08-01T12:00:00Z'))
+  },
+  {
+    id: 'ha-llegado-el-aguila-jack-higgins',
+    title: 'Ha llegado el águila',
+    author: 'Jack Higgins',
+    coverUrl: '/covers/ha-llegado-el-aguila.png',
+    readDate: '2026-07-21',
+    summary: 'Ha llegado el águila es un thriller bélico ambientado durante la Segunda Guerra Mundial. La novela parte de una premisa sorprendente: un comando alemán recibe la misión secreta de infiltrarse en Inglaterra para llevar a cabo una operación contra Winston Churchill. A medida que avanzan los preparativos y la infiltración, la tensión aumenta y los personajes se enfrentan a dilemas de lealtad, honor y supervivencia. Jack Higgins combina acción, espionaje y acontecimientos históricos en una historia trepidante que mantiene el suspense hasta el final.',
+    review: `Comienzo hoy este libro del cual he vistlo la pelicula varias veces, ayer la vi. Con Donald Sutherland como actor principal es una gran pelicula belica, interesante, mas que interesante. Veremos el libro.
+
+Hoy he terminado el libro 'Ha llegado el aguila' de Jack Higgins.
+
+El libro trata de una operacion orquestada por un grupo de paracaidistas alemanes que intentan secuestrar a Winston Churchill en una visita que el hace en una aislada villa en el norte de Inglaterra.
+
+Toda la historia se desarrolla en el año 1943, en plena Segunda Guerra Mundial. Cuando ya la guerra parecia perdida para los alemanes intentan un atrevido golpe de mano, secuestrar a Churchil y llevarlo a Alemania o en todo caso matarlo. Sin duda seria un gran golpe para los aliados.
+
+El argumento me parece muy bien hilado, los protagonistas es el comando aleman dirigido por el coronel Steiner, un hombre de honor que ha recorrido todos los frentes de la guerra, condecorado y querido por sus hombres.
+
+Me encanta la descripcion del pequeño pueblo ingles donde transcurren los hechos, gente humilde pero honrada. En la novela tambien se detalla el horrible tiempo que hay en aquellos desolados parajes, niebla, lluvia, frio, bosques y senderos siempre verdes, pantanos y el mar.
+
+Una gran pelicula, aunque el libro es mucho mas completo.`,
+    rating: 4,
+    userId: 'gaudiosomarcojuan@gmail.com',
+    createdAt: Timestamp.fromDate(new Date('2026-07-21T12:00:00Z'))
   }
 ];
 
