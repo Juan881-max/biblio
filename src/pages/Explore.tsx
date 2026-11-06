@@ -596,7 +596,7 @@ export default function Explore({ books = [] }: ExploreProps) {
       {activeBook && (
         <section className="relative overflow-hidden">
           {/* Deep layered background */}
-          <div className="absolute inset-0 bg-[#0f1724]" />
+          <div className="absolute inset-0 bg-[#2C2319]" />
           <div
             className="absolute inset-0 opacity-10"
             style={{
@@ -606,7 +606,7 @@ export default function Explore({ books = [] }: ExploreProps) {
             }}
           />
           {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0f1724]/80 via-[#0f1724]/60 to-[#0f1724]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#2C2319]/85 via-[#2C2319]/70 to-[#2C2319]" />
           {/* Subtle gold accent line at top */}
           <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-amber-400/80 to-transparent" />
 
