@@ -22,6 +22,18 @@ interface AuthorsProps {
 }
 
 const CUSTOM_AUTHORS: Record<string, Partial<AuthorInfo>> = {
+  'Leon Uris': {
+    bio: 'Leon Marcus Uris (Baltimore, Maryland, 1924 - Shelter Island, Nueva York, 2003) fue un célebre novelista y guionista estadounidense, reconocido internacionalmente por sus monumentales novelas épicas históricas basadas en rigurosas investigaciones y en los acontecimientos más trascendentales del siglo XX.\n\n📚 Biografía y obra\n\n- Hijo de un inmigrante judío polaco que huyó de los pogromos zaristas, se alistó en el Cuerpo de Marines a los diecisiete años tras el ataque a Pearl Harbor, combatiendo como operador de radio en el Pacífico (Guadalcanal y Tarawa).\n- Su experiencia militar inspiró su primera novela, Más allá de las lágrimas (Battle Cry, 1953), que se convirtió en un éxito rotundo. En 1958 alcanzó consagración mundial absoluta con Éxodo (Exodus), fenómeno editorial que retrató el nacimiento del Estado de Israel y la epopeya de los refugiados del Holocausto.\n- En 1961 publicó Mila 18, fruto de minuciosas entrevistas e investigaciones sobre el heroico levantamiento del gueto de Varsovia en 1943, donde el búnker de la calle Miła 18 sirvió de cuartel general a la Organización Judía de Combate (ŻOB).\n- Autor de otros grandes títulos como Topaz (adaptada al cine por Alfred Hitchcock), QB VII y Trinidad.\n\n👉 En resumen: Maestro indiscutible de la novela histórica monumental y apasionada, capaz de plasmar el dolor, la dignidad y el coraje frente a la opresión con un ritmo conmovedor e inolvidable.',
+    top_works: [
+      'Mila 18',
+      'Éxodo (Exodus)',
+      'Más allá de las lágrimas (Battle Cry)',
+      'Topaz',
+      'Trinidad'
+    ],
+    birth_date: '1924',
+    death_date: '2003'
+  },
   'John le Carré': {
     bio: 'John le Carré (seudónimo literario de David John Moore Cornwell, Poole, Dorset, 1931 - Truro, Cornualles, 2020) es unánimemente aclamado como el gran maestro indiscutible de la novela de espionaje del siglo XX y uno de los escritores británicos más influyentes de la literatura contemporánea.\n\n📚 Biografía y obra\n\n- Tras estudiar filología alemana en la Universidad de Berna y graduarse en la Universidad de Oxford, impartió clases en el prestigioso colegio Eton.\n- Durante las décadas de 1950 y 1960 formó parte activa de los servicios secretos británicos: primero en el servicio de seguridad interna (MI5) y posteriormente en el servicio de inteligencia exterior (MI6), destinado en Alemania bajo cobertura diplomática en pleno apogeo de la Guerra Fría y el levantamiento del Muro de Berlín.\n- Su tercera novela, El espía que surgió del frío (The Spy Who Came in from the Cold, 1963), supuso una auténtica revolución literaria mundial. Desmitificó radicalmente la visión glamurosa y fantástica de espías tipo James Bond para mostrar un universo desgarrador, claustrofóbico, burocrático y amoral, donde los peones individuales son sacrificados con frialdad por las maquinarias del poder de ambos bandos (inmortalizada en el cine en 1965 con Richard Burton).\n- Consagró su maestría con la trilogía de George Smiley (El topo, El honorable colegial, La gente de Smiley), El sastre de Panamá, El jardinero fiel y Un espía perfecto.\n\n👉 En resumen: El autor definitivo de espionaje psicológico y político, caracterizado por su realismo implacable, dilemas éticos y una honda mirada a la condición humana bajo la tensión de los secretos de Estado.',
     top_works: [

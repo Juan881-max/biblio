@@ -374,6 +374,31 @@ Personas, organizaciones que manipulan a sua antojo a personas o grupos que les 
     rating: 4,
     userId: 'gaudiosomarcojuan@gmail.com',
     createdAt: Timestamp.fromDate(new Date('2026-08-09T12:00:00Z'))
+  },
+  {
+    id: 'mila-18-leon-uris',
+    title: 'Mila 18',
+    author: 'Leon Uris',
+    coverUrl: '/covers/mila-18.png',
+    readDate: '2026-09-22',
+    summary: 'Mila 18 es una novela histórica ambientada en la Varsovia ocupada por los nazis durante la Segunda Guerra Mundial. La historia sigue a varios personajes judíos atrapados en el gueto de Varsovia mientras intentan sobrevivir a la persecución y organizar la resistencia contra los ocupantes alemanes. A través de sus experiencias, Leon Uris retrata el valor, el sacrificio y la determinación de quienes lucharon por su dignidad frente a circunstancias extremas. La novela combina drama humano, rigor histórico y una intensa narración épica sobre uno de los episodios más conmovedores de la guerra.',
+    review: `Terminando el libro 'Mila 18' de Leon Uris. Finalizando Septiembre, hoy ha llovido, un dia especial!
+
+Narra la vida en el gueto de Varsovia, desde el comienzo de la guerra hasta el final del gueto.
+
+Libro grande con mas de 600 paginas, es un libro fundamentalmente de lucha, primero una lucha pasiva dentro del gueto por hacer que la gente tenga lo basico, y finalmente lucha armada, hasta que los alemanes aplastan el gueto.
+
+Hay que tener en cuenta que el autor es hijo de un judio polaco, asi que no es y no puede ser imparcial. Aun asi, hay que darse cuenta del terrible desastre, de hasta que punto los hombres pueden ser terribles, no solo fue una matanza sino que intentaron exterminarlos llevandolos desde el gueto a campos de exterminio.
+
+Da que pensar, claro.
+Los europeos sabian lo que estaba ocurriendo, porque no se actuo antes?
+Tambien los rusos eran conscientes de lo que ocurria, lo habian visto en el camino hacia Varsovia.
+¿Que decir de los rusos que hacian algo parecido mientras avanzavan? ¿Eran otros tiempos y hay que valorarlo todo contando ese periodo de la historia?
+
+En fin, pobre gente, no hay palabras. El gueto de Varsovia debio de ser el infierno en la tierra.`,
+    rating: 3,
+    userId: 'gaudiosomarcojuan@gmail.com',
+    createdAt: Timestamp.fromDate(new Date('2026-09-22T12:00:00Z'))
   }
 ];
 

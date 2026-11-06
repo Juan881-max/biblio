@@ -17,6 +17,37 @@ function getRecommendations(lastBook: Book): Recommendation[] {
   const titleLower = lastBook.title.toLowerCase();
   const authorLower = lastBook.author.toLowerCase();
 
+  // Leon Uris / Mila 18 / Warsaw Ghetto & WWII Resistance
+  if (
+    authorLower.includes('uris') ||
+    titleLower.includes('mila 18') ||
+    titleLower.includes('mila')
+  ) {
+    return [
+      {
+        title: 'Éxodo (Exodus)',
+        author: 'Leon Uris',
+        reason: 'La monumental obra cumbre de Leon Uris. Una epopeya histórica apasionante sobre los supervivientes del Holocausto y el nacimiento de una nación, con el mismo aliento épico y humano de Mila 18.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788466332521-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'El pianista del gueto de Varsovia',
+        author: 'Władysław Szpilman',
+        reason: 'El estremecedor testimonio autobiográfico de supervivencia en el corazón del gueto de Varsovia y sus ruinas. Un relato directo, desgarrador e imprescindible que complementa la vivencia histórica de Mila 18.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788496136267-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'La lista de Schindler',
+        author: 'Thomas Keneally',
+        reason: 'Un sobrecogedor relato documental sobre la dignidad, la valentía y el rescate de vidas frente a la barbarie nazi en la Polonia ocupada durante la Segunda Guerra Mundial.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788497597173-L.jpg',
+        coverQuery: '',
+      },
+    ];
+  }
+
   // John le Carré / El espía que surgió del frío / Cold War Espionage
   if (
     authorLower.includes('carre') ||
