@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Book as BookIcon, Calendar, User, ChevronDown, ChevronUp, Loader2 } from 'lucide-react';
+import { Book as BookIcon, Calendar, User, ChevronDown, ChevronUp, Loader2, Sparkles } from 'lucide-react';
 import { Book } from '../types';
 import { searchAuthor, getAuthorWorks, getAuthorPhotoUrl, formatAuthorName } from '../services/openLibraryApi';
 
@@ -363,14 +363,35 @@ export default function Authors({ books }: AuthorsProps) {
   }
 
   return (
-    <div className="min-h-screen bg-parchment pb-20">
-      {/* Header */}
-      <section className="bg-library-blue py-16">
-        <div className="max-w-7xl mx-auto px-4">
+    <div className="min-h-screen bg-parchment pb-20 relative">
+      {/* Subtle library watermark across the whole page */}
+      <div
+        className="fixed inset-0 pointer-events-none z-0 bg-cover bg-center opacity-[0.035]"
+        style={{ backgroundImage: 'url("/images/biblioteca-autores.png")' }}
+      />
+
+      {/* Hero Section styled like the Home page */}
+      <section className="relative h-[340px] md:h-[380px] flex items-center justify-center overflow-hidden">
+        <div
+          className="absolute inset-0 z-0 bg-cover bg-center opacity-40"
+          style={{ backgroundImage: 'url("/images/biblioteca-autores.png")' }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-library-dark/80 via-library-blue/70 to-library-dark/90 z-10" />
+
+        <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-4"
+          >
+            <Sparkles size={14} />
+            Tu biblioteca & autores
+          </motion.div>
+
           <motion.h1
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            className="text-5xl font-serif text-white mb-4"
+            className="text-4xl sm:text-6xl md:text-7xl font-serif text-white mb-4 drop-shadow-lg"
           >
             Autores
           </motion.h1>
@@ -378,15 +399,15 @@ export default function Authors({ books }: AuthorsProps) {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.1 }}
-            className="text-library-light text-lg max-w-2xl"
+            className="text-base sm:text-xl text-library-light max-w-2xl mx-auto font-light italic"
           >
-            Descubre a los autores de tu biblioteca personal. Información obtenida de Open Library.
+            Descubre a los autores de tu biblioteca personal, sus biografías y grandes obras.
           </motion.p>
         </div>
       </section>
 
       {/* Authors List */}
-      <main className="max-w-7xl mx-auto px-4 mt-12">
+      <main className="relative z-10 max-w-7xl mx-auto px-4 mt-12">
         {authors.length === 0 ? (
           <div className="text-center py-20 bg-white rounded-3xl border-2 border-dashed border-slate-200">
             <User size={48} className="mx-auto text-slate-300 mb-4" />
