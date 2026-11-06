@@ -22,6 +22,17 @@ interface AuthorsProps {
 }
 
 const CUSTOM_AUTHORS: Record<string, Partial<AuthorInfo>> = {
+  'Lindsey Davis': {
+    bio: 'Lindsey Davis (Birmingham, 1949) es una reconocida escritora británica de novela policiaca e histórica, universalmente célebre por haber creado al detective de la Roma clásica Marco Didio Falco.\n\n📚 Biografía y obra\n\n- Graduada en Arqueología e Historia por la Universidad de Oxford (Lady Margaret Hall), trabajó en la administración pública británica antes de dedicarse por entero a la literatura.\n- En 1989 publicó La plata de Britania (The Silver Pigs), primera entrega de la célebre serie de Marco Didio Falco ambientada en la época de Vespasiano (siglo I d. C.), seguida de títulos como La Venus de cobre (Shadows in Bronze) y Una conspiración en Hispania.\n- Su estilo combina el tono desenfadado y cínico de la novela negra tradicional con un rigor arqueológico y sensorial sobre la vida cotidiana romana: los bloques de pisos (insulae), las termas públicas, los prestamistas de la Subura, el cuerpo de los vigiles y las tensiones sociopolíticas del Imperio.\n- Ha recibido prestigiosos galardones como el Dagger in the Library de la Crime Writers\' Association y el Premio de Novela Histórica de Zaragoza.\n\n👉 En resumen: Una de las autoras más destacadas del misterio histórico ambientado en la Antigüedad clásica, pionera en trasladar las pesquisas del detective privado a las calles de la Roma imperial.',
+    top_works: [
+      'La Venus de cobre',
+      'La plata de Britania',
+      'Una conspiración en Hispania',
+      'El oráculo de Delphos',
+      'Tres manadas de lobos'
+    ],
+    birth_date: '1949'
+  },
   'Leon Uris': {
     bio: 'Leon Marcus Uris (Baltimore, Maryland, 1924 - Shelter Island, Nueva York, 2003) fue un célebre novelista y guionista estadounidense, reconocido internacionalmente por sus monumentales novelas épicas históricas basadas en rigurosas investigaciones y en los acontecimientos más trascendentales del siglo XX.\n\n📚 Biografía y obra\n\n- Hijo de un inmigrante judío polaco que huyó de los pogromos zaristas, se alistó en el Cuerpo de Marines a los diecisiete años tras el ataque a Pearl Harbor, combatiendo como operador de radio en el Pacífico (Guadalcanal y Tarawa).\n- Su experiencia militar inspiró su primera novela, Más allá de las lágrimas (Battle Cry, 1953), que se convirtió en un éxito rotundo. En 1958 alcanzó consagración mundial absoluta con Éxodo (Exodus), fenómeno editorial que retrató el nacimiento del Estado de Israel y la epopeya de los refugiados del Holocausto.\n- En 1961 publicó Mila 18, fruto de minuciosas entrevistas e investigaciones sobre el heroico levantamiento del gueto de Varsovia en 1943, donde el búnker de la calle Miła 18 sirvió de cuartel general a la Organización Judía de Combate (ŻOB).\n- Autor de otros grandes títulos como Topaz (adaptada al cine por Alfred Hitchcock), QB VII y Trinidad.\n\n👉 En resumen: Maestro indiscutible de la novela histórica monumental y apasionada, capaz de plasmar el dolor, la dignidad y el coraje frente a la opresión con un ritmo conmovedor e inolvidable.',
     top_works: [

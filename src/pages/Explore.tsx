@@ -17,6 +17,37 @@ function getRecommendations(lastBook: Book): Recommendation[] {
   const titleLower = lastBook.title.toLowerCase();
   const authorLower = lastBook.author.toLowerCase();
 
+  // Lindsey Davis / La venus de cobre / Ancient Rome Detective & Everyday Life
+  if (
+    authorLower.includes('davis') ||
+    titleLower.includes('venus de cobre') ||
+    titleLower.includes('falco')
+  ) {
+    return [
+      {
+        title: 'La plata de Britania',
+        author: 'Lindsey Davis',
+        reason: 'La primera aventura del detective Marco Didio Falco, donde se inicia la serie explorando la corrupción imperial, las minas de plata y las intrigas políticas del siglo I d. C.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788435017121-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'Sangre romana (Roma Sub Rosa)',
+        author: 'Steven Saylor',
+        reason: 'Un aclamado misterio detectivesco en la Roma clásica protagonizado por Gordiano el Sabueso, con una reconstrucción histórica insuperable de los bajos fondos y el Foro romano.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/97884deb422791-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'Yo, Claudio',
+        author: 'Robert Graves',
+        reason: 'La cumbre indiscutible de la novela sobre la Roma imperial. Graves recrea con enorme maestría e ironía la vida cotidiana, las intrigas palaciegas y la corrupción de la dinastía Julio-Claudia.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788420651125-L.jpg',
+        coverQuery: '',
+      },
+    ];
+  }
+
   // Leon Uris / Mila 18 / Warsaw Ghetto & WWII Resistance
   if (
     authorLower.includes('uris') ||

@@ -419,6 +419,115 @@ Sin duda una gran novela de Ken Follett, que merece ser leida, un gran libro.`,
     rating: 4,
     userId: 'gaudiosomarcojuan@gmail.com',
     createdAt: Timestamp.fromDate(new Date('2026-08-22T12:00:00Z'))
+  },
+  {
+    id: 'la-venus-de-cobre-lindsey-davis',
+    title: 'La venus de cobre',
+    author: 'Lindsey Davis',
+    coverUrl: '/covers/la-venus-de-cobre.png',
+    readDate: '2026-03-14',
+    summary: 'La Venus de Cobre es una novela de misterio histórico ambientada en la Roma del siglo I d. C. El protagonista, Marco Didio Falco, un investigador privado con mucho ingenio y sentido del humor, se ve envuelto en un caso relacionado con una joven desaparecida y una compleja trama de corrupción, intrigas y secretos familiares. Mientras recorre las calles, tabernas y palacios de la Roma imperial, descubre una red de intereses ocultos que pone a prueba su habilidad como detective. Lindsey Davis combina suspense, historia y humor en una narración muy entretenida.',
+    review: `Estoy leyendo 'La venus de cobre' de Lindsey Davis. 
+
+Un libro historico, de ficcion historica ubicado en la antigua Roma. Tiene Lindsey Davis una forma de escribir que no termina de convencerme, quiza sea ese humor britanico algo extraño para mi. 
+
+En cualquier caso, estoy terminando la novela, una novela de detectives, con algun crimen de por medio. 
+
+Especial atencion a los datos que da, me refiero a la forma de la ciudad, a como eran los bloques de pisos, a como se aceitaban las mjeres en los baños (casi puedes percibir el olor), del tema de los alquileres y prestamos, de los prestamistas, usureros como ahora. Me parece interesante como describe todo esto.
+
+Chat GPT dice del Libro:
+
+"La Venus de cobre (segunda de la serie de Marco Didio Falco) tiene una virtud muy clara: Roma no es un decorado, es un organismo vivo.
+
+Lo que mencionas —las _insulae_ (bloques de pisos), los alquileres abusivos, los prestamistas, los olores de los baños, los aceites— no es casualidad. Davis trabaja mucho con fuentes históricas, pero no las muestra de forma académica, sino sensorial:
+
+- Puedes “oler” las termas
+    
+- Notas el hacinamiento de los edificios
+    
+- Percibes la tensión social entre clases
+    
+- Entiendes cómo funcionaba el dinero… y los abusos
+    
+
+Ahí el libro funciona casi mejor como inmersión histórica que como novela detectivesca."
+
+Los edificios o insulae
+- Edificios de hasta 5–6 plantas (a veces más, aunque ilegal)
+    
+- Construcción rápida y barata (madera, materiales pobres)
+    
+- Altísimo riesgo de incendio y derrumbe
+    
+- Los pisos bajos eran más caros; los altos, más baratos… y peores
+    
+
+En barrios como la Subura, la densidad era brutal. Roma no tenía espacio, así que crecía hacia arriba, igual que muchas ciudades modernas.
+
+Y sí: los incendios eran tan frecuentes que surgieron cuerpos organizados. Bajo Augusto se creó el cuerpo de los **Vigiles**, algo así como:
+
+- bomberos
+    
+- policía nocturna
+    
+- vigilantes urbanos
+    
+
+Una mezcla muy romana: práctica y necesaria.
+
+Y las Termas:
+- rutina diaria para muchos
+    
+- barato o incluso gratuito
+    
+- accesible a casi todas las clases sociales
+    
+
+Y dentro pasaba de todo:
+
+- 🗣️ Conversaciones y cotilleo
+    
+- 🤝 Negocios y contactos
+    
+- 📚 Lectura, paseos, ejercicio
+    
+- 🧴 Cuidado del cuerpo (aceites, masajes, _strigil_)
+    
+
+No era solo higiene. Era:  
+👉 **vida social estructurada**
+
+Si lo comparas con hoy:
+
+- Bar → conversación
+    
+- Gimnasio → ejercicio
+    
+- Spa → relajación
+    
+- Club social → encuentros
+    
+
+👉 Las termas eran todo eso **a la vez**.
+
+👉 **Roma no era tan distinta de nosotros**
+
+- Problemas de vivienda
+    
+- Necesidad de socializar
+    
+- Estrés urbano
+    
+- Búsqueda de confort (baños, ocio)
+    
+
+Cambian los edificios… pero no tanto las personas.
+
+Terminado el libro, poco mas que añadir, finalmente la trama un tanto compleja deslucle el relato en si, una autora que no es para repetir. 
+No me gusta como escribe, es ... estraño.`,
+    rating: 2,
+    userId: 'gaudiosomarcojuan@gmail.com',
+    createdAt: Timestamp.fromDate(new Date('2026-03-14T12:00:00Z'))
   }
 ];
 
