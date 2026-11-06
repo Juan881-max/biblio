@@ -144,11 +144,41 @@ function getRecommendations(lastBook: Book): Recommendation[] {
     ];
   }
 
+  // Ken Follett / El hombre de San Petersburgo / 1914 Pre-WWI & Anarchism Suspense
+  if (
+    titleLower.includes('san petersburgo') ||
+    titleLower.includes('hombre de san')
+  ) {
+    return [
+      {
+        title: 'La caída de los gigantes',
+        author: 'Ken Follett',
+        reason: 'El monumental fresco histórico de Ken Follett sobre el estallido de la Primera Guerra Mundial en 1914, la agitación social, la lucha de las sufragistas y la diplomacia secreta entre las potencias.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788401337635-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'El agente secreto',
+        author: 'Joseph Conrad',
+        reason: 'La novela clásica por excelencia sobre el anarquismo, el terrorismo político y la intriga diplomática en el Londres de comienzos del siglo XX, explorando el lado oscuro de la conspiración.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788420651118-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'La isla de las tormentas',
+        author: 'Ken Follett',
+        reason: 'Otra de las grandes cumbres de intriga y ritmo vertiginoso de Ken Follett en tu biblioteca, con espías, suspense implacable y carreras contrarreloj.',
+        coverUrl: '/covers/la-isla-de-las-tormentas.png',
+        coverQuery: '',
+      },
+    ];
+  }
+
   // Ken Follet / La isla de las tormentas / WWII Espionage & Suspense
   if (
-    authorLower.includes('follet') ||
     titleLower.includes('isla de las tormentas') ||
-    titleLower.includes('ojo de la aguja')
+    titleLower.includes('ojo de la aguja') ||
+    authorLower.includes('follet')
   ) {
     return [
       {

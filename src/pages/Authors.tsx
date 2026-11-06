@@ -88,14 +88,25 @@ const CUSTOM_AUTHORS: Record<string, Partial<AuthorInfo>> = {
     ],
     birth_date: '1938'
   },
-  'Ken Follet': {
-    bio: 'Ken Follett (Cardiff, Gales, 1949) es uno de los autores de suspense, espionaje y novela histórica más leídos y aclamados del mundo, con más de 170 millones de ejemplares vendidos en más de 80 países.\n\n📚 Biografía y obra\n\n- Graduado en Filosofía por el University College de Londres, ejerció como reportero antes de dedicarse por completo a la literatura de intriga.\n- Saltó al éxito internacional fulgurante en 1978 con La isla de las tormentas (Eye of the Needle), galardonada con el prestigioso Premio Edgar al Mejor Thriller y adaptada magistralmente al cine en 1981 con el título El ojo de la aguja, protagonizada por Donald Sutherland.\n- Es mundialmente célebre por su ritmo trepidante, rigor en la ambientación histórica y capacidad insuperable para enganchar al lector, tanto en novelas de espionaje bélico como en sus monumentales sagas históricas (Los pilares de la Tierra, Un mundo sin fin, La caída de los gigantes).\n\n👉 En resumen: Maestro absoluto del suspense narrativo de alta tensión, donde la meticulosa reconstrucción bélica y de inteligencia se entrelaza con personajes apasionantes y carreras contrarreloj.',
+  'Ken Follett': {
+    bio: 'Ken Follett (Cardiff, Gales, 1949) es uno de los autores de suspense, espionaje y novela histórica más leídos y aclamados del mundo, con más de 170 millones de ejemplares vendidos en más de 80 países.\n\n📚 Biografía y obra\n\n- Graduado en Filosofía por el University College de Londres, ejerció como reportero antes de dedicarse por completo a la literatura de intriga.\n- Saltó al éxito internacional fulgurante en 1978 con La isla de las tormentas (Eye of the Needle), galardonada con el prestigioso Premio Edgar al Mejor Thriller y adaptada magistralmente al cine en 1981 con el título El ojo de la aguja, protagonizada por Donald Sutherland.\n- Es mundialmente célebre por su ritmo trepidante, rigor en la ambientación histórica y capacidad insuperable para enganchar al lector, con obras maestras de suspense como El hombre de San Petersburgo (ambientada en el Londres convulso previo a la Primera Guerra Mundial), Vuelo final y sus monumentales sagas históricas (Los pilares de la Tierra, Un mundo sin fin, La caída de los gigantes).\n\n👉 En resumen: Maestro absoluto del suspense narrativo de alta tensión, donde la meticulosa reconstrucción histórica y política se entrelaza con personajes apasionantes y carreras contrarreloj.',
     top_works: [
+      'El hombre de San Petersburgo',
       'La isla de las tormentas (El ojo de la aguja)',
       'Los pilares de la Tierra',
       'La caída de los gigantes',
-      'Vuelo final',
-      'Triple'
+      'Vuelo final'
+    ],
+    birth_date: '1949'
+  },
+  'Ken Follet': {
+    bio: 'Ken Follett (Cardiff, Gales, 1949) es uno de los autores de suspense, espionaje y novela histórica más leídos y aclamados del mundo, con más de 170 millones de ejemplares vendidos en más de 80 países.\n\n📚 Biografía y obra\n\n- Graduado en Filosofía por el University College de Londres, ejerció como reportero antes de dedicarse por completo a la literatura de intriga.\n- Saltó al éxito internacional fulgurante en 1978 con La isla de las tormentas (Eye of the Needle), galardonada con el prestigioso Premio Edgar al Mejor Thriller y adaptada magistralmente al cine en 1981 con el título El ojo de la aguja, protagonizada por Donald Sutherland.\n- Es mundialmente célebre por su ritmo trepidante, rigor en la ambientación histórica y capacidad insuperable para enganchar al lector, con obras maestras de suspense como El hombre de San Petersburgo (ambientada en el Londres convulso previo a la Primera Guerra Mundial), Vuelo final y sus monumentales sagas históricas (Los pilares de la Tierra, Un mundo sin fin, La caída de los gigantes).\n\n👉 En resumen: Maestro absoluto del suspense narrativo de alta tensión, donde la meticulosa reconstrucción histórica y política se entrelaza con personajes apasionantes y carreras contrarreloj.',
+    top_works: [
+      'El hombre de San Petersburgo',
+      'La isla de las tormentas (El ojo de la aguja)',
+      'Los pilares de la Tierra',
+      'La caída de los gigantes',
+      'Vuelo final'
     ],
     birth_date: '1949'
   },

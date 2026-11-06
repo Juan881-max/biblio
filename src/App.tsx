@@ -215,7 +215,7 @@ Una delicia.`,
   {
     id: 'la-isla-de-las-tormentas-ken-follet',
     title: 'La isla de las tormentas',
-    author: 'Ken Follet',
+    author: 'Ken Follett',
     coverUrl: '/covers/la-isla-de-las-tormentas.png',
     readDate: '2026-07-13',
     summary: 'Un espía alemán, uno de los mejores agentes de Hitler, descubre una información crucial que podría cambiar el rumbo de la guerra. Perseguido por los servicios secretos británicos, intenta regresar a Alemania para comunicar su hallazgo. Su huida lo lleva a una remota isla escocesa, donde conoce a una mujer cuya vida también está marcada por la guerra. A partir de ese momento comienza una intensa carrera contrarreloj llena de suspense, espionaje y peligro.',
@@ -399,6 +399,26 @@ En fin, pobre gente, no hay palabras. El gueto de Varsovia debio de ser el infie
     rating: 3,
     userId: 'gaudiosomarcojuan@gmail.com',
     createdAt: Timestamp.fromDate(new Date('2026-09-22T12:00:00Z'))
+  },
+  {
+    id: 'el-hombre-de-san-petersburgo-ken-follett',
+    title: 'El hombre de San Petersburgo',
+    author: 'Ken Follett',
+    coverUrl: '/covers/el-hombre-de-san-petersburgo.png',
+    readDate: '2026-08-22',
+    summary: 'El hombre de San Petersburgo es un thriller histórico ambientado en Europa en 1914, en los meses previos al estallido de la Primera Guerra Mundial. La novela sigue a un anarquista ruso que planea un atentado capaz de alterar el equilibrio político entre las grandes potencias. Mientras diplomáticos, aristócratas y espías intentan evitar una crisis internacional, secretos del pasado resurgen y complican la situación. Ken Follett combina suspense, intriga política y drama personal en una historia ágil y muy entretenida. La amenaza de una guerra inminente está presente en toda la novela.',
+    review: `Nuevo libro llegado hoy 13 de Agosto de 2026. Siguendo la linea de los ulmimos libros vuelvo a Ken Follett. La historia promete.
+Estamos en Londres a principios del siglo XX.
+Libro terminado hoy dia 22 de Agosto, de principio a fin es un excelente libro que te mantiene leyendo como pocos, la trama es excelente y el final maravilloso.
+Con todo esto se trata de, una historia sobre un hombre ruso, anarquista que decide cometer un magnicidio con la idea de evitar que su pais entre en guerra, todo esto con una bonita historia de amor por en medio.
+Aspectos de esta novela que te hacen pensar:
+El [[Anarquismo]] tema super interesante del que hay una nota aparte, un tema bastante desconocido donde aqui en España hubo y todavia quedan organizaciones afines como la CNT. Un tema a estudiar, eran los terroristas de la epoca, creian que todo debia ser compartido y usaban la fuerza para conseguir sus objetivos.
+Por otra parte las sufraguistas en Reino Unido, la lucha de las mujeres porque se hicieran valer sus derechos, y conseguir el derecho al voto. Emmeline Pankhurst fue una de sus lideres consiguieron el voto en 1918(solo algunas) y en 1928 todas las mujeres mayores de 21 años.
+Asi que con todo esto, tenemos una novela de aventuras, con un romance y con buenas descripcionesde lo que era Inglaterra a principios del siglo XX.
+Sin duda una gran novela de Ken Follett, que merece ser leida, un gran libro.`,
+    rating: 4,
+    userId: 'gaudiosomarcojuan@gmail.com',
+    createdAt: Timestamp.fromDate(new Date('2026-08-22T12:00:00Z'))
   }
 ];
 
