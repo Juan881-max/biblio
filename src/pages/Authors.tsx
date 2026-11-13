@@ -22,6 +22,18 @@ interface AuthorsProps {
 }
 
 const CUSTOM_AUTHORS: Record<string, Partial<AuthorInfo>> = {
+  'Nikolai Gogol': {
+    bio: 'Nikolái Vasílievich Gógol (Soróchintsi, gobernación de Poltava, actual Ucrania, 1809 - Moscú, 1852) fue un genial dramaturgo, novelista y cuentista en lengua rusa de origen ucraniano, considerado uno de los grandes fundadores de la narrativa realista y satírica rusa del siglo XIX.\n\n📚 Biografía y obra\n\n- Criado en el corazón de la estepa ucraniana, absorbió desde niño las tradiciones cosacas, el folclore popular y las leyendas rurales que luego brillarían con fuerza en Veladas en un caserío cerca de Dikanka (1831–1832), donde destacan relatos como Nochebuena y La noche de mayo o la ahogada.\n- En la colección Mírgorod (1835) publicó Taras Bulba, su célebre epopeya histórica sobre la vida guerrero-cosaca de la Sich zaporoga y los conflictos con Polonia, combinando lirismo telúrico, honor y crudeza épica.\n- Alcanzó la cima de la sátira social y el grotesco con la comedia El inspector (1836), los Relatos de Petersburgo (El capote, La nariz) y la inmortal novela Almas muertas (1842), obras que marcaron profundamente a Dostoievski, Chéjov y Bulgákov.\n\n👉 En resumen: Maestro indiscutible que tendió un puente único entre el folclore épico ucraniano y la gran literatura rusa moderna, uniendo humor, lirismo y crítica moral.',
+    top_works: [
+      'Taras Bulba',
+      'Veladas en un caserío cerca de Dikanka',
+      'Almas muertas',
+      'El capote y otros relatos de Petersburgo',
+      'El inspector'
+    ],
+    birth_date: '1809',
+    death_date: '1852'
+  },
   'Lindsey Davis': {
     bio: 'Lindsey Davis (Birmingham, 1949) es una reconocida escritora británica de novela policiaca e histórica, universalmente célebre por haber creado al detective de la Roma clásica Marco Didio Falco.\n\n📚 Biografía y obra\n\n- Graduada en Arqueología e Historia por la Universidad de Oxford (Lady Margaret Hall), trabajó en la administración pública británica antes de dedicarse por entero a la literatura.\n- En 1989 publicó La plata de Britania (The Silver Pigs), primera entrega de la célebre serie de Marco Didio Falco ambientada en la época de Vespasiano (siglo I d. C.), seguida de títulos como La Venus de cobre (Shadows in Bronze) y Una conspiración en Hispania.\n- Su estilo combina el tono desenfadado y cínico de la novela negra tradicional con un rigor arqueológico y sensorial sobre la vida cotidiana romana: los bloques de pisos (insulae), las termas públicas, los prestamistas de la Subura, el cuerpo de los vigiles y las tensiones sociopolíticas del Imperio.\n- Ha recibido prestigiosos galardones como el Dagger in the Library de la Crime Writers\' Association y el Premio de Novela Histórica de Zaragoza.\n\n👉 En resumen: Una de las autoras más destacadas del misterio histórico ambientado en la Antigüedad clásica, pionera en trasladar las pesquisas del detective privado a las calles de la Roma imperial.',
     top_works: [

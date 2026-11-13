@@ -286,7 +286,7 @@ export default function Home({ books, onAddBook, user }: HomeProps) {
                     <div className="flex-grow min-w-0">
                       <div className="flex items-center justify-between gap-2">
                         <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">
-                          Reseña
+                          {book.review?.trim() ? 'Reseña' : 'Sinopsis'}
                         </span>
                         {book.readDate && (
                           <span className="flex items-center gap-1 text-[11px] text-slate-400">

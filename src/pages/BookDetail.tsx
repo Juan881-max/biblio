@@ -160,7 +160,13 @@ export default function BookDetail({ books, onUpdateBook }: BookDetailProps) {
                   Mi Reseña Personal
                 </h2>
                 <div className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-slate-100 italic text-lg md:text-xl text-slate-800 leading-relaxed whitespace-pre-line space-y-4">
-                  {book.review}
+                  {book.review?.trim() ? (
+                    book.review
+                  ) : (
+                    <span className="text-slate-400 text-base not-italic">
+                      Aún no se ha añadido una reseña personal para este libro.
+                    </span>
+                  )}
                 </div>
               </div>
             </motion.section>

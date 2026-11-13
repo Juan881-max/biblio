@@ -528,6 +528,42 @@ No me gusta como escribe, es ... estraño.`,
     rating: 2,
     userId: 'gaudiosomarcojuan@gmail.com',
     createdAt: Timestamp.fromDate(new Date('2026-03-14T12:00:00Z'))
+  },
+  {
+    id: 'taras-bulba-nikolai-gogol',
+    title: 'Taras Bulba',
+    author: 'Nikolai Gogol',
+    coverUrl: '/covers/taras-bulba.jpg',
+    readDate: '2026-11-13',
+    summary: `Taras Bulba
+
+Novela corta histórica ambientada en la Ucrania cosaca de los siglos XVI-XVII, en lucha contra la Mancomunidad Polaco-Lituana. El viejo cosaco Taras Bulba recibe a sus dos hijos, Ostap y Andrii, que vuelven de estudiar en Kiev, y los lleva a la Sich zaporoga para hacerlos guerreros. Durante el cerco de la ciudad polaca de Dubno, Andrii se enamora de una noble polaca y se pasa al bando enemigo. Taras lo mata con sus propias manos, pues para él la traición a la patria y a la fe es lo peor. Ostap es capturado y ejecutado en Varsovia, y Taras se lanza a una venganza sangrienta hasta que lo capturan y muere en la hoguera. La obra es una exaltación épica del honor, la camaradería y la fe ortodoxa, con una violencia muy cruda.
+
+Nochebuena
+
+Cuento fantástico y humorístico de las Veladas en un caserío cerca de Dikanka, ambientado en una aldea ucraniana la noche de Navidad. El herrero Vakula está enamorado de la caprichosa Oksana, que le exige como condición para casarse unas zapatillas como las de la zarina. El diablo, rencoroso porque Vakula lo pintó en una iglesia, roba la luna para que la oscuridad le permita sus travesuras. También ronda a la madre del herrero, la bruja Solojá, que recibe a varios pretendientes a escondidas. Vakula atrapa al diablo y lo obliga a llevarlo volando a San Petersburgo, donde consigue las zapatillas de la propia zarina gracias a unos cosacos. Vuelve, Oksana descubre que lo quiere de verdad y se casan. Combina el folclore, lo cómico y lo sobrenatural con el ambiente festivo de la aldea.
+
+La noche de mayo o la ahogada
+
+Otro relato de las Veladas, de tono entre costumbrista y fantástico. El joven Levko quiere casarse con Hanna, pero su padre, el alcalde de la aldea, se opone y además la pretende para sí. Levko y sus amigos le gastan bromas nocturnas para burlarse de él. Una noche, junto al estanque, Levko conoce a una muchacha ahogada que se transformó en ondina por culpa de su madrastra, una bruja. Ella le pide que la ayude a identificarla entre las demás ahogadas y, a cambio, le entrega una nota. Esa nota resulta ser una orden del comisario que obliga al alcalde a consentir la boda, y así Levko se casa con Hanna. Mezcla el folclore de las ondinas con la sátira de la autoridad local.`,
+    review: `Otoño lluvioso cuando termino este libro de Nikolai Gogol. Ha llovido toda la tarde y sigue lloviendo, dia ideal para leer estos magnificos relatos de este gran maestro ucraniano(aunque en aquel entonces su pueblo Poltava pertenecia al Imperio Ruso).
+
+El libro leido consta de tres relatos:
+- Taras Bulba
+- Nochebuena
+- La noche de mayo o la ahogada
+
+Obras escritas a principios del siglo XIX, aproximadamente sobre el 1835. Obras que hablan de cosacos y sus luchas, su valor y su gusto por la juerga y el alcohol. Cuentos de brujas en pequeñas aldeas, de jovenes enamorados, de sus costumbres, sus aldeas .. en fin hermosos libros para conoces cuentos e historias de la Vieja Rusia.
+
+Taras Bulba es el primero que he leido, tenia este libro desde hace muchos años, yo creo que lo compre antes de los 20 años, y lo tenia sin leer todavia. Me alegra haberlo leido. Me ha gustado.
+Taras Bulba es un viejo cosaco duro, bravo y valiente. Tras volver sus hijos a casa de sus estudios en la ciudad los lleva al Sich(ciudad donde viven los cosacos), alli conviven juntos sin mujeres, pues no estaba permitido que viviesen alli. Llegan unos cosacos maltratados contando lo que sufrian los cristianos ortodoxos a causa de los polacos y deciden presentar batalla. (Los cosacos odiaban a los cristanos y a los judios)
+
+Nochebuena es un relato mas corto donde el herrero Vakula engaña al Diablo para que lo lleve a coseguir los zapatitos de la zarina que su caprichosa novia le ha pedido para poder casarse. hermosa y humoristica historia.
+
+La noche de mayo o la ahogada, es otro relato contenido en 'Veladas en un caserio de Dikanka'. De tono fantastico, el protagonista quiere casarse con una bella joven y tambien el padre del protagonista, los jovenes rondan el pueblo y le gastan bromas al padre que tambien es el alcalde. Los jovenes conseguiran casarse despues de que el joven Levko ayude a 'la ahogada' a encontrar a su malvada madrastra. Bonito relato.`,
+    rating: 4,
+    userId: 'gaudiosomarcojuan@gmail.com',
+    createdAt: Timestamp.fromDate(new Date('2026-11-13T12:00:00Z'))
   }
 ];
 

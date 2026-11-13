@@ -17,6 +17,37 @@ function getRecommendations(lastBook: Book): Recommendation[] {
   const titleLower = lastBook.title.toLowerCase();
   const authorLower = lastBook.author.toLowerCase();
 
+  // Nikolai Gogol / Taras Bulba / Cossack Epics & Russian-Ukrainian Folklore
+  if (
+    authorLower.includes('gogol') ||
+    authorLower.includes('gógol') ||
+    titleLower.includes('taras bulba')
+  ) {
+    return [
+      {
+        title: 'La hija del capitán',
+        author: 'Aleksandr Pushkin',
+        reason: 'La gran novela histórica rusa sobre los levantamientos cosacos de Pugachov en la frontera imperial, repleta de honor, lealtad y aventura épica en la línea de Taras Bulba.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788420651132-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'Almas muertas',
+        author: 'Nikolai Gogol',
+        reason: 'La obra cumbre de Nikolái Gógol. Una sátira inmortal de la Rusia profunda, donde su ironía mordaz, su retrato costumbrista y su prodigiosa galería de personajes alcanzan la perfección.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788437607115-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'Dubrovski, Los relatos de Belkin',
+        author: 'Aleksandr Serguéievich Pushkin',
+        reason: 'Ya presente en tu biblioteca: relatos clásicos rusos con bandoleros nobles, pasiones y crítica social en la época en que Pushkin y Gógol forjaron la literatura rusa moderna.',
+        coverUrl: '/covers/dubrovski-los-relatos-de-belkin.png',
+        coverQuery: '',
+      },
+    ];
+  }
+
   // Lindsey Davis / La venus de cobre / Ancient Rome Detective & Everyday Life
   if (
     authorLower.includes('davis') ||
