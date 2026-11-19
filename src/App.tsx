@@ -564,6 +564,27 @@ La noche de mayo o la ahogada, es otro relato contenido en 'Veladas en un caseri
     rating: 4,
     userId: 'gaudiosomarcojuan@gmail.com',
     createdAt: Timestamp.fromDate(new Date('2026-11-13T12:00:00Z'))
+  },
+  {
+    id: 'noches-blancas-y-otros-relatos-fiodor-dostoyevsky',
+    title: 'Noches blancas y otros relatos',
+    author: 'Fiódor Dostoyevsky',
+    coverUrl: '/covers/noches-blancas-y-otros-relatos.png',
+    readDate: '2026-11-19',
+    summary: `Noches blancas (1848): Un joven soñador y solitario que vive aislado en San Petersburgo conoce una noche a Nástenka, una muchacha que espera a alguien junto al canal. A lo largo de cuatro noches nace entre ellos una intensa amistad cargada de esperanza e ilusión. Es una historia breve, melancólica y muy lírica sobre la soledad, los sueños y el amor imposible.
+
+El pequeño héroe (1849): Escrita durante el encarcelamiento de Dostoyevski, narra desde el recuerdo de un adulto el verano de un niño de once años en una finca de campo. Allí descubre, entre fiestas y reuniones, los primeros sentimientos del amor y los celos. Es un relato tierno y delicado sobre el despertar emocional y el paso de la infancia a la adolescencia.`,
+    review: `En esta etapa en la que estoy leyendo Literatura rusa(con mayusculas), le ha tocado el turno a Dostoyevsky.
+Hay 4 relatos en esta obra, escritas en el entnorno de mediados del siglo XIX(1850 aproximadamente):
+Noches blancas. Un relato de juventud, cuando todavia el alma atormentada del autor era joven y no habia sido desterrado a Siberia.
+El relato transcurre en San Petersburgo, capital de Rusia en aquellos tiempos. La obra nos habla de un joven soñador, joven funcionario con problemas para comunicarse, timido.
+Nos situa la novela en ese tiempo de verano en el que los dias se alargan y las noches son tibias y claras, una de esas noche conoce a una joven, a la que seguira viendo las noches siguientes. Nuestro heroe se enamora, pero ella suspira por otro.
+Finalmente, el se siente feliz, pues ha logrado por un instante la felicidad, se conforma con eso.
+El pequeño heroe. Relato que nuestro autor escribe cuando esta en prision, curioso dato, pues es este un relato luminoso, situado en una gran finca donde se celebra una fiesta, nos habla de un hermoso lugar donde la gente disfruta, come, baila y se divierte.
+En esta ocasion el protagonista es un niño de once años que se enamora de una mujer ya casada, un hermoso relato donde vemos inocencia, bondad, verguenza... y el descubrimiento del niño de nuevas sensaciones, de un despertar de algo nuevo en el.`,
+    rating: 4,
+    userId: 'gaudiosomarcojuan@gmail.com',
+    createdAt: Timestamp.fromDate(new Date('2026-11-19T12:00:00Z'))
   }
 ];
 

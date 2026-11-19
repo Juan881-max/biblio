@@ -22,6 +22,18 @@ interface AuthorsProps {
 }
 
 const CUSTOM_AUTHORS: Record<string, Partial<AuthorInfo>> = {
+  'Fiódor Dostoyevsky': {
+    bio: 'Fiódor Mijáilovich Dostoyevski (Moscú, 1821 - San Petersburgo, 1881) es uno de los más grandes escritores de la literatura universal y un pilar fundamental de la narrativa psicológica y filosófica rusa del siglo XIX.\n\n📚 Biografía y obra\n\n- Ingeniero militar de formación en San Petersburgo, abandonó pronto la carrera para consagrarse a las letras, logrando un temprano reconocimiento con Pobres gentes (1846) y la lírica novela breve Noches blancas (1848).\n- En 1849 fue arrestado por su pertenencia al círculo intelectual de Petrashevski; durante su reclusión en la fortaleza de San Pedro y San Pablo escribió el luminoso relato El pequeño héroe, antes de sufrir un simulacro de fusilamiento y cuatro años de trabajos forzados en Siberia.\n- Tras regresar del destierro plasmó una penetración inigualable en las profundidades del alma humana, la culpa, la fe y la redención en obras maestras inmortales como Memorias del subsuelo, Crimen y castigo (1866), El idiota, Los demonios y Los hermanos Karamázov (1880).\n\n👉 En resumen: Un explorador genial de la conciencia humana que supo combinar la ternura melancólica de su juventud petersburguesa con los grandes dilemas morales de la literatura rusa.',
+    top_works: [
+      'Noches blancas y otros relatos',
+      'Crimen y castigo',
+      'Los hermanos Karamázov',
+      'El idiota',
+      'Memorias del subsuelo'
+    ],
+    birth_date: '1821',
+    death_date: '1881'
+  },
   'Nikolai Gogol': {
     bio: 'Nikolái Vasílievich Gógol (Soróchintsi, gobernación de Poltava, actual Ucrania, 1809 - Moscú, 1852) fue un genial dramaturgo, novelista y cuentista en lengua rusa de origen ucraniano, considerado uno de los grandes fundadores de la narrativa realista y satírica rusa del siglo XIX.\n\n📚 Biografía y obra\n\n- Criado en el corazón de la estepa ucraniana, absorbió desde niño las tradiciones cosacas, el folclore popular y las leyendas rurales que luego brillarían con fuerza en Veladas en un caserío cerca de Dikanka (1831–1832), donde destacan relatos como Nochebuena y La noche de mayo o la ahogada.\n- En la colección Mírgorod (1835) publicó Taras Bulba, su célebre epopeya histórica sobre la vida guerrero-cosaca de la Sich zaporoga y los conflictos con Polonia, combinando lirismo telúrico, honor y crudeza épica.\n- Alcanzó la cima de la sátira social y el grotesco con la comedia El inspector (1836), los Relatos de Petersburgo (El capote, La nariz) y la inmortal novela Almas muertas (1842), obras que marcaron profundamente a Dostoievski, Chéjov y Bulgákov.\n\n👉 En resumen: Maestro indiscutible que tendió un puente único entre el folclore épico ucraniano y la gran literatura rusa moderna, uniendo humor, lirismo y crítica moral.',
     top_works: [

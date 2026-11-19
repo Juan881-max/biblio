@@ -17,6 +17,37 @@ function getRecommendations(lastBook: Book): Recommendation[] {
   const titleLower = lastBook.title.toLowerCase();
   const authorLower = lastBook.author.toLowerCase();
 
+  // Fiódor Dostoyevsky / Noches blancas / 19th-Century Russian Literature
+  if (
+    authorLower.includes('dostoyevsk') ||
+    authorLower.includes('dostoievsk') ||
+    titleLower.includes('noches blancas')
+  ) {
+    return [
+      {
+        title: 'Crimen y castigo',
+        author: 'Fiódor Dostoyevski',
+        reason: 'La gran obra maestra de Dostoyevski en las calles y canales de San Petersburgo: un viaje incomparable al abismo moral, la culpa y la redención tras las obras de juventud.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788420674209-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'Primer amor',
+        author: 'Iván Turguénev',
+        reason: 'Una joya lírica de la literatura rusa del siglo XIX sobre el despertar sentimental de un adolescente en una finca veraniega, directamente hermanada en tono y sensibilidad con El pequeño héroe y Noches blancas.',
+        coverUrl: 'https://covers.openlibrary.org/b/isbn/9788420651149-L.jpg',
+        coverQuery: '',
+      },
+      {
+        title: 'Taras Bulba',
+        author: 'Nikolai Gogol',
+        reason: 'Ya en tu biblioteca de literatura rusa: la fuerza telúrica y los relatos decimonónicos del maestro de Poltava que abrió el camino a Dostoyevski y Pushkin.',
+        coverUrl: '/covers/taras-bulba.jpg',
+        coverQuery: '',
+      },
+    ];
+  }
+
   // Nikolai Gogol / Taras Bulba / Cossack Epics & Russian-Ukrainian Folklore
   if (
     authorLower.includes('gogol') ||
